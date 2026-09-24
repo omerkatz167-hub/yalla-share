@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<!-- דף-נחיתה ל"שיתוף יום בלינק" (2026-09-24). בכוונה בלי שום תוכן מהטיול:
+     היום נפתח רק בתוך האפליקציה ("יהיו חייבים להוריד את האפליקציה בשביל
+     זה"). הדף רק מציע לפתוח באפליקציה או להוריד אותה. בלי Referer (הטוקן
+     ב-URL), ו-CSP שמתיר רק את הסקריפט הזה לפי hash. -->
+<meta name="referrer" content="no-referrer" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-FvjUi34d9Q2QpnOrba9MBsOaNJbhkq/mS1f9U2HO4Hc='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
+<title>יום מהטיול</title>
+<style>
+  :root { --paper: #F1F2F5; --ink: #16191F; --ink-soft: #4B5162; --accent: #0B3FB8; --card: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #12151F; --ink: #F3F1EA; --ink-soft: #B9C2D4; --accent: #7FA4FF; --card: #1B2030; }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 24px 16px; background: var(--paper); color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+  }
+  main {
+    width: 100%; max-width: 420px; background: var(--card); border-radius: 24px;
+    padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  }
+  .emoji { font-size: 56px; line-height: 1; }
+  h1 { font-size: 26px; margin: 16px 0 8px; }
+  p { color: var(--ink-soft); font-size: 16px; line-height: 1.5; margin: 0 0 20px; }
+  .btn {
+    display: block; width: 100%; padding: 16px; border-radius: 999px; font-size: 17px;
+    font-weight: 700; text-decoration: none; margin-top: 12px; border: 0;
+  }
+  .primary { background: var(--accent); color: #fff; }
+  .secondary { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+  .note { font-size: 13px; margin-top: 20px; margin-bottom: 0; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <div class="emoji">🎒</div>
+  <h1 id="title">קיבלת יום מהטיול</h1>
+  <p id="lead">מישהו שיתף איתך יום מהמסע שלו — תמונות, מקומות ומה שקרה. כדי לראות אותו צריך את אפליקציית <b>Yalla</b>.</p>
+  <a id="open" class="btn primary" href="#">פתיחה באפליקציה</a>
+  <a id="store" class="btn secondary hidden" href="#">הורדת האפליקציה</a>
+  <p id="soon" class="note hidden">האפליקציה תגיע בקרוב לחנויות. בינתיים בקשו ממי ששלח את הלינק להזמין אתכם.</p>
+  <p class="note">כבר הורדתם? חזרו לכאן אחרי ההתקנה ולחצו "פתיחה באפליקציה".</p>
+</main>
+<script>
+(function () {
+  // כתובות החנויות — להשלים כשהאפליקציה עולה ל-App Store / Google Play.
+  var STORE = { ios: '', android: '' };
+  var q = new URLSearchParams(location.search);
+  var token = q.get('t') || '';
+  var isTrip = q.get('k') === 'trip';
+  var valid = /^[A-Za-z0-9_-]{8,64}$/.test(token);
+  var open = document.getElementById('open');
+  if (isTrip) {
+    document.getElementById('title').textContent = 'שיתפו איתך יומן טיול';
+    document.getElementById('lead').textContent =
+      'מישהו שיתף איתך את יומן הטיול שלו — כל הפוסטים, והחדשים יופיעו אצלך בזמן אמת. כדי לעקוב צריך את אפליקציית Yalla.';
+    document.title = 'יומן טיול ששותף איתך';
+  }
+  if (valid) {
+    open.href = 'hatiyul://' + (isTrip ? 'shared-trip' : 'shared-day') + '?token=' + encodeURIComponent(token);
+  } else {
+    open.classList.add('hidden');
+  }
+  var ua = navigator.userAgent || '';
+  var storeUrl = /android/i.test(ua) ? STORE.android : STORE.ios || STORE.android;
+  if (storeUrl) {
+    var store = document.getElementById('store');
+    store.href = storeUrl;
+    store.classList.remove('hidden');
+  } else {
+    document.getElementById('soon').classList.remove('hidden');
+  }
+})();
+</script>
+</body>
+</html>

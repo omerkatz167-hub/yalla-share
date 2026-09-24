@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<!-- אבטחה: הטוקן יושב ב-URL, ולכן בלי Referer בכלל — אחרת הוא היה
+     נשלח לגוגל-פונטס ולכל תמונה. CSP: רק הסקריפט הזה (לפי hash),
+     רק הפרויקט שלנו ל-fetch/תמונות, בלי מסגור בתוך אתרים אחרים. -->
+<meta name="referrer" content="no-referrer" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SP8EV71MBmz2VdSresLywV7KMC0qPVeBH4saVJHICFU='; connect-src https://windjguwgpbqkeixczri.supabase.co; img-src https://windjguwgpbqkeixczri.supabase.co; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'" />
+<title>יומן הטיול</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet" />
+<style>
+  /* אותה שפה כמו דף-היומן באפליקציה: נייר, שורות, פתקים נעוצים, דגלים
+     כמדבקות, תצלומים מודבקים. הצבעים הם הפלטה הכחולה הנוכחית של היומן.
+     צפייה בלבד — בלי כפתורי שיתוף/עריכה (2026-09-19, לבקשת המשתמש). */
+  :root {
+    --row: 44px;
+    --paper: #F1F2F5; --ink: #16191F; --ink-soft: #4B5162;
+    --rule: #B9C0D4; --accent: #0B3FB8; --tape: rgba(150,170,210,.5); --card: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #12151F; --ink: #F3F1EA; --ink-soft: #B9C2D4; --rule: #3C4557; --accent: #7FA4FF; --card: #1B2030; }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    color: var(--ink);
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--row) - 1px), var(--rule) calc(var(--row) - 1px), var(--rule) var(--row));
+    background-color: var(--paper);
+    font-family: 'Amatic SC', -apple-system, system-ui, sans-serif;
+    min-height: 100vh;
+  }
+  main { max-width: 640px; margin: 0 auto; padding: var(--row) 20px calc(var(--row) * 2); }
+  /* כל שורת-טקסט יושבת בתוך שורת-דף ונוחתת על הקו — כמו באפליקציה. */
+  .line { line-height: var(--row); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  h1.line { font-size: 48px; font-weight: 700; }
+  h2.line { font-size: 40px; font-weight: 700; margin-top: var(--row); }
+  .headline { font-size: 34px; font-weight: 700; }
+  .mono { font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: .5px; color: var(--ink-soft); }
+  .stats { display: flex; gap: 12px; margin: calc(var(--row) / 2) 0 var(--row); }
+  .note { position: relative; flex: 1; background: var(--card); padding: 16px 6px 10px; text-align: center; box-shadow: 0 6px 14px rgba(20,24,40,.14); transform: rotate(var(--tilt, 0deg)); }
+  .note::before { content: ''; position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--accent); box-shadow: 0 2px 3px rgba(0,0,0,.3); }
+  .note .n { font-size: 42px; font-weight: 700; line-height: 1; }
+  .note .l { font-size: 19px; color: var(--ink-soft); }
+  /* המסלול: מדבקות-דגל כמו ב"המסלול" באפליקציה — תאריך מעל, שם מתחת. */
+  .route { display: flex; gap: 14px; overflow-x: auto; padding: 6px 2px calc(var(--row) - 6px); scrollbar-width: none; }
+  .route::-webkit-scrollbar { display: none; }
+  .stop { flex: 0 0 auto; width: 88px; text-align: center; text-decoration: none; color: inherit; }
+  .stop .d { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--ink-soft); line-height: 18px; }
+  .stop .flag { display: inline-block; font-size: 34px; line-height: 1; padding: 4px 6px; background: #fff; border-radius: 8px; box-shadow: 0 3px 7px rgba(20,24,40,.22); transform: rotate(var(--tilt, 0deg)); }
+  .stop .name { font-size: 22px; line-height: 26px; margin-top: 6px; }
+  .dest-meta { font-size: 24px; color: var(--ink-soft); }
+  .entry { margin-top: var(--row); }
+  .entry .title { font-size: 34px; font-weight: 700; }
+  .entry .body { font-size: 25px; line-height: var(--row); margin: 0; white-space: pre-wrap; }
+  .photos { display: flex; flex-wrap: wrap; gap: 18px 22px; padding: 14px 4px calc(var(--row) - 14px); }
+  .polaroid { position: relative; margin: 0; background: #fff; padding: 8px 8px 26px; box-shadow: 0 6px 14px rgba(20,24,40,.18); transform: rotate(var(--tilt, 0deg)); }
+  .polaroid img { display: block; width: 150px; height: 150px; object-fit: cover; }
+  .polaroid::after { content: ''; position: absolute; top: -9px; left: 50%; width: 64px; height: 18px; margin-left: -32px; background: var(--tape); transform: rotate(-4deg); }
+  .author { font-size: 20px; color: var(--ink-soft); }
+  .badge { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 1px 8px; vertical-align: middle; margin-inline-start: 8px; }
+  .msg { font-size: 28px; text-align: center; color: var(--ink-soft); }
+  footer { text-align: center; color: var(--ink-soft); font-size: 20px; margin-top: var(--row); line-height: var(--row); }
+</style>
+</head>
+<body>
+<main id="root"><p class="msg line">טוען את היומן…</p></main>
+<footer>נכתב באפליקציית Yalla — יומן הטיול הגדול 🎒</footer>
+<script>
+(function () {
+  // ה-JSON מגיע מ-Edge Function (public-trip-summary?format=json) ולא
+  // ישירות מ-PostgREST — כך אין כאן שום מפתח, רק כתובת הפרויקט.
+  var API = 'https://windjguwgpbqkeixczri.supabase.co/functions/v1/public-trip-summary';
+  var token = new URLSearchParams(location.search).get('token') || '';
+  var root = document.getElementById('root');
+  var TILTS = [-2.2, 1.6, -1.1, 2.4, -1.8, 1.2];
+
+  function el(tag, attrs, children) {
+    var e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (k === 'text') e.textContent = attrs[k];
+      else if (k === 'style') e.style.cssText = attrs[k];
+      else e.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) { if (c) e.appendChild(c); });
+    return e;
+  }
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function fmt(iso) { var d = new Date(iso); return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear(); }
+  function fmtShort(iso) { var d = new Date(iso); return pad(d.getDate()) + '/' + pad(d.getMonth() + 1); }
+  function daysBetween(entries) {
+    var s = Math.min.apply(null, entries.map(function (e) { return +new Date(e.start_at); }));
+    var e = Math.max.apply(null, entries.map(function (x) { return +new Date(x.end_at); }));
+    return Math.max(1, Math.round((e - s) / 864e5) + 1);
+  }
+  function flag(iso) { return iso.toUpperCase().replace(/./g, function (c) { return String.fromCodePoint(127397 + c.charCodeAt(0)); }); }
+  function show(msg) { root.innerHTML = ''; root.appendChild(el('p', { class: 'msg line', text: msg })); }
+  function tilt(i) { return '--tilt:' + TILTS[i % TILTS.length] + 'deg'; }
+  // התמונות מוצגות ב-150px — גרסה מוקטנת מה-render endpoint ולא הקובץ המלא
+  // (2026-09-24, חריגת ה-egress). אותה כתובת בדיוק כמו toThumbnailUrl באפליקציה,
+  // כך שה-CDN מגיש את שתיהן מאותו עותק.
+  function thumb(url) {
+    var from = '/storage/v1/object/public/';
+    if (url.indexOf(from) < 0) return url;
+    return url.replace(from, '/storage/v1/render/image/public/') + '?width=320&quality=50';
+  }
+
+  function entryCard(e, i) {
+    var title = el('p', { class: 'title line' });
+    title.appendChild(document.createTextNode(e.title || e.place_name || 'שהות בטיול'));
+    if (e.auto_generated) title.appendChild(el('span', { class: 'badge', text: 'AUTO' }));
+    var card = el('section', { class: 'entry' }, [
+      title,
+      el('p', { class: 'mono line', text: fmt(e.start_at) + (e.end_at !== e.start_at ? ' – ' + fmt(e.end_at) : '') }),
+      e.note ? el('p', { class: 'body', text: e.note }) : null
+    ]);
+    if (e.photos && e.photos.length) {
+      var row = el('div', { class: 'photos' });
+      e.photos.forEach(function (url, j) {
+        row.appendChild(el('figure', { class: 'polaroid', style: tilt(i + j) }, [el('img', { src: thumb(url), alt: '', loading: 'lazy' })]));
+      });
+      card.appendChild(row);
+    }
+    if (e.author_first_name) card.appendChild(el('p', { class: 'author line', text: '— ' + e.author_first_name }));
+    return card;
+  }
+
+  function render(data) {
+    root.innerHTML = '';
+    var entries = (data.entries || []).slice().sort(function (a, b) { return new Date(a.start_at) - new Date(b.start_at); });
+    var countries = data.countries || [];
+    root.appendChild(el('h1', { class: 'line', text: data.trip_name || 'יומן הטיול' }));
+    if (!entries.length) { root.appendChild(el('p', { class: 'msg line', text: 'עוד אין פוסטים ביומן הזה.' })); return; }
+
+    // ===== סיכום הטיול =====
+    var byIso = {};
+    entries.forEach(function (e) { if (e.country_iso) (byIso[e.country_iso] = byIso[e.country_iso] || []).push(e); });
+    var visited = countries.filter(function (c) { return byIso[c.iso_code]; });
+    var places = {};
+    entries.forEach(function (e) { var p = e.place_name || e.title; if (p) places[p] = 1; });
+    root.appendChild(el('p', { class: 'headline line', text: daysBetween(entries) + ' ימים בטיול' }));
+    root.appendChild(el('div', { class: 'stats' }, [
+      el('div', { class: 'note', style: '--tilt:-1.6deg' }, [el('div', { class: 'n', text: String(entries.length) }), el('div', { class: 'l', text: 'צעדים' })]),
+      el('div', { class: 'note', style: '--tilt:1.2deg' }, [el('div', { class: 'n', text: String(visited.length || Object.keys(byIso).length) }), el('div', { class: 'l', text: 'מדינות' })]),
+      el('div', { class: 'note', style: '--tilt:-0.8deg' }, [el('div', { class: 'n', text: String(Object.keys(places).length) }), el('div', { class: 'l', text: 'יעדים' })])
+    ]));
+
+    // ===== המסלול (רק מדינות שיש בהן פוסטים, לפי סדר הביקור) =====
+    var stops = visited.map(function (c) {
+      var first = byIso[c.iso_code][0];
+      return { c: c, first: first.start_at, entries: byIso[c.iso_code] };
+    }).sort(function (a, b) { return new Date(a.first) - new Date(b.first); });
+    if (stops.length) {
+      root.appendChild(el('h2', { class: 'line', text: 'המסלול' }));
+      var strip = el('div', { class: 'route' });
+      stops.forEach(function (s, i) {
+        strip.appendChild(el('a', { class: 'stop', href: '#dest-' + s.c.iso_code }, [
+          el('div', { class: 'd', text: fmtShort(s.first) }),
+          el('span', { class: 'flag', style: tilt(i), text: flag(s.c.iso_code) }),
+          el('div', { class: 'name', text: s.c.name_he })
+        ]));
+      });
+      root.appendChild(strip);
+    }
+
+    // ===== סיכום יעד + הפוסטים של כל יעד =====
+    var placed = {};
+    stops.forEach(function (s) {
+      var sec = el('section', { id: 'dest-' + s.c.iso_code });
+      sec.appendChild(el('h2', { class: 'line', text: flag(s.c.iso_code) + ' ' + s.c.name_he }));
+      var last = s.entries[s.entries.length - 1];
+      sec.appendChild(el('p', { class: 'dest-meta line', text: daysBetween(s.entries) + ' ימים · ' + s.entries.length + ' צעדים · ' + fmtShort(s.first) + ' – ' + fmtShort(last.end_at) }));
+      s.entries.forEach(function (e, i) { placed[e.id] = 1; sec.appendChild(entryCard(e, i)); });
+      root.appendChild(sec);
+    });
+    var rest = entries.filter(function (e) { return !placed[e.id]; });
+    if (rest.length) {
+      root.appendChild(el('h2', { class: 'line', text: stops.length ? 'עוד מהטיול' : 'הפוסטים' }));
+      rest.forEach(function (e, i) { root.appendChild(entryCard(e, i)); });
+    }
+  }
+
+  if (!token) { show('חסר קישור תקין.'); return; }
+  fetch(API + '?format=json&token=' + encodeURIComponent(token))
+    .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
+    .then(function (t) { var d = JSON.parse(t); if (!d) show('הקישור הזה לא תקין, בוטל, או שפג תוקפו.'); else render(d); })
+    .catch(function () { show('לא הצלחנו לטעון את היומן. נסו שוב מאוחר יותר.'); });
+})();
+</script>
+</body>
+</html>
