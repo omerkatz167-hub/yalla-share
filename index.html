@@ -8,11 +8,15 @@
      נשלח לגוגל-פונטס ולכל תמונה. CSP: רק הסקריפט הזה (לפי hash),
      רק הפרויקט שלנו ל-fetch/תמונות, בלי מסגור בתוך אתרים אחרים. -->
 <meta name="referrer" content="no-referrer" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SP8EV71MBmz2VdSresLywV7KMC0qPVeBH4saVJHICFU='; connect-src https://windjguwgpbqkeixczri.supabase.co; img-src https://windjguwgpbqkeixczri.supabase.co; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SP8EV71MBmz2VdSresLywV7KMC0qPVeBH4saVJHICFU='; connect-src https://windjguwgpbqkeixczri.supabase.co; img-src https://windjguwgpbqkeixczri.supabase.co; style-src 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'" />
 <title>יומן הטיול</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet" />
 <style>
+  /* הגופנים מתארחים כאן ולא נטענים מ-Google Fonts (2026-09-24): טעינה משרתי
+     גוגל שולחת את כתובת ה-IP של כל מבקר לגוגל, ובאירופה נפסקו על זה
+     פיצויים לפי GDPR. רישיון OFL מתיר הפצה — ראו fonts/OFL-*.txt. */
+  @font-face { font-family: 'Amatic SC'; font-weight: 400; font-display: swap; src: url('fonts/AmaticSC_400Regular.ttf') format('truetype'); }
+  @font-face { font-family: 'Amatic SC'; font-weight: 700; font-display: swap; src: url('fonts/AmaticSC_700Bold.ttf') format('truetype'); }
+  @font-face { font-family: 'Space Mono'; font-weight: 400; font-display: swap; src: url('fonts/SpaceMono_400Regular.ttf') format('truetype'); }
   /* אותה שפה כמו דף-היומן באפליקציה: נייר, שורות, פתקים נעוצים, דגלים
      כמדבקות, תצלומים מודבקים. הצבעים הם הפלטה הכחולה הנוכחית של היומן.
      צפייה בלבד — בלי כפתורי שיתוף/עריכה (2026-09-19, לבקשת המשתמש). */
