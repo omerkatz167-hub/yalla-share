@@ -4,22 +4,16 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
-<!-- אבטחה: הטוקן יושב ב-URL, ולכן בלי Referer בכלל — אחרת הוא היה
-     נשלח לגוגל-פונטס ולכל תמונה. CSP: רק הסקריפט הזה (לפי hash),
-     רק הפרויקט שלנו ל-fetch/תמונות, בלי מסגור בתוך אתרים אחרים. -->
+
 <meta name="referrer" content="no-referrer" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SP8EV71MBmz2VdSresLywV7KMC0qPVeBH4saVJHICFU='; connect-src https://windjguwgpbqkeixczri.supabase.co; img-src https://windjguwgpbqkeixczri.supabase.co; style-src 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-K8Sm2OzykfGyVZpqVlNI8ase+PoEjyrs6xyrRQ4Yct0='; connect-src https://windjguwgpbqkeixczri.supabase.co; img-src https://windjguwgpbqkeixczri.supabase.co; style-src 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'" />
 <title>יומן הטיול</title>
 <style>
-  /* הגופנים מתארחים כאן ולא נטענים מ-Google Fonts (2026-09-24): טעינה משרתי
-     גוגל שולחת את כתובת ה-IP של כל מבקר לגוגל, ובאירופה נפסקו על זה
-     פיצויים לפי GDPR. רישיון OFL מתיר הפצה — ראו fonts/OFL-*.txt. */
+  
   @font-face { font-family: 'Amatic SC'; font-weight: 400; font-display: swap; src: url('fonts/AmaticSC_400Regular.ttf') format('truetype'); }
   @font-face { font-family: 'Amatic SC'; font-weight: 700; font-display: swap; src: url('fonts/AmaticSC_700Bold.ttf') format('truetype'); }
   @font-face { font-family: 'Space Mono'; font-weight: 400; font-display: swap; src: url('fonts/SpaceMono_400Regular.ttf') format('truetype'); }
-  /* אותה שפה כמו דף-היומן באפליקציה: נייר, שורות, פתקים נעוצים, דגלים
-     כמדבקות, תצלומים מודבקים. הצבעים הם הפלטה הכחולה הנוכחית של היומן.
-     צפייה בלבד — בלי כפתורי שיתוף/עריכה (2026-09-19, לבקשת המשתמש). */
+  
   :root {
     --row: 44px;
     --paper: #F1F2F5; --ink: #16191F; --ink-soft: #4B5162;
@@ -38,7 +32,7 @@
     min-height: 100vh;
   }
   main { max-width: 640px; margin: 0 auto; padding: var(--row) 20px calc(var(--row) * 2); }
-  /* כל שורת-טקסט יושבת בתוך שורת-דף ונוחתת על הקו — כמו באפליקציה. */
+  
   .line { line-height: var(--row); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   h1.line { font-size: 48px; font-weight: 700; }
   h2.line { font-size: 40px; font-weight: 700; margin-top: var(--row); }
@@ -49,7 +43,7 @@
   .note::before { content: ''; position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--accent); box-shadow: 0 2px 3px rgba(0,0,0,.3); }
   .note .n { font-size: 42px; font-weight: 700; line-height: 1; }
   .note .l { font-size: 19px; color: var(--ink-soft); }
-  /* המסלול: מדבקות-דגל כמו ב"המסלול" באפליקציה — תאריך מעל, שם מתחת. */
+  
   .route { display: flex; gap: 14px; overflow-x: auto; padding: 6px 2px calc(var(--row) - 6px); scrollbar-width: none; }
   .route::-webkit-scrollbar { display: none; }
   .stop { flex: 0 0 auto; width: 88px; text-align: center; text-decoration: none; color: inherit; }
@@ -75,8 +69,6 @@
 <footer>נכתב באפליקציית Yalla — יומן הטיול הגדול 🎒</footer>
 <script>
 (function () {
-  // ה-JSON מגיע מ-Edge Function (public-trip-summary?format=json) ולא
-  // ישירות מ-PostgREST — כך אין כאן שום מפתח, רק כתובת הפרויקט.
   var API = 'https://windjguwgpbqkeixczri.supabase.co/functions/v1/public-trip-summary';
   var token = new URLSearchParams(location.search).get('token') || '';
   var root = document.getElementById('root');
@@ -103,9 +95,6 @@
   function flag(iso) { return iso.toUpperCase().replace(/./g, function (c) { return String.fromCodePoint(127397 + c.charCodeAt(0)); }); }
   function show(msg) { root.innerHTML = ''; root.appendChild(el('p', { class: 'msg line', text: msg })); }
   function tilt(i) { return '--tilt:' + TILTS[i % TILTS.length] + 'deg'; }
-  // התמונות מוצגות ב-150px — גרסה מוקטנת מה-render endpoint ולא הקובץ המלא
-  // (2026-09-24, חריגת ה-egress). אותה כתובת בדיוק כמו toThumbnailUrl באפליקציה,
-  // כך שה-CDN מגיש את שתיהן מאותו עותק.
   function thumb(url) {
     var from = '/storage/v1/object/public/';
     if (url.indexOf(from) < 0) return url;
@@ -139,7 +128,6 @@
     root.appendChild(el('h1', { class: 'line', text: data.trip_name || 'יומן הטיול' }));
     if (!entries.length) { root.appendChild(el('p', { class: 'msg line', text: 'עוד אין פוסטים ביומן הזה.' })); return; }
 
-    // ===== סיכום הטיול =====
     var byIso = {};
     entries.forEach(function (e) { if (e.country_iso) (byIso[e.country_iso] = byIso[e.country_iso] || []).push(e); });
     var visited = countries.filter(function (c) { return byIso[c.iso_code]; });
@@ -152,7 +140,6 @@
       el('div', { class: 'note', style: '--tilt:-0.8deg' }, [el('div', { class: 'n', text: String(Object.keys(places).length) }), el('div', { class: 'l', text: 'יעדים' })])
     ]));
 
-    // ===== המסלול (רק מדינות שיש בהן פוסטים, לפי סדר הביקור) =====
     var stops = visited.map(function (c) {
       var first = byIso[c.iso_code][0];
       return { c: c, first: first.start_at, entries: byIso[c.iso_code] };
@@ -170,7 +157,6 @@
       root.appendChild(strip);
     }
 
-    // ===== סיכום יעד + הפוסטים של כל יעד =====
     var placed = {};
     stops.forEach(function (s) {
       var sec = el('section', { id: 'dest-' + s.c.iso_code });

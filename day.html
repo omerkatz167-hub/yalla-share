@@ -4,12 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
-<!-- דף-נחיתה ל"שיתוף יום בלינק" (2026-09-24). בכוונה בלי שום תוכן מהטיול:
-     היום נפתח רק בתוך האפליקציה ("יהיו חייבים להוריד את האפליקציה בשביל
-     זה"). הדף רק מציע לפתוח באפליקציה או להוריד אותה. בלי Referer (הטוקן
-     ב-URL), ו-CSP שמתיר רק את הסקריפט הזה לפי hash. -->
+
 <meta name="referrer" content="no-referrer" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-FvjUi34d9Q2QpnOrba9MBsOaNJbhkq/mS1f9U2HO4Hc='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-c6njZwr0J8RCZ9QhtlwhFFhfaHo9iEigViLUIhTWa78='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
 <title>יום מהטיול</title>
 <style>
   :root { --paper: #F1F2F5; --ink: #16191F; --ink-soft: #4B5162; --accent: #0B3FB8; --card: #fff; }
@@ -52,7 +49,6 @@
 </main>
 <script>
 (function () {
-  // כתובות החנויות — להשלים כשהאפליקציה עולה ל-App Store / Google Play.
   var STORE = { ios: '', android: '' };
   var q = new URLSearchParams(location.search);
   var token = q.get('t') || '';

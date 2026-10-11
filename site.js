@@ -1,7 +1,4 @@
-// דף הנחיתה של yalla-traveling.com (2026-10-11).
 (function () {
-  // קישורי שיתוף יומן נשלחו בעבר ככתובת הבית עם ?token= — מעבירים אותם מיד
-  // לעמוד היומן, לפני שהעמוד נטען.
   var q = window.location.search;
   if (/[?&]token=/.test(q)) {
     window.location.replace('trip.html' + q + window.location.hash);
@@ -25,7 +22,6 @@
       });
     }
 
-    // "יום בטיול": הטלפון מציג את המסך של השלב שבמרכז המסך, או של מה שנלחץ.
     function show(i) {
       if (i === active) return;
       active = i;
