@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
 <meta name="referrer" content="no-referrer" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-FvjUi34d9Q2QpnOrba9MBsOaNJbhkq/mS1f9U2HO4Hc='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-7nYJm7t/DcmjYYYGvVGLMfr+akB3qivq4wa5f2ZFDP0='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
 <title>יום מהטיול</title>
 <style>
   :root { --paper: #F1F2F5; --ink: #16191F; --ink-soft: #4B5162; --accent: #0B3FB8; --card: #fff; }
@@ -38,7 +38,7 @@
 </head>
 <body>
 <main>
-  <div class="emoji">🎒</div>
+  <div class="emoji" id="emoji">🎒</div>
   <h1 id="title">קיבלת יום מהטיול</h1>
   <p id="lead">מישהו שיתף איתך יום מהמסע שלו — תמונות, מקומות ומה שקרה. כדי לראות אותו צריך את אפליקציית <b>Yalla</b>.</p>
   <a id="open" class="btn primary" href="#">פתיחה באפליקציה</a>
@@ -54,6 +54,7 @@
   var q = new URLSearchParams(location.search);
   var token = q.get('t') || '';
   var isTrip = q.get('k') === 'trip';
+  var isFriend = q.get('k') === 'friend';
   var valid = /^[A-Za-z0-9_-]{8,64}$/.test(token);
   var open = document.getElementById('open');
   if (isTrip) {
@@ -62,8 +63,16 @@
       'מישהו שיתף איתך את יומן הטיול שלו — כל הפוסטים, והחדשים יופיעו אצלך בזמן אמת. כדי לעקוב צריך את אפליקציית Yalla.';
     document.title = 'יומן טיול ששותף איתך';
   }
+  if (isFriend) {
+    document.getElementById('emoji').textContent = '🤝';
+    document.getElementById('title').textContent = 'הוזמנת להיות חברים ב-Yalla';
+    document.getElementById('lead').textContent =
+      'מישהו מזמין אותך להיות חברים ב-Yalla, כדי שתוכלו לראות אחד את הטיולים של השני. כדי לאשר צריך את אפליקציית Yalla.';
+    document.title = 'הזמנת חברות ב-Yalla';
+  }
   if (valid) {
-    open.href = 'hatiyul://' + (isTrip ? 'shared-trip' : 'shared-day') + '?token=' + encodeURIComponent(token);
+    open.href =
+      'hatiyul://' + (isFriend ? 'add-friend' : isTrip ? 'shared-trip' : 'shared-day') + '?token=' + encodeURIComponent(token);
   } else {
     open.classList.add('hidden');
   }
