@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
 <meta name="referrer" content="no-referrer" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-7nYJm7t/DcmjYYYGvVGLMfr+akB3qivq4wa5f2ZFDP0='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-ALtNmsujXWIDeTV8XJzfBPYObc8A7IaomksyKDBIkjM='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
 <title>יום מהטיול</title>
 <style>
   :root { --paper: #F1F2F5; --ink: #16191F; --ink-soft: #4B5162; --accent: #0B3FB8; --card: #fff; }
@@ -64,11 +64,15 @@
     document.title = 'יומן טיול ששותף איתך';
   }
   if (isFriend) {
+    // השם של המזמין מהקישור (n) — טקסט בלבד, עד 40 תווים.
+    var inviter = (q.get('n') || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 40);
     document.getElementById('emoji').textContent = '🤝';
-    document.getElementById('title').textContent = 'הוזמנת להיות חברים ב-Yalla';
+    document.getElementById('title').textContent = inviter
+      ? inviter + ' רוצה להיות חברים איתך ב-Yalla'
+      : 'הוזמנת להיות חברים ב-Yalla';
     document.getElementById('lead').textContent =
-      'מישהו מזמין אותך להיות חברים ב-Yalla, כדי שתוכלו לראות אחד את הטיולים של השני. כדי לאשר צריך את אפליקציית Yalla.';
-    document.title = 'הזמנת חברות ב-Yalla';
+      'כך תוכלו לראות אחד את הטיולים של השני ולחלק הוצאות בקלות. כדי לאשר צריך את אפליקציית Yalla.';
+    document.title = inviter ? 'הזמנת חברות מ' + inviter : 'הזמנת חברות ב-Yalla';
   }
   if (valid) {
     open.href =
