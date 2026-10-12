@@ -4,9 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
-
 <meta name="referrer" content="no-referrer" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-c6njZwr0J8RCZ9QhtlwhFFhfaHo9iEigViLUIhTWa78='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-FvjUi34d9Q2QpnOrba9MBsOaNJbhkq/mS1f9U2HO4Hc='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
 <title>יום מהטיול</title>
 <style>
   :root { --paper: #F1F2F5; --ink: #16191F; --ink-soft: #4B5162; --accent: #0B3FB8; --card: #fff; }
@@ -47,8 +46,10 @@
   <p id="soon" class="note hidden">האפליקציה תגיע בקרוב לחנויות. בינתיים בקשו ממי ששלח את הלינק להזמין אתכם.</p>
   <p class="note">כבר הורדתם? חזרו לכאן אחרי ההתקנה ולחצו "פתיחה באפליקציה".</p>
 </main>
+<p class="note" style="text-align:center"><a href="accessibility.html">הצהרת נגישות</a></p>
 <script>
 (function () {
+  // כתובות החנויות — להשלים כשהאפליקציה עולה ל-App Store / Google Play.
   var STORE = { ios: '', android: '' };
   var q = new URLSearchParams(location.search);
   var token = q.get('t') || '';
