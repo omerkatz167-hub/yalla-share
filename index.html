@@ -19,377 +19,208 @@
 <meta property="og:url" content="https://yalla-traveling.com/">
 <meta name="theme-color" content="#000000">
 <style>
-
 @font-face{font-family:'Assistant';font-weight:400;font-display:swap;src:url('fonts/Assistant_400Regular.ttf') format('truetype')}
 @font-face{font-family:'Assistant';font-weight:600;font-display:swap;src:url('fonts/Assistant_600SemiBold.ttf') format('truetype')}
 @font-face{font-family:'Assistant';font-weight:700;font-display:swap;src:url('fonts/Assistant_700Bold.ttf') format('truetype')}
-@font-face{font-family:'Assistant';font-weight:800;font-display:swap;src:url('fonts/Assistant_800ExtraBold.ttf') format('truetype')}
-
-body{margin:0;background:#ffffff}
+body{margin:0;background:#FFFFFF}
 a{color:#0061FD}a:hover{color:#0049C4}
-.yl{--accent:#0061FD;--accent-deep:#0049C4;--kx:1;--ky:1;direction:rtl;font-family:"Assistant","Heebo",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;color:#1d1d1f;background:#ffffff;letter-spacing:0;overflow-x:clip}
-.yl *{box-sizing:border-box}
-.yl-nav{position:sticky;top:0;z-index:50;height:52px;background:rgba(18,18,20,.78);backdrop-filter:saturate(1.8) blur(20px);-webkit-backdrop-filter:saturate(1.8) blur(20px)}
-.yl-nav-in{max-width:1080px;height:100%;margin:0 auto;padding-inline:22px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.yl-nav-links{display:flex;gap:28px;align-items:center}
-.yl-nav-links a{color:rgba(245,245,247,.8);font-size:14px;text-decoration:none;transition:color .24s cubic-bezier(.4,0,.6,1)}
-.yl-nav-links a:hover{color:#ffffff}
-.yl-tiles{display:flex;flex-direction:column;gap:12px}
-.yl-dark{background:#000000;color:#f5f5f7}
-.yl-light{background:#f5f5f7;color:#1d1d1f}
-.yl-eyebrow{font-size:17px;line-height:24px;font-weight:700;color:var(--accent);margin:0 0 10px}
-.yl-dark .yl-eyebrow{color:#6FA3FF}
-.yl-h1{font-size:76px;line-height:80px;font-weight:800;margin:0}
-.yl-h2{font-size:56px;line-height:62px;font-weight:700;margin:0}
-.yl-sub{font-size:24px;line-height:34px;font-weight:400;margin:14px 0 0}
-.yl-dark .yl-sub{color:#c7c7cc}
-.yl-light .yl-sub{color:#424245}
-.yl-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-.yl-pill{display:inline-flex;align-items:center;gap:10px;min-height:48px;border-radius:980px;padding:10px 22px;font-size:17px;font-weight:700;text-decoration:none;border:1px solid transparent;font-family:inherit;cursor:pointer;transition:background-color .24s cubic-bezier(.4,0,.6,1),transform .24s cubic-bezier(.4,0,.6,1)}
-.yl-pill:hover{transform:translateY(-2px)}
-.yl-pill:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.yl-pill-primary{background:var(--accent);color:#ffffff}
-.yl-pill-primary:hover{background:var(--accent-deep);color:#ffffff}
-.yl-pill-ghost{border-color:rgba(245,245,247,.45);color:#f5f5f7;background:transparent}
-.yl-pill-ghost:hover{border-color:#f5f5f7;color:#ffffff}
-.yl-store{background:#ffffff;color:#000000}
-.yl-store:hover{color:#000000;background:#e8e8ed}
-.yl-store small{display:block;font-size:11px;font-weight:600;opacity:.75;line-height:13px}
-.yl-store span{display:block;font-size:17px;line-height:20px}
-
-.yl-phone{position:relative;width:300px;aspect-ratio:590/1278;border-radius:54px;background:#0b0b0d;padding:11px;box-shadow:0 0 0 1.5px #3a3a3f,0 50px 90px rgba(0,0,0,.35)}
-.yl-phone::before{content:"";position:absolute;inset-inline-start:-3px;top:150px;width:3px;height:64px;border-radius:2px;background:#2b2b30}
-.yl-phone::after{content:"";position:absolute;inset-inline-end:-3px;top:118px;width:3px;height:40px;border-radius:2px;background:#2b2b30;box-shadow:0 60px 0 #2b2b30}
-.yl-screen{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:#f2f2f4}
-.yl-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.yl-scr{opacity:0;transform:scale(1.04);transition:opacity .55s cubic-bezier(.4,0,.6,1),transform .55s cubic-bezier(.4,0,.6,1)}
-.yl-scr.is-on{opacity:1;transform:none}
-
-.yl-hero{position:relative;overflow:hidden;min-height:800px;padding:96px 24px 80px}
-.yl-hero-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center}
-.yl-hero-copy{position:relative;z-index:2}
-.yl-hero-stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:660px}
-.yl-glow{position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(0,97,253,.42) 0%,rgba(0,97,253,0) 66%);filter:blur(10px)}
-.yl-float{animation:ylFloat 7s ease-in-out infinite}
-.yl-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:18px;background:rgba(255,255,255,.94);color:#1d1d1f;font-size:15px;line-height:19px;box-shadow:0 18px 40px rgba(0,0,0,.28)}
-.yl-chip b{display:block;font-weight:700}
-.yl-chip small{display:block;color:#6e6e73;font-size:13px}
-.yl-chip-ic{width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
-.yl-chip-a{top:150px;inset-inline-end:-6px;animation:ylFloat 6s ease-in-out -2s infinite}
-.yl-chip-b{bottom:120px;inset-inline-start:-10px;animation:ylFloat 8s ease-in-out -4s infinite}
-.yl-trust-line{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;color:#a1a1a6;font-size:15px}
-.yl-trust-line span{display:inline-flex;align-items:center;gap:7px}
-
-.yl-merge{position:relative;height:1500px;view-timeline-name:--yl-merge}
-.yl-merge-sticky{position:sticky;top:52px;height:760px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;overflow:hidden}
-.yl-merge-copy{max-width:760px}
-.yl-stage{position:relative;width:100%;max-width:980px;height:470px;margin-top:20px}
-.yl-app{position:absolute;left:50%;top:50%;--x:calc(var(--rx) * var(--kx) * 1px);--y:calc(var(--ry) * var(--ky) * 1px);transform:translate(-50%,-50%) translate(var(--x),var(--y));display:flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border-radius:20px;background:#ffffff;border:1px solid #e3e3e8;font-size:16px;font-weight:700;white-space:nowrap;color:#1d1d1f}
+.yl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 12px}
+.yl-h1{font-size:64px;line-height:70px}
+.yl-h2{font-size:56px;line-height:62px}
+.yl-h3{font-size:40px;line-height:46px}
+.yl-sub{font-size:26px;line-height:34px}
+.yl-tile{min-height:720px}
+.yl-gtile{min-height:640px}
+.yl-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.yl-navlinks{display:flex}
+.yl-merge{position:relative;height:2100px;view-timeline-name:--yl-merge}
+.yl-merge-sticky{position:sticky;top:48px;height:780px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;overflow:hidden;box-sizing:border-box}
+.yl-stage{position:relative;width:100%;max-width:980px;height:440px;margin-top:16px;--kx:1;--ky:1}
+.yl-app{position:absolute;left:50%;top:50%;--x:calc(var(--rx) * var(--kx) * 1px);--y:calc(var(--ry) * var(--ky) * 1px);transform:translate(-50%,-50%) translate(var(--x),var(--y));display:flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border-radius:20px;background:#FFFFFF;border:1px solid #E3E3E8;font-size:16px;font-weight:600;white-space:nowrap;color:#08080A}
 .yl-app-ic{width:34px;height:34px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex:none}
-.yl-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:132px;height:132px;border-radius:34px;background:#ffffff;border:1px solid #e3e3e8;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 60px rgba(0,73,196,.18)}
+.yl-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:132px;height:132px;border-radius:34px;background:#FFFFFF;border:1px solid #E3E3E8;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 60px rgba(0,73,196,.18)}
 .yl-core img{width:104px;height:auto}
-.yl-merge-cap{position:absolute;left:50%;top:calc(50% + 92px);transform:translateX(-50%);font-size:20px;font-weight:700;color:var(--accent);white-space:nowrap}
-
-.yl-how{padding:110px 24px 40px}
-.yl-how-head{max-width:820px;margin:0 auto 30px;text-align:center}
-.yl-how-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}
-.yl-steps{display:flex;flex-direction:column}
-.yl-step{min-height:560px;display:flex;flex-direction:column;justify-content:center;padding:40px 0;opacity:.32;transition:opacity .45s cubic-bezier(.4,0,.6,1)}
-.yl-step.is-on{opacity:1}
-.yl-step h3{margin:0}
-.yl-step-btn{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;text-align:start;border-radius:12px}
-.yl-step-btn:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
-.yl-step-num{font-size:15px;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:10px}
-.yl-step-num i{font-style:normal;display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:rgba(0,97,253,.1)}
-.yl-step-title{font-size:42px;line-height:48px;font-weight:700;color:#1d1d1f}
-.yl-step p{font-size:21px;line-height:31px;color:#424245;margin:14px 0 0;max-width:470px}
-.yl-step-shot{display:none}
-.yl-how-phone{position:sticky;top:96px;align-self:start;height:720px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px}
-.yl-dots{display:flex;gap:2px}
-.yl-dot{all:unset;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%}
-.yl-dot span{width:8px;height:8px;border-radius:50%;background:#c7c7cc;transition:background-color .3s,width .3s}
-.yl-dot.is-on span{width:22px;border-radius:5px;background:var(--accent)}
-.yl-dot:focus-visible{outline:2px solid var(--accent)}
-
-.yl-cards{max-width:1080px;margin:40px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;text-align:start}
-.yl-card{background:#ffffff;border-radius:24px;padding:30px 28px;transition:transform .3s cubic-bezier(.4,0,.6,1)}
-.yl-card:hover{transform:translateY(-4px)}
-.yl-card-ic{width:46px;height:46px;border-radius:14px;background:rgba(0,97,253,.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.yl-card h3{font-size:22px;line-height:28px;font-weight:700;margin:0 0 8px}
-.yl-card p{font-size:17px;line-height:26px;color:#424245;margin:0}
-.yl-sec{padding:110px 24px;text-align:center}
-.yl-sec .yl-btns{justify-content:center}
-.yl-dl{position:relative;overflow:hidden}
-.yl-dl-logo{width:150px;height:auto;filter:brightness(0) invert(1);margin-bottom:24px}
-.yl-soon{font-size:14px;color:#86868b;margin-top:16px}
-
-.yl-footer{background:#f5f5f7;color:#6e6e73;font-size:13px;line-height:19px}
-.yl-footer-in{max-width:1080px;margin:0 auto;padding:30px 22px 40px}
-.yl-footer-row{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;border-top:1px solid #d2d2d7;padding-top:16px;margin-top:16px}
-.yl-footer a{color:#424245;text-decoration:none}
-.yl-footer a:hover{text-decoration:underline}
-.yl-footer-links{display:flex;gap:20px;flex-wrap:wrap}
-
-@keyframes ylFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-@keyframes ylRv{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
-@keyframes ylHeroOut{to{transform:translateY(-70px) scale(.9) rotate(-5deg);opacity:.35}}
+.yl-merge-cap{position:absolute;left:50%;top:calc(50% + 96px);transform:translateX(-50%);font-size:24px;font-weight:600;color:#0061FD;white-space:nowrap}
+.yl-hero-phone{animation:ylHeroIn 1s cubic-bezier(.2,.7,.2,1) .15s both}
+@keyframes ylHeroIn{from{transform:translateY(90px);opacity:0}to{transform:none;opacity:1}}
+@keyframes ylRise{from{transform:translateY(130px) scale(.96);opacity:.15}to{transform:none;opacity:1}}
+@keyframes ylFade{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
 @keyframes ylIn{from{transform:translate(-50%,-50%) translate(var(--x),var(--y));opacity:1}to{transform:translate(-50%,-50%) translate(0,0) scale(.25);opacity:0}}
 @keyframes ylCore{from{transform:translate(-50%,-50%) scale(.82)}to{transform:translate(-50%,-50%) scale(1.14)}}
 @keyframes ylCap{from{opacity:0;transform:translateX(-50%) translateY(14px)}to{opacity:1;transform:translateX(-50%)}}
-@keyframes ylPop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
-
 @supports (animation-timeline: view()){
-.yl-motion .rv{animation:ylRv linear both;animation-timeline:view();animation-range:entry 5% cover 32%}
-.yl-motion .yl-hero-exit{animation:ylHeroOut linear both;animation-timeline:view();animation-range:exit 0% exit 90%}
-.yl-motion .yl-app{animation:ylIn linear both;animation-timeline:--yl-merge;animation-range:contain 8% contain 58%}
-.yl-motion .yl-core{animation:ylCore linear both;animation-timeline:--yl-merge;animation-range:contain 30% contain 62%}
-.yl-motion .yl-merge-cap{animation:ylCap linear both;animation-timeline:--yl-merge;animation-range:contain 58% contain 74%}
-.yl-motion .yl-card{animation:ylPop linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+.yl-rise{animation:ylRise linear both;animation-timeline:view();animation-range:entry 0% cover 38%}
+.yl-rv{animation:ylFade linear both;animation-timeline:view();animation-range:entry 5% cover 25%}
+.yl-app{animation:ylIn linear both;animation-timeline:--yl-merge;animation-range:contain 12% contain 62%}
+.yl-core{animation:ylCore linear both;animation-timeline:--yl-merge;animation-range:contain 40% contain 68%}
+.yl-merge-cap{animation:ylCap linear both;animation-timeline:--yl-merge;animation-range:contain 62% contain 78%}
 }
-.yl-still .yl-float,.yl-still .yl-chip-a,.yl-still .yl-chip-b{animation:none}
-@media (prefers-reduced-motion:reduce){.yl *{animation:none!important;transition:none!important}}
-
-@media (max-width:1068px){
-.yl-h1{font-size:58px;line-height:64px}.yl-h2{font-size:44px;line-height:50px}.yl-sub{font-size:21px;line-height:30px}
-.yl-step-title{font-size:34px;line-height:40px}.yl{--kx:.78}
-}
-@media (max-width:834px){
-.yl-nav-links a.yl-hide-sm{display:none}
-.yl-hero{padding:56px 20px 40px}
-.yl-hero-in{grid-template-columns:minmax(0,1fr);text-align:center}
-.yl-hero-in .yl-btns,.yl-trust-line{justify-content:center}
-.yl-hero-stage{min-height:600px}
-.yl-how-grid{grid-template-columns:minmax(0,1fr)}
-.yl-how-phone{display:none}
-.yl-step{opacity:1;min-height:0;padding:36px 0;align-items:center;text-align:center}
-.yl-step-btn{align-items:center;text-align:center}
-.yl-step-shot{display:block;margin-top:26px}
-.yl-step-shot .yl-phone{width:236px;border-radius:44px;padding:9px}
-.yl-step-shot .yl-screen{border-radius:36px}
-.yl-cards{grid-template-columns:minmax(0,1fr)}
-.yl{--kx:.3;--ky:.78}
-.yl-app{font-size:13px;padding:8px 12px 8px 10px;gap:7px;border-radius:15px}
-.yl-app-ic{width:26px;height:26px;border-radius:8px}
-.yl-core{width:96px;height:96px;border-radius:26px}
-.yl-core img{width:76px}
-.yl-merge-cap{top:calc(50% + 66px);font-size:17px}
-}
-@media (max-width:734px){
-.yl-h1{font-size:42px;line-height:48px}.yl-h2{font-size:34px;line-height:40px}.yl-sub{font-size:19px;line-height:28px}
-.yl-step-title{font-size:28px;line-height:34px}.yl-step p{font-size:18px;line-height:27px}
-.yl-phone{width:250px;border-radius:46px;padding:9px}.yl-screen{border-radius:38px}
-.yl-hero-stage{min-height:540px}.yl-glow{width:380px;height:380px}
-.yl-chip{font-size:13px;padding:8px 12px 8px 10px}.yl-chip-ic{width:30px;height:30px}
-.yl-chip-a{inset-inline-end:0;top:90px}.yl-chip-b{inset-inline-start:0;bottom:70px}
-.yl-pill{font-size:15px;padding:8px 18px;min-height:44px}
-.yl-merge{height:1250px}.yl-merge-sticky{height:700px}
-.yl-sec{padding:80px 20px}
-}
-
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:1068px){.yl-stage{--kx:.78}}
+@media (max-width:734px){.yl-stage{--kx:.42;--ky:.82;height:400px}.yl-app{font-size:14px;padding:9px 12px 9px 10px}.yl-app-ic{width:28px;height:28px}.yl-merge{height:1700px}.yl-merge-sticky{height:720px}.yl-merge-cap{font-size:19px}}
+@media (max-width:1068px){.yl-h1{font-size:52px;line-height:58px}.yl-h2{font-size:46px;line-height:52px}.yl-h3{font-size:32px;line-height:38px}.yl-sub{font-size:22px;line-height:28px}}
+@media (max-width:734px){.yl-grid{grid-template-columns:minmax(0,1fr)}.yl-h1{font-size:38px;line-height:44px}.yl-h2{font-size:34px;line-height:40px}.yl-h3{font-size:30px;line-height:36px}.yl-sub{font-size:19px;line-height:25px}.yl-tile{min-height:620px}.yl-gtile{min-height:560px}.yl-trio{grid-template-columns:minmax(0,1fr);gap:24px}.yl-navlinks{display:none}}
+html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
-<div class="yl yl-motion">
+<div style="direction: rtl; font-family: 'Assistant', -apple-system, sans-serif; font-weight: 400; letter-spacing: 0; color: #08080A; background: #FFFFFF;">
 
-  <header class="yl-nav">
-    <nav class="yl-nav-in" aria-label="ניווט ראשי">
-      <a href="#yl-top" aria-label="Yalla — לראש העמוד" style="display: flex; align-items: center;"><img src="img/logo.png" alt="Yalla" style="height: 28px; width: auto; filter: brightness(0) invert(1);"></a>
-      <div class="yl-nav-links">
-        <a href="#yl-merge" class="yl-hide-sm">למה Yalla</a>
-        <a href="#yl-how" class="yl-hide-sm">איך זה עובד</a>
-        <a href="#yl-privacy" class="yl-hide-sm">פרטיות</a>
-        <a href="#yl-download" class="yl-pill yl-pill-primary" style="min-height: 34px; padding: 6px 16px; font-size: 14px;">להורדה</a>
+  <nav aria-label="ניווט ראשי" style="position: sticky; top: 0; z-index: 10; height: 48px; background: rgba(8,8,10,0.82); backdrop-filter: saturate(1.8) blur(20px); -webkit-backdrop-filter: saturate(1.8) blur(20px);">
+    <div style="max-width: 1024px; height: 48px; margin: 0 auto; padding: 0 22px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; box-sizing: border-box;">
+      <a href="#top" aria-label="Yalla — לראש העמוד" style="display: flex; align-items: center;">
+        <img src="img/logo-light.png" alt="Yalla" style="width: 66px; height: 44px; object-fit: contain;">
+      </a>
+      <div class="yl-navlinks" style="flex-direction: row; gap: 32px; font-size: 13px;">
+        <a href="#story" style="color: rgba(255,255,255,0.8); text-decoration: none;">הסיפור</a>
+        <a href="#features" style="color: rgba(255,255,255,0.8); text-decoration: none;">מה יש בפנים</a>
+        <a href="#privacy" style="color: rgba(255,255,255,0.8); text-decoration: none;">פרטיות</a>
       </div>
-    </nav>
-  </header>
+      <a href="#download" style="padding: 5px 14px; border-radius: 980px; background: #0061FD; color: #FFFFFF; font-size: 13px; font-weight: 600; text-decoration: none;">להורדה</a>
+    </div>
+  </nav>
 
-  <main class="yl-tiles" id="yl-top">
+  <section id="top" class="yl-tile" style="position: relative; overflow: hidden; background: #08080A; color: #F5F5F7; text-align: center; padding: 64px 24px 0; display: flex; flex-direction: column; align-items: center;">
+    <p style="margin: 0; font-size: 17px; font-weight: 600; color: #5C97FF;">ממטיילים בשביל מטיילים</p>
+    <h1 class="yl-h1" style="margin: 8px 0 0; font-weight: 600;">יאללה הורדתם? אז יאללה!</h1>
+    <p class="yl-sub" style="margin: 8px 0 0; color: #C7C7CC;">כל הטיול. אפליקציה אחת.</p>
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 17px; margin-top: 22px;">
+      <a href="#download" style="padding: 11px 21px; border-radius: 980px; background: #0061FD; color: #FFFFFF; font-size: 17px; font-weight: 600; text-decoration: none;">בקרוב ב-App Store</a>
+      <a href="#story" style="padding: 10px 20px; border-radius: 980px; border: 1px solid #5C97FF; color: #5C97FF; font-size: 17px; font-weight: 600; text-decoration: none;">הסיפור שלנו</a>
+    </div>
+    <div class="yl-hero-phone" style="margin-top: 48px; width: 300px; max-width: 72%; aspect-ratio: 1179 / 2556; box-sizing: border-box; padding: 10px; border-radius: 48px; background: #1C1C1E; box-shadow: 0 0 0 1px #2C2C2E, 0 40px 90px rgba(0,97,253,0.25); margin-bottom: -200px;">
+      <img src="img/ph_home.jpg" alt="מסך הבית של Yalla: ארגנטינה, יום 54 בטיול, הוצאה יומית ומסלול הטיול" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 38px;">
+    </div>
+  </section>
 
-    <section class="yl-hero yl-dark" aria-labelledby="yl-hero-title">
-      <div class="yl-hero-in">
-        <div class="yl-hero-copy">
-          <p class="yl-eyebrow">נבנתה על ידי מטיילים, בשביל מטיילים</p>
-          <h1 class="yl-h1" id="yl-hero-title">יאללה הורדתם?<br>אז יאללה!</h1>
-          <p class="yl-sub">תכנון, יומן, הוצאות, קיזוזים ואזהרות מסע — כל מה שהיה מפוזר בין שבע אפליקציות, עכשיו במקום אחד.</p>
-          <div class="yl-btns">
-            <a class="yl-pill yl-store" href="#yl-download" aria-label="App Store — בקרוב"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.7 0 0-2.5-1-2.5-3.6zM14.1 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"></path></svg><div style="text-align: start;"><small>בקרוב ב-</small><span>App Store</span></div></a>
-            <a class="yl-pill yl-store" href="#yl-download" aria-label="Google Play — בקרוב"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5v17l10-8.5-10-8.5z"></path><path d="M15 12l4 2.3-4 2.2M15 12l4-2.3-4-2.2"></path></svg><div style="text-align: start;"><small>בקרוב ב-</small><span>Google Play</span></div></a>
-            <a class="yl-pill yl-pill-ghost" href="#yl-how">איך זה עובד</a>
-          </div>
-          <div class="yl-trust-line">
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>עברית, English, Español</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>כל מטבע, מומר לשקלים</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>נפתחת גם בלי קליטה</span>
-          </div>
-        </div>
-        <div class="yl-hero-stage">
-          <div class="yl-glow" aria-hidden="true"></div>
-          <div class="yl-hero-exit">
-            <div class="yl-float">
-              <div class="yl-phone">
-                <div class="yl-screen"><img src="img/scr_home.jpg" alt="מסך הבית של Yalla: ארגנטינה, יום 54 בטיול, הוצאות היום ומסלול הטיול"></div>
-              </div>
-            </div>
-          </div>
-          <div class="yl-chip yl-chip-a" aria-hidden="true">
-            <div class="yl-chip-ic" style="background: #FFF1E0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C25E00" stroke-width="2" stroke-linecap="round"><path d="M17 8h1a4 4 0 010 8h-1M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8zM6 2v3M10 2v3M14 2v3"></path></svg></div>
-            <div><b>קפה ומדיאלונה</b><small><bdi>₪25.65</bdi> · <bdi>9,000 ARS</bdi></small></div>
-          </div>
-          <div class="yl-chip yl-chip-b" aria-hidden="true">
-            <div class="yl-chip-ic" style="background: #E3F4EA;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#147A3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
-            <div><b>ארגנטינה · בלי ויזה</b><small>אזהרת מסע: רגיל</small></div>
-          </div>
-        </div>
+  <div style="height: 12px;"></div>
+
+  <section id="story" class="yl-merge" style="background: #F2F2F4;" aria-labelledby="yl-story-title">
+    <div class="yl-merge-sticky">
+      <div style="max-width: 820px;">
+        <h2 id="yl-story-title" class="yl-h2" style="margin: 0; font-weight: 600;">מכירים את זה?</h2>
+        <p class="yl-sub" style="margin: 16px 0 0; color: #3A3A3C;">אפליקציה אחת לחלוקת הוצאות, אחרת ליומן, עוד אחת לתכנון, קבוצת וואטסאפ לקיזוזים ותיקייה בגלריה למסמכים. בסוף הטיול נשאר בלגן.</p>
       </div>
-    </section>
+      <div class="yl-stage" aria-hidden="true">
+        <div class="yl-app" style="--rx: 0; --ry: -180;"><span class="yl-app-ic" style="background: #E8F0FF;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0049C4" stroke-width="2" stroke-linecap="round"><path d="M9 20l-6-3V4l6 3 6-3 6 3v13l-6-3-6 3zM9 7v13M15 4v13"></path></svg></span>תכנון מסלול</div>
+        <div class="yl-app" style="--rx: -330; --ry: -120;"><span class="yl-app-ic" style="background: #E3F4EA;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#147A3D" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M3 15h18M9 3v18"></path></svg></span>גיליון הוצאות</div>
+        <div class="yl-app" style="--rx: 330; --ry: -120;"><span class="yl-app-ic" style="background: #FFF1E0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C25E00" stroke-width="2" stroke-linecap="round"><path d="M7 7h11l-3-3M17 17H6l3 3"></path></svg></span>חלוקת חשבונות</div>
+        <div class="yl-app" style="--rx: -390; --ry: 40;"><span class="yl-app-ic" style="background: #F3E8FF;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B2FB3" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5v14zM20 17v4H6.5"></path></svg></span>יומן ותמונות</div>
+        <div class="yl-app" style="--rx: 390; --ry: 40;"><span class="yl-app-ic" style="background: #E3F7E9;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#147A3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"></path></svg></span>קבוצת וואטסאפ</div>
+        <div class="yl-app" style="--rx: -260; --ry: 180;"><span class="yl-app-ic" style="background: #FFE8E8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4M12 16h.01"></path></svg></span>אזהרות מסע</div>
+        <div class="yl-app" style="--rx: 260; --ry: 180;"><span class="yl-app-ic" style="background: #EDEDF2;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A3A44" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 018 0v3"></path></svg></span>תיקיית מסמכים</div>
+        <div class="yl-core"><img loading="lazy" decoding="async" src="img/logo-ui.png" alt=""></div>
+        <div class="yl-merge-cap">Yalla מחליפה את כולן.</div>
+      </div>
+    </div>
+  </section>
 
-    <section class="yl-merge yl-light" id="yl-merge" aria-labelledby="yl-merge-title">
-      <div class="yl-merge-sticky">
-        <div class="yl-merge-copy">
-          <p class="yl-eyebrow">למה בנינו את Yalla</p>
-          <h2 class="yl-h2" id="yl-merge-title">שבע אפליקציות.<br>טיול אחד.</h2>
-          <p class="yl-sub">אנחנו מטיילים. בטיול הגדול קפצנו בין אפליקציה לתכנון, טבלה להוצאות, אפליקציה לחלוקת חשבונות, תיקיית צילומי מסך וקבוצות וואטסאפ. אז בנינו אחת שמחברת את כולן.</p>
-        </div>
-        <div class="yl-stage" aria-hidden="true">
-          <div class="yl-app" style="--rx: 0; --ry: -190;"><span class="yl-app-ic" style="background: #E8F0FF;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0049C4" stroke-width="2" stroke-linecap="round"><path d="M9 20l-6-3V4l6 3 6-3 6 3v13l-6-3-6 3zM9 7v13M15 4v13"></path></svg></span>תכנון מסלול</div>
-          <div class="yl-app" style="--rx: -330; --ry: -130;"><span class="yl-app-ic" style="background: #E3F4EA;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#147A3D" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M3 15h18M9 3v18"></path></svg></span>גיליון הוצאות</div>
-          <div class="yl-app" style="--rx: 330; --ry: -130;"><span class="yl-app-ic" style="background: #FFF1E0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C25E00" stroke-width="2" stroke-linecap="round"><path d="M7 7h11l-3-3M17 17H6l3 3"></path></svg></span>חלוקת חשבונות</div>
-          <div class="yl-app" style="--rx: -390; --ry: 40;"><span class="yl-app-ic" style="background: #F3E8FF;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B2FB3" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5v14zM20 17v4H6.5"></path></svg></span>יומן ותמונות</div>
-          <div class="yl-app" style="--rx: 390; --ry: 40;"><span class="yl-app-ic" style="background: #E0F5F7;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A6E7A" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="14" rx="3"></rect><path d="M4 11h16M8 21l2-4M16 21l-2-4"></path></svg></span>איך מגיעים</div>
-          <div class="yl-app" style="--rx: -260; --ry: 190;"><span class="yl-app-ic" style="background: #FFE8E8;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4M12 16h.01"></path></svg></span>אזהרות מסע</div>
-          <div class="yl-app" style="--rx: 260; --ry: 190;"><span class="yl-app-ic" style="background: #EDEDF2;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A3A44" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 018 0v3"></path></svg></span>כספת מסמכים</div>
-          <div class="yl-core"><img src="img/logo.png" alt=""></div>
-          <div class="yl-merge-cap">הכול באפליקציה אחת</div>
-        </div>
+  <div id="features" style="height: 12px;"></div>
+
+  <div class="yl-grid">
+    <section class="yl-gtile" style="position: relative; overflow: hidden; background: #F2F2F4; padding: 56px 24px 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <p style="margin: 0; font-size: 15px; font-weight: 600; color: #0049C4;">הוצאות</p>
+      <h3 class="yl-h3" style="margin: 6px 0 0; font-weight: 600;">כל מטבע, ישר בשקלים.</h3>
+      <p style="margin: 6px 0 0; font-size: 19px; line-height: 25px; color: #3A3A3C;">רושמים בכל מטבע, ורואים כמה זה יצא.</p>
+      <div class="yl-rise" style="margin-top: 36px; width: 250px; max-width: 70%; aspect-ratio: 1179 / 2556; box-sizing: border-box; padding: 8px; border-radius: 40px; background: #08080A; margin-bottom: -170px;">
+        <img loading="lazy" decoding="async" src="img/ph_money.jpg" alt="מסך ההוצאות: הוצאות לפי ימים, בכל מטבע ובשקלים" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 32px;">
       </div>
     </section>
-
-    <section class="yl-how" id="yl-how" aria-labelledby="yl-how-title" style="background: #ffffff;">
-      <div class="yl-how-head rv">
-        <p class="yl-eyebrow">איך זה עובד</p>
-        <h2 class="yl-h2" id="yl-how-title">יום בטיול עם Yalla.</h2>
-        <p class="yl-sub">גוללים — והטלפון מראה. אפשר גם ללחוץ על כל שלב.</p>
-      </div>
-      <div class="yl-how-grid">
-        <div class="yl-steps">
-
-          <article class="yl-step is-on" data-yl-step="0">
-            <h3><button class="yl-step-btn" type="button" data-go="0"><span class="yl-step-num"><i>1</i>בית</span><span class="yl-step-title">כל הטיול במבט אחד.</span></button></h3>
-            <p>איפה אתם עכשיו, כמה הוצאתם היום, מקומות לינה, מטיילים באזור ומה יש לעשות — כבר במסך הראשון.</p>
-            <div class="yl-step-shot"><div class="yl-phone"><div class="yl-screen"><img src="img/scr_home.jpg" alt="מסך הבית"></div></div></div>
-          </article>
-
-          <article class="yl-step" data-yl-step="1">
-            <h3><button class="yl-step-btn" type="button" data-go="1"><span class="yl-step-num"><i>2</i>תכנון</span><span class="yl-step-title">תוכנית מלאה, בכמה שניות.</span></button></h3>
-            <p>כותבים לאן, ובינה מלאכותית בונה מסלול יום־אחרי־יום עם לינה, תחבורה ותקציב. "איך מגיעים" משווה אוטובוס, טיסה ורכבת, עם זמן ומחיר.</p>
-            <div class="yl-step-shot"><div class="yl-phone"><div class="yl-screen"><img src="img/scr_plan.jpg" alt="מסך התכנון"></div></div></div>
-          </article>
-
-          <article class="yl-step" data-yl-step="2">
-            <h3><button class="yl-step-btn" type="button" data-go="2"><span class="yl-step-num"><i>3</i>יומן</span><span class="yl-step-title">הטיול שלכם, על המפה.</span></button></h3>
-            <p>כל יעד, כל צעד וכל קו נסיעה נשמרים על מפה אחת — עם ספירת מדינות, יעדים וימים שמתעדכנת לבד.</p>
-            <div class="yl-step-shot"><div class="yl-phone"><div class="yl-screen"><img src="img/scr_jmap.jpg" alt="מפת היומן"></div></div></div>
-          </article>
-
-          <article class="yl-step" data-yl-step="3">
-            <h3><button class="yl-step-btn" type="button" data-go="3"><span class="yl-step-num"><i>4</i>רגעים</span><span class="yl-step-title">רגעים שנשארים.</span></button></h3>
-            <p>תמונות וטקסט לכל צעד, ושיתוף בלחיצה — כסטורי מעוצב לאינסטגרם או כקישור לחברים ולמשפחה.</p>
-            <div class="yl-step-shot"><div class="yl-phone"><div class="yl-screen"><img src="img/scr_step.jpg" alt="צעד ביומן עם תמונה"></div></div></div>
-          </article>
-
-          <article class="yl-step" data-yl-step="4">
-            <h3><button class="yl-step-btn" type="button" data-go="4"><span class="yl-step-num"><i>5</i>הוצאות</span><span class="yl-step-title">כל שקל, בכל מטבע.</span></button></h3>
-            <p>רושמים בכל מטבע, והכול מומר לשקלים — לפי ימים, קטגוריות ותשלומים. חיובים קבועים מופיעים מראש.</p>
-            <div class="yl-step-shot"><div class="yl-phone"><div class="yl-screen"><img src="img/scr_money.jpg" alt="מסך ההוצאות"></div></div></div>
-          </article>
-
-          <article class="yl-step" data-yl-step="5">
-            <h3><button class="yl-step-btn" type="button" data-go="5"><span class="yl-step-num"><i>6</i>קיזוזים</span><span class="yl-step-title">מי חייב למי — בלי ויכוחים.</span></button></h3>
-            <p>הוצאות משותפות עם החבר׳ה ועם קבוצות, והקיזוז החכם מצמצם את ההעברות למינימום.</p>
-            <div class="yl-step-shot"><div class="yl-phone"><div class="yl-screen"><img src="img/scr_settle.jpg" alt="מסך הקיזוזים"></div></div></div>
-          </article>
-
-          <article class="yl-step" data-yl-step="6">
-            <h3><button class="yl-step-btn" type="button" data-go="6"><span class="yl-step-num"><i>7</i>בטיחות</span><span class="yl-step-title">יודעים לפני שנוסעים.</span></button></h3>
-            <p>אזהרת המסע הרשמית, דרישות ויזה לדרכון ישראלי ופרטי השגרירות — לפי המדינה שבה אתם נמצאים, מתעדכן כל יום.</p>
-            <div class="yl-step-shot"><div class="yl-phone"><div class="yl-screen"><img src="img/scr_info.jpg" alt="מסך מידע ואזהרות מסע"></div></div></div>
-          </article>
-
-        </div>
-        <div class="yl-how-phone">
-          <div class="yl-phone" style="width: 320px;">
-            <div class="yl-screen">
-              <img data-yl-scr="0" class="yl-scr is-on" src="img/scr_home.jpg" alt="מסך הבית">
-              <img data-yl-scr="1" class="yl-scr" src="img/scr_plan.jpg" alt="מסך התכנון">
-              <img data-yl-scr="2" class="yl-scr" src="img/scr_jmap.jpg" alt="מפת היומן">
-              <img data-yl-scr="3" class="yl-scr" src="img/scr_step.jpg" alt="צעד ביומן">
-              <img data-yl-scr="4" class="yl-scr" src="img/scr_money.jpg" alt="מסך ההוצאות">
-              <img data-yl-scr="5" class="yl-scr" src="img/scr_settle.jpg" alt="מסך הקיזוזים">
-              <img data-yl-scr="6" class="yl-scr" src="img/scr_info.jpg" alt="מסך מידע ואזהרות מסע">
-            </div>
-          </div>
-          <div class="yl-dots" role="group" aria-label="בחירת מסך">
-            <button class="yl-dot is-on" type="button" data-yl-dot="0" data-go="0" aria-label="בית"><span></span></button>
-            <button class="yl-dot" type="button" data-yl-dot="1" data-go="1" aria-label="תכנון"><span></span></button>
-            <button class="yl-dot" type="button" data-yl-dot="2" data-go="2" aria-label="יומן"><span></span></button>
-            <button class="yl-dot" type="button" data-yl-dot="3" data-go="3" aria-label="רגעים"><span></span></button>
-            <button class="yl-dot" type="button" data-yl-dot="4" data-go="4" aria-label="הוצאות"><span></span></button>
-            <button class="yl-dot" type="button" data-yl-dot="5" data-go="5" aria-label="קיזוזים"><span></span></button>
-            <button class="yl-dot" type="button" data-yl-dot="6" data-go="6" aria-label="בטיחות"><span></span></button>
-          </div>
-        </div>
+    <section class="yl-gtile" style="position: relative; overflow: hidden; background: #08080A; color: #F5F5F7; padding: 56px 24px 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <p style="margin: 0; font-size: 15px; font-weight: 600; color: #5C97FF;">קיזוזים</p>
+      <h3 class="yl-h3" style="margin: 6px 0 0; font-weight: 600;">מי חייב למי?</h3>
+      <p style="margin: 6px 0 0; font-size: 19px; line-height: 25px; color: #C7C7CC;">קיזוז חכם, בכמה שפחות העברות. בלי ויכוחים.</p>
+      <div class="yl-rise" style="margin-top: 36px; width: 250px; max-width: 70%; aspect-ratio: 1179 / 2556; box-sizing: border-box; padding: 8px; border-radius: 40px; background: #1C1C1E; box-shadow: 0 0 0 1px #2C2C2E; margin-bottom: -170px;">
+        <img loading="lazy" decoding="async" src="img/ph_settle.jpg" alt="מסך הקיזוזים: מי חייב למי בקבוצה" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 32px;">
       </div>
     </section>
+  </div>
 
-    <section class="yl-sec yl-light" id="yl-privacy" aria-labelledby="yl-privacy-title">
-      <div class="rv">
-        <p class="yl-eyebrow">בטוח ופרטי</p>
-        <h2 class="yl-h2" id="yl-privacy-title">הטיול שלכם. המידע שלכם.</h2>
-      </div>
-      <div class="yl-cards">
-        <div class="yl-card">
-          <div class="yl-card-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0049C4" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 018 0v3"></path></svg></div>
-          <h3>פרטי כברירת מחדל</h3>
-          <p>לא מוכרים מידע. הדרכון והביטוח בכספת שנעולה ב-Face ID, ומחיקת חשבון מלאה מתוך האפליקציה.</p>
-        </div>
-        <div class="yl-card">
-          <div class="yl-card-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0049C4" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.5a3.5 3.5 0 010 7M21.5 20a6.5 6.5 0 00-4-6"></path></svg></div>
-          <h3>אתם מחליטים מה משותף</h3>
-          <p>היומן משותף עם החברים שאישרתם, ואפשר לכבות בלחיצה. הוצאות, קבלות ומסמכים — אף פעם.</p>
-        </div>
-        <div class="yl-card">
-          <div class="yl-card-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0049C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
-          <h3>אימות דו־שלבי, פשוט</h3>
-          <p>מתג אחד, פתיחה ישירה של אפליקציית האימות, והקוד נבדק לבד — כמו באפליקציות הגדולות.</p>
-        </div>
-      </div>
-    </section>
+  <div style="height: 12px;"></div>
 
-    <section class="yl-sec yl-dark yl-dl" id="yl-download" aria-labelledby="yl-dl-title">
-      <div class="rv">
-        <img class="yl-dl-logo" src="img/logo.png" alt="" aria-hidden="true">
-        <h2 class="yl-h2" id="yl-dl-title">יאללה הורדתם? אז יאללה!</h2>
-        <p class="yl-sub">ממטיילים בשביל מטיילים</p>
-        <div class="yl-btns">
-          <a class="yl-pill yl-store" href="#yl-download" aria-label="App Store — בקרוב"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.7 0 0-2.5-1-2.5-3.6zM14.1 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"></path></svg><div style="text-align: start;"><small>בקרוב ב-</small><span>App Store</span></div></a>
-          <a class="yl-pill yl-store" href="#yl-download" aria-label="Google Play — בקרוב"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5v17l10-8.5-10-8.5z"></path><path d="M15 12l4 2.3-4 2.2M15 12l4-2.3-4-2.2"></path></svg><div style="text-align: start;"><small>בקרוב ב-</small><span>Google Play</span></div></a>
-        </div>
-        <p class="yl-soon">הקישורים להורדה יופיעו כאן עם העלייה לחנויות.</p>
+  <section class="yl-tile" style="position: relative; overflow: hidden; background: #0A28A1; color: #FFFFFF; padding: 64px 24px 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
+    <p style="margin: 0; font-size: 17px; font-weight: 600; color: #BFD4FF;">תכנון</p>
+    <h2 class="yl-h2" style="margin: 6px 0 0; font-weight: 600;">תוכנית מלאה, בשניות.</h2>
+    <p class="yl-sub" style="margin: 8px 0 0; color: #DCE6FF;">כותבים לאן, ומקבלים מסלול יום אחרי יום עם לינה ותקציב.</p>
+    <div class="yl-rise" style="margin-top: 44px; width: 300px; max-width: 72%; aspect-ratio: 1179 / 2556; box-sizing: border-box; padding: 10px; border-radius: 48px; background: #08080A; box-shadow: 0 40px 90px rgba(0,0,0,0.35); margin-bottom: -210px;">
+      <img loading="lazy" decoding="async" src="img/ph_plan.jpg" alt="מסך התכנון: תוכנית יום אחרי יום ליעד הבא" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 38px;">
+    </div>
+  </section>
+
+  <div style="height: 12px;"></div>
+
+  <div class="yl-grid">
+    <section class="yl-gtile" style="position: relative; overflow: hidden; background: #08080A; color: #F5F5F7; padding: 56px 24px 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <p style="margin: 0; font-size: 15px; font-weight: 600; color: #5C97FF;">יומן</p>
+      <h3 class="yl-h3" style="margin: 6px 0 0; font-weight: 600;">הטיול שלך, על המפה.</h3>
+      <p style="margin: 6px 0 0; font-size: 19px; line-height: 25px; color: #C7C7CC;">יעדים, צעדים ותמונות. נשמרים לבד.</p>
+      <div class="yl-rise" style="margin-top: 36px; width: 250px; max-width: 70%; aspect-ratio: 1179 / 2556; box-sizing: border-box; padding: 8px; border-radius: 40px; background: #1C1C1E; box-shadow: 0 0 0 1px #2C2C2E; margin-bottom: -170px;">
+        <img loading="lazy" decoding="async" src="img/ph_jmap.jpg" alt="מפת היומן: המסלול בין המדינות עם ספירת יעדים וצעדים" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 32px;">
       </div>
     </section>
-  </main>
+    <section class="yl-gtile" style="position: relative; overflow: hidden; background: #F2F2F4; padding: 56px 24px 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <p style="margin: 0; font-size: 15px; font-weight: 600; color: #0049C4;">רגעים</p>
+      <h3 class="yl-h3" style="margin: 6px 0 0; font-weight: 600;">כל רגע, לסטורי.</h3>
+      <p style="margin: 6px 0 0; font-size: 19px; line-height: 25px; color: #3A3A3C;">סטורי מעוצב או קישור לחברים, בלחיצה.</p>
+      <div class="yl-rise" style="margin-top: 36px; width: 250px; max-width: 70%; aspect-ratio: 1179 / 2556; box-sizing: border-box; padding: 8px; border-radius: 40px; background: #08080A; margin-bottom: -170px;">
+        <img loading="lazy" decoding="async" src="img/ph_step.jpg" alt="צעד ביומן עם תמונה, מוכן לשיתוף" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 32px;">
+      </div>
+    </section>
+  </div>
 
-  <footer class="yl-footer">
-    <div class="yl-footer-in">
-      <p style="margin: 0;">Yalla היא אפליקציה עצמאית לתכנון, תיעוד וניהול כספי טיולים, שנבנתה על ידי מטיילים. רמות האזהרה מבוססות על המאגר הפתוח של ממשלת ישראל ואינן מחליפות בדיקה מול הגורמים הרשמיים.</p>
-      <div class="yl-footer-row">
-        <div class="yl-footer-links">
-          <a href="privacy.html">מדיניות פרטיות</a>
-          <a href="terms.html">תנאי שימוש</a>
-          <a href="support.html">תמיכה</a>
-          <a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a>
+  <div style="height: 12px;"></div>
+
+  <section class="yl-tile" style="position: relative; overflow: hidden; background: #F2F2F4; padding: 64px 24px 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
+    <p style="margin: 0; font-size: 17px; font-weight: 600; color: #0049C4;">לפני שטסים</p>
+    <h2 class="yl-h2" style="margin: 6px 0 0; font-weight: 600;">ויזה, אזהרות ושגרירות.</h2>
+    <p class="yl-sub" style="margin: 8px 0 0; color: #3A3A3C;">תנאי כניסה לבעלי דרכון ישראלי, ואזהרות מסע לכל מדינה.</p>
+    <div class="yl-rise" style="margin-top: 44px; width: 300px; max-width: 72%; aspect-ratio: 1179 / 2556; box-sizing: border-box; padding: 10px; border-radius: 48px; background: #08080A; box-shadow: 0 30px 70px rgba(10,20,50,0.18); margin-bottom: -210px;">
+      <img loading="lazy" decoding="async" src="img/ph_info.jpg" alt="מסך מידע לפני הטיסה: ויזה, אזהרת מסע ופרטי שגרירות" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 38px;">
+    </div>
+  </section>
+
+  <div style="height: 12px;"></div>
+
+  <section id="privacy" style="background: #08080A; color: #F5F5F7; padding: 96px 24px;">
+    <div style="max-width: 1024px; margin: 0 auto; text-align: center;">
+      <h2 class="yl-h2" style="margin: 0; font-weight: 600;">הטיול שלך. המידע שלך.</h2>
+      <p class="yl-sub" style="margin: 8px 0 0; color: #C7C7CC;">בלי פרסומות, בלי מעקב. לא מוכרים מידע.</p>
+      <div class="yl-trio yl-rv" style="margin-top: 56px; text-align: right;">
+        <div>
+          <p style="margin: 0; font-size: 21px; line-height: 27px; font-weight: 600;">כספת מסמכים</p>
+          <p style="margin: 6px 0 0; font-size: 17px; line-height: 25px; color: #C7C7CC;">דרכון, ביטוח וכרטיסים, נעולים ב-Face ID.</p>
         </div>
-        <span>© 2026 Yalla</span>
+        <div>
+          <p style="margin: 0; font-size: 21px; line-height: 27px; font-weight: 600;">אתם מחליטים מה משותף</p>
+          <p style="margin: 6px 0 0; font-size: 17px; line-height: 25px; color: #C7C7CC;">היומן משותף עם החברים שאישרתם. הוצאות ומסמכים — אף פעם.</p>
+        </div>
+        <div>
+          <p style="margin: 0; font-size: 21px; line-height: 27px; font-weight: 600;">מוחקים מתי שרוצים</p>
+          <p style="margin: 6px 0 0; font-size: 17px; line-height: 25px; color: #C7C7CC;">מחיקת חשבון מלאה, ישר מתוך האפליקציה.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="height: 12px;"></div>
+
+  <section id="download" style="background: #F2F2F4; padding: 96px 24px; text-align: center;">
+    <h2 class="yl-h2" style="margin: 0; font-weight: 600;">אז במקום חמש אפליקציות — אחת.</h2>
+    <p class="yl-sub" style="margin: 8px 0 0; color: #3A3A3C;">יאללה הורדתם? אז יאללה!</p>
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 17px; margin-top: 24px;">
+      <span style="padding: 11px 21px; border-radius: 980px; background: #0061FD; color: #FFFFFF; font-size: 17px; font-weight: 600;">בקרוב ב-App Store</span>
+      <span style="padding: 10px 20px; border-radius: 980px; border: 1px solid #B9BCC8; color: #3A3A3C; font-size: 17px; font-weight: 600;">בקרוב ב-Google Play</span>
+    </div>
+  </section>
+
+  <footer style="background: #F2F2F4; border-top: 1px solid #D9D9DE; padding: 20px 24px 28px;">
+    <div style="max-width: 1024px; margin: 0 auto; display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-size: 12px; line-height: 16px; color: #65656E;">
+      <span>© 2026 Yalla. ממטיילים בשביל מטיילים.</span>
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px;">
+        <a href="privacy.html" style="color: #3A3A3C; text-decoration: none;">מדיניות פרטיות</a>
+        <a href="terms.html" style="color: #3A3A3C; text-decoration: none;">תנאי שימוש</a>
+        <a href="support.html" style="color: #3A3A3C; text-decoration: none;">תמיכה</a>
+        <a href="mailto:yallatraveling@gmail.com" style="color: #3A3A3C; text-decoration: none;">yallatraveling@gmail.com</a>
       </div>
     </div>
   </footer>
