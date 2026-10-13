@@ -5,89 +5,289 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
 <meta name="referrer" content="no-referrer" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-ALtNmsujXWIDeTV8XJzfBPYObc8A7IaomksyKDBIkjM='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" />
-<title>יום מהטיול</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-z+QZJAgCGWisLlSx3cUdbPJBaTVkGXY7653fEAxeCYg='; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'" />
+<title>Yalla</title>
 <style>
-  :root { --paper: #F1F2F5; --ink: #16191F; --ink-soft: #4B5162; --accent: #0B3FB8; --card: #fff; }
+  :root {
+    --paper: #F2F2F4; --card: #FFFFFF; --ink: #08080A; --ink-soft: #4B4B53; --muted: #65656E;
+    --accent: #0061FD; --accent-ink: #0049C4; --tint: #E7EAFE; --line: #EEEFF3; --outline: #D3D8F6;
+    --ok: #117549;
+  }
   @media (prefers-color-scheme: dark) {
-    :root { --paper: #12151F; --ink: #F3F1EA; --ink-soft: #B9C2D4; --accent: #7FA4FF; --card: #1B2030; }
+    :root {
+      --paper: #0A0A0C; --card: #16161A; --ink: #F3F3F5; --ink-soft: #C2C2CA; --muted: #A2A2AB;
+      --accent: #2F7BFF; --accent-ink: #8DB4FF; --tint: #1C2440; --line: #26262C; --outline: #2C3550;
+    }
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; }
   body {
-    min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    padding: 24px 16px; background: var(--paper); color: var(--ink);
-    font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+    min-height: 100vh; background: var(--paper); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Assistant, Arial, sans-serif;
+    display: flex; justify-content: center;
   }
   main {
-    width: 100%; max-width: 420px; background: var(--card); border-radius: 24px;
-    padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    width: 100%; max-width: 420px; min-height: 100vh; padding: 36px 20px 24px;
+    display: flex; flex-direction: column; align-items: center;
   }
-  .emoji { font-size: 56px; line-height: 1; }
-  h1 { font-size: 26px; margin: 16px 0 8px; }
-  p { color: var(--ink-soft); font-size: 16px; line-height: 1.5; margin: 0 0 20px; }
+  .logo { width: 84px; height: 56px; object-fit: contain; }
+  .logo-dark { display: none; }
+  @media (prefers-color-scheme: dark) { .logo-light { display: none; } .logo-dark { display: block; } }
+  .avatar {
+    margin-top: 18px; position: relative; width: 100px; height: 100px; border-radius: 50%;
+    border: 4px solid var(--card); background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 42px; font-weight: 800; box-shadow: 0 8px 22px rgba(0, 73, 196, .22);
+  }
+  .badge {
+    position: absolute; bottom: -2px; left: -2px; width: 34px; height: 34px; border-radius: 50%;
+    border: 3px solid var(--paper); display: flex; align-items: center; justify-content: center;
+  }
+  .badge.add { background: var(--ok); }
+  .badge.book { background: var(--accent); }
+  h1 { margin: 14px 0 0; font-size: 26px; line-height: 1.22; font-weight: 800; text-align: center; }
+  .lead { margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: var(--ink-soft); text-align: center; }
+  .panel { margin-top: 16px; width: 100%; background: var(--card); border-radius: 20px; padding: 6px 16px; }
+  .panel-title { font-size: 13px; font-weight: 700; color: var(--muted); padding: 10px 0 4px; }
+  .row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .row:last-child { border-bottom: 0; }
+  .ic {
+    width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; background: var(--tint);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .row span { font-size: 15px; font-weight: 600; }
+  .trip {
+    margin-top: 18px; width: 100%; background: var(--card); border-radius: 20px; padding: 18px;
+    display: flex; align-items: center; gap: 14px; box-shadow: 0 6px 18px rgba(8, 8, 10, .06);
+  }
+  .trip-ic {
+    width: 52px; height: 52px; flex-shrink: 0; border-radius: 14px; background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .trip small { display: block; font-size: 13px; font-weight: 700; color: var(--muted); }
+  .trip strong { display: block; font-size: 21px; line-height: 1.2; font-weight: 800; }
+  .chips { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .chip {
+    display: flex; align-items: center; gap: 6px; background: var(--card); border-radius: 999px;
+    padding: 7px 12px; font-size: 14px; font-weight: 600;
+  }
+  .actions { margin-top: auto; padding-top: 22px; width: 100%; display: flex; flex-direction: column; gap: 10px; }
   .btn {
-    display: block; width: 100%; padding: 16px; border-radius: 999px; font-size: 17px;
-    font-weight: 700; text-decoration: none; margin-top: 12px; border: 0;
+    min-height: 56px; border-radius: 999px; text-decoration: none; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center;
   }
-  .primary { background: var(--accent); color: #fff; }
-  .secondary { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
-  .note { font-size: 13px; margin-top: 20px; margin-bottom: 0; }
-  .hidden { display: none; }
+  .primary { background: var(--accent); color: #fff; font-size: 17px; }
+  .store {
+    min-height: 62px; border: 2px solid var(--outline); background: var(--card);
+    flex-direction: column; gap: 2px; padding: 6px 12px;
+  }
+  .store b { font-size: 17px; color: var(--accent-ink); font-weight: 800; }
+  .store em { font-style: normal; font-size: 13px; font-weight: 600; color: var(--ink-soft); display: flex; align-items: center; gap: 5px; }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .note { margin: 4px 0 0; font-size: 13px; color: var(--muted); text-align: center; line-height: 1.5; }
+  .note a { color: var(--accent-ink); }
+  .hidden { display: none !important; }
+  svg { flex-shrink: 0; }
 </style>
 </head>
 <body>
 <main>
-  <div class="emoji" id="emoji">🎒</div>
-  <h1 id="title">קיבלת יום מהטיול</h1>
-  <p id="lead">מישהו שיתף איתך יום מהמסע שלו — תמונות, מקומות ומה שקרה. כדי לראות אותו צריך את אפליקציית <b>Yalla</b>.</p>
-  <a id="open" class="btn primary" href="#">פתיחה באפליקציה</a>
-  <a id="store" class="btn secondary hidden" href="#">הורדת האפליקציה</a>
-  <p id="soon" class="note hidden">האפליקציה תגיע בקרוב לחנויות. בינתיים בקשו ממי ששלח את הלינק להזמין אתכם.</p>
-  <p class="note">כבר הורדתם? חזרו לכאן אחרי ההתקנה ולחצו "פתיחה באפליקציה".</p>
-  <p class="note"><a href="accessibility.html">הצהרת נגישות</a></p>
+  <img class="logo logo-light" src="img/logo-ui.png" alt="Yalla" />
+  <img class="logo logo-dark" src="img/logo-light.png" alt="Yalla" />
+
+  <div class="avatar" aria-hidden="true">
+    <span id="initial">Y</span>
+    <span class="badge add" id="badge-add">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </span>
+    <span class="badge book hidden" id="badge-book">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>
+    </span>
+  </div>
+
+  <h1 id="title"></h1>
+  <p class="lead" id="lead"></p>
+
+  <section class="panel hidden" id="friend-panel">
+    <div class="panel-title" id="together"></div>
+    <div class="row"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0061FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span><span id="f1"></span></div>
+    <div class="row"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0061FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="3"/><path d="M16 13h2M2 10h20"/></svg></span><span id="f2"></span></div>
+    <div class="row"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0061FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg></span><span id="f3"></span></div>
+    <div class="row"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0061FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span id="f4"></span></div>
+    <div class="row"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0061FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7"/><path d="M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg></span><span id="f5"></span></div>
+  </section>
+
+  <section class="trip hidden" id="trip-card">
+    <span class="trip-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg></span>
+    <div><small id="trip-owner"></small><strong id="trip-name"></strong></div>
+  </section>
+  <div class="chips hidden" id="trip-chips">
+    <span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0061FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="c1"></span></span>
+    <span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0061FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></svg><span id="c2"></span></span>
+    <span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0061FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg><span id="c3"></span></span>
+  </div>
+
+  <div class="actions">
+    <a id="open" class="btn primary" href="#">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      <span id="open-label"></span>
+    </a>
+    <a id="store" class="btn store hidden" href="#">
+      <b id="slogan"></b>
+      <em><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><span id="download"></span></em>
+    </a>
+    <p id="soon" class="note hidden"></p>
+    <p class="note"><span id="footnote"></span> · <a id="a11y" href="accessibility.html"></a></p>
+  </div>
 </main>
 <script>
 (function () {
-  // כתובות החנויות — להשלים כשהאפליקציה עולה ל-App Store / Google Play.
-  var STORE = { ios: '', android: '' };
+  var STORE = { ios: 'https://testflight.apple.com/join/ZQH7fCGu', android: '' };
+
+  var T = {
+    he: {
+      friendM: '{n} רוצה להיות חבר שלך ב-Yalla', friendF: '{n} רוצה להיות חברה שלך ב-Yalla',
+      friendN: '{n} רוצה להיות חבר/ה שלך ב-Yalla',
+      friendAnon: 'הוזמנת להיות חברים ב-Yalla',
+      friendLead: 'מאשרים באפליקציה ואתם חברים, בלי אישור נוסף.',
+      friendLeadOld: 'פותחים באפליקציה ושולחים בקשת חברות.',
+      together: 'מה עושים ביחד',
+      f1: 'עוקבים אחרי היומן של כל אחד, בזמן אמת', f2: 'מחלקים הוצאות בקבוצה ומתקזזים בלחיצה',
+      f3: "צ'אט אישי בתוך האפליקציה", f4: 'רואים מדינות ורמת מטייל של כל אחד',
+      f5: 'תזכורת ליום ההולדת, גם באמצע טיול',
+      openFriend: 'אישור חברות באפליקציה', inviteValid: 'הקישור תקף 3 ימים',
+      trip: '{n} רוצה לשתף איתך את יומן הטיול שלו', tripAnon: 'שיתפו איתך יומן טיול',
+      day: '{n} רוצה לשתף איתך יום מהטיול', dayAnon: 'שיתפו איתך יום מהטיול',
+      tripLead: 'כל הצעדים, התמונות והמסלול על המפה. וכל צעד חדש מופיע אצלך בזמן אמת.',
+      dayLead: 'התמונות, המקומות ומה שקרה באותו יום.',
+      owner: 'היומן של {n}', ownerAnon: 'יומן טיול',
+      c1: 'מסלול על המפה', c2: 'תמונות מכל יום', c3: 'מתעדכן בזמן אמת',
+      openJournal: 'פתיחת היומן באפליקציה', openDay: 'פתיחת היום באפליקציה', viewOnly: 'צפייה בלבד',
+      slogan: 'אין לך עוד Yalla? אז יאללה!', download: 'להורדה לחצו כאן',
+      soon: 'האפליקציה תגיע בקרוב לחנויות. בינתיים בקשו ממי ששלח את הקישור להזמין אתכם.',
+      a11y: 'הצהרת נגישות'
+    },
+    en: {
+      friendM: '{n} wants to be your friend on Yalla', friendF: '{n} wants to be your friend on Yalla',
+      friendN: '{n} wants to be your friend on Yalla',
+      friendAnon: "You're invited to be friends on Yalla",
+      friendLead: "Accept in the app and you're friends. No extra approval needed.",
+      friendLeadOld: 'Open the app and send a friend request.',
+      together: 'What you can do together',
+      f1: "Follow each other's journals in real time", f2: 'Split group expenses and settle up in a tap',
+      f3: 'Private chat inside the app', f4: "See each other's countries and traveler level",
+      f5: 'A birthday reminder, even mid-trip',
+      openFriend: 'Accept in the app', inviteValid: 'This link is valid for 3 days',
+      trip: '{n} wants to share their travel journal with you', tripAnon: 'A travel journal was shared with you',
+      day: '{n} wants to share a day from their trip', dayAnon: 'A day from a trip was shared with you',
+      tripLead: 'Every step, photo and the route on the map. New steps show up for you in real time.',
+      dayLead: 'The photos, places and what happened that day.',
+      owner: "{n}'s journal", ownerAnon: 'Travel journal',
+      c1: 'Route on the map', c2: 'Photos from every day', c3: 'Updates in real time',
+      openJournal: 'Open the journal in the app', openDay: 'Open the day in the app', viewOnly: 'View only',
+      slogan: "No Yalla yet? Then yalla!", download: 'Tap here to download',
+      soon: 'The app is coming to the stores soon. Ask whoever sent the link to invite you.',
+      a11y: 'Accessibility'
+    },
+    es: {
+      friendM: '{n} quiere ser tu amigo en Yalla', friendF: '{n} quiere ser tu amiga en Yalla',
+      friendN: '{n} quiere ser tu amigo en Yalla',
+      friendAnon: 'Te invitaron a ser amigos en Yalla',
+      friendLead: 'Acepta en la app y ya son amigos, sin otra aprobación.',
+      friendLeadOld: 'Abre la app y envía una solicitud de amistad.',
+      together: 'Lo que pueden hacer juntos',
+      f1: 'Seguir el diario del otro en tiempo real', f2: 'Dividir gastos en grupo y saldar con un toque',
+      f3: 'Chat privado dentro de la app', f4: 'Ver los países y el nivel de viajero del otro',
+      f5: 'Un recordatorio de cumpleaños, incluso en pleno viaje',
+      openFriend: 'Aceptar en la app', inviteValid: 'El enlace es válido por 3 días',
+      trip: '{n} quiere compartir contigo su diario de viaje', tripAnon: 'Compartieron contigo un diario de viaje',
+      day: '{n} quiere compartir contigo un día de su viaje', dayAnon: 'Compartieron contigo un día de un viaje',
+      tripLead: 'Cada paso, las fotos y la ruta en el mapa. Los pasos nuevos aparecen en tiempo real.',
+      dayLead: 'Las fotos, los lugares y lo que pasó ese día.',
+      owner: 'El diario de {n}', ownerAnon: 'Diario de viaje',
+      c1: 'Ruta en el mapa', c2: 'Fotos de cada día', c3: 'Se actualiza en tiempo real',
+      openJournal: 'Abrir el diario en la app', openDay: 'Abrir el día en la app', viewOnly: 'Solo lectura',
+      slogan: '¿Todavía no tienes Yalla? ¡Entonces yalla!', download: 'Toca aquí para descargar',
+      soon: 'La app llega pronto a las tiendas. Pide a quien te envió el enlace que te invite.',
+      a11y: 'Accesibilidad'
+    }
+  };
+
   var q = new URLSearchParams(location.search);
+  var clean = function (v, max) { return (v || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, max); };
+  var lang = q.get('l');
+  if (!T[lang]) {
+    var nav = (navigator.language || 'he').slice(0, 2);
+    lang = T[nav] ? nav : 'he';
+  }
+  var s = T[lang];
+  var name = clean(q.get('n'), 40);
+  var tripName = clean(q.get('j'), 60);
+  var g = q.get('g');
+  var kind = q.get('k');
+  var isInvite = kind === 'invite';
+  var isFriend = kind === 'friend' || isInvite;
+  var isTrip = kind === 'trip';
   var token = q.get('t') || '';
-  var isTrip = q.get('k') === 'trip';
-  var isFriend = q.get('k') === 'friend';
   var valid = /^[A-Za-z0-9_-]{8,64}$/.test(token);
-  var open = document.getElementById('open');
-  if (isTrip) {
-    document.getElementById('title').textContent = 'שיתפו איתך יומן טיול';
-    document.getElementById('lead').textContent =
-      'מישהו שיתף איתך את יומן הטיול שלו — כל הפוסטים, והחדשים יופיעו אצלך בזמן אמת. כדי לעקוב צריך את אפליקציית Yalla.';
-    document.title = 'יומן טיול ששותף איתך';
-  }
+  var $ = function (id) { return document.getElementById(id); };
+  var fill = function (tpl) { return tpl.replace('{n}', name); };
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
+  $('initial').textContent = name ? name.charAt(0).toUpperCase() : 'Y';
+
   if (isFriend) {
-    // השם של המזמין מהקישור (n) — טקסט בלבד, עד 40 תווים.
-    var inviter = (q.get('n') || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, 40);
-    document.getElementById('emoji').textContent = '🤝';
-    document.getElementById('title').textContent = inviter
-      ? inviter + ' רוצה להיות חברים איתך ב-Yalla'
-      : 'הוזמנת להיות חברים ב-Yalla';
-    document.getElementById('lead').textContent =
-      'כך תוכלו לראות אחד את הטיולים של השני ולחלק הוצאות בקלות. כדי לאשר צריך את אפליקציית Yalla.';
-    document.title = inviter ? 'הזמנת חברות מ' + inviter : 'הזמנת חברות ב-Yalla';
+    $('title').textContent = name
+      ? fill(g === 'f' ? s.friendF : g === 'm' ? s.friendM : s.friendN)
+      : s.friendAnon;
+    $('lead').textContent = isInvite ? s.friendLead : s.friendLeadOld;
+    $('together').textContent = s.together;
+    ['f1', 'f2', 'f3', 'f4', 'f5'].forEach(function (k) { $(k).textContent = s[k]; });
+    $('friend-panel').classList.remove('hidden');
+    $('open-label').textContent = s.openFriend;
+    $('footnote').textContent = isInvite ? s.inviteValid : s.viewOnly;
+  } else {
+    $('badge-add').classList.add('hidden');
+    $('badge-book').classList.remove('hidden');
+    $('title').textContent = name ? fill(isTrip ? s.trip : s.day) : isTrip ? s.tripAnon : s.dayAnon;
+    $('lead').textContent = isTrip ? s.tripLead : s.dayLead;
+    if (tripName) {
+      $('trip-owner').textContent = name ? fill(s.owner) : s.ownerAnon;
+      $('trip-name').textContent = tripName;
+      $('trip-card').classList.remove('hidden');
+    }
+    ['c1', 'c2', 'c3'].forEach(function (k) { $(k).textContent = s[k]; });
+    $('trip-chips').classList.remove('hidden');
+    $('open-label').textContent = isTrip ? s.openJournal : s.openDay;
+    $('footnote').textContent = s.viewOnly;
   }
+  document.title = $('title').textContent;
+  $('slogan').textContent = s.slogan;
+  $('download').textContent = s.download;
+  $('soon').textContent = s.soon;
+  $('a11y').textContent = s.a11y;
+  if (lang !== 'he') $('a11y').href = 'accessibility.html#en';
+
+  var open = $('open');
   if (valid) {
     open.href =
-      'hatiyul://' + (isFriend ? 'add-friend' : isTrip ? 'shared-trip' : 'shared-day') + '?token=' + encodeURIComponent(token);
+      'hatiyul://' +
+      (isInvite ? 'friend-invite' : isFriend ? 'add-friend' : isTrip ? 'shared-trip' : 'shared-day') +
+      '?token=' + encodeURIComponent(token) +
+      (isInvite && name ? '&n=' + encodeURIComponent(name) : '') +
+      (isInvite && (q.get('g') === 'f' || q.get('g') === 'm') ? '&g=' + q.get('g') : '');
   } else {
     open.classList.add('hidden');
   }
+
   var ua = navigator.userAgent || '';
   var storeUrl = /android/i.test(ua) ? STORE.android : STORE.ios || STORE.android;
   if (storeUrl) {
-    var store = document.getElementById('store');
-    store.href = storeUrl;
-    store.classList.remove('hidden');
+    $('store').href = storeUrl;
+    $('store').classList.remove('hidden');
   } else {
-    document.getElementById('soon').classList.remove('hidden');
+    $('soon').classList.remove('hidden');
   }
 })();
 </script>
