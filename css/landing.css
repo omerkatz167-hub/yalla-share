@@ -224,11 +224,13 @@ html:not(.js) .dots { display: none; }
   .story-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .stage { display: none; }
   .steps { position: relative; z-index: 1; }
-  .step { min-height: 0; flex-direction: column; align-items: stretch; gap: 22px; padding-block: 18px 52px; }
-  .step-shot { display: block; position: relative; width: min(68vw, 290px); margin: 0 auto; aspect-ratio: 599 / 1300;
-    border-radius: 34px; overflow: hidden; border: 6px solid #111318; background: #F2F2F7;
-    box-shadow: 0 0 0 1.5px #3A3F4C, 0 30px 70px rgba(0, 0, 0, .5), 0 0 90px color-mix(in srgb, var(--c) 35%, transparent); }
-  .step-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .step { min-height: 0; flex-direction: column; align-items: stretch; gap: 18px; padding-block: 14px 40px; }
+  .step-shot { display: block; position: relative; width: min(64vw, 270px); margin: 0 auto; aspect-ratio: 599 / 860;
+    border-radius: 30px 30px 22px 22px; overflow: hidden; border: 5px solid #111318; background: #F2F2F7;
+    box-shadow: 0 0 0 1.5px #3A3F4C, 0 24px 60px rgba(0, 0, 0, .45), 0 0 80px color-mix(in srgb, var(--c) 32%, transparent); }
+  .step-shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .step-shot::after { content: ""; position: absolute; inset: auto 0 0; height: 22%;
+    background: linear-gradient(to bottom, transparent, rgba(16, 18, 24, .55)); pointer-events: none; }
   .step-copy { max-width: none; width: 100%; padding: 20px 22px 24px; border-radius: 26px; background: rgba(28, 31, 38, .96);
     border: 1px solid var(--hair-dark); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
   .js .step:not(.is-on) .step-copy { opacity: 1; }
