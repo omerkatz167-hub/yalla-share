@@ -193,6 +193,7 @@ p { margin: 0; }
 .step:nth-child(4) { --c: var(--c-settle); }
 .step:nth-child(5) { --c: var(--c-plan); }
 .step:nth-child(6) { --c: var(--c-info); }
+.step-shot { display: none; }
 .stage { position: sticky; top: 0; height: 100svh; display: grid; place-items: center; }
 .glow { position: absolute; inset: 8% -10%; pointer-events: none; }
 .glow i { position: absolute; inset: 0; border-radius: 50%; opacity: 0; transition: opacity .8s var(--ease);
@@ -221,16 +222,17 @@ html:not(.js) .dots { display: none; }
 @media (max-width: 900px) {
   .story { padding-block-start: 88px; }
   .story-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .stage { order: -1; top: var(--nav-h); height: 54svh; z-index: 0; }
-  .phone { --ph: min(48svh, 440px); }
-  .dots { inset-inline-end: 0; }
+  .stage { display: none; }
   .steps { position: relative; z-index: 1; }
-  .step { min-height: 78svh; align-items: flex-start; }
+  .step { min-height: 0; flex-direction: column; align-items: stretch; gap: 22px; padding-block: 18px 52px; }
+  .step-shot { display: block; position: relative; width: min(68vw, 290px); margin: 0 auto; aspect-ratio: 599 / 1300;
+    border-radius: 34px; overflow: hidden; border: 6px solid #111318; background: #F2F2F7;
+    box-shadow: 0 0 0 1.5px #3A3F4C, 0 30px 70px rgba(0, 0, 0, .5), 0 0 90px color-mix(in srgb, var(--c) 35%, transparent); }
+  .step-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .step-copy { max-width: none; width: 100%; padding: 20px 22px 24px; border-radius: 26px; background: rgba(28, 31, 38, .96);
     border: 1px solid var(--hair-dark); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
   .js .step:not(.is-on) .step-copy { opacity: 1; }
-  .js .step:not(.is-on) .step-copy > * { opacity: .5; transition: opacity .5s var(--ease); }
-  .step:last-child { min-height: 64svh; }
+  .step:last-child { padding-block-end: 24px; }
 }
 .tile { position: relative; overflow: clip; padding-block: clamp(72px, 9vw, 120px); }
 .on-blue { background: radial-gradient(120% 80% at 50% 0%, #1240D6 0%, var(--blue-deep) 55%, #071C73 100%); color: #fff; }
