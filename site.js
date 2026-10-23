@@ -78,7 +78,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
     update();
-    if (reduced) $$('.flight svg').forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });
     initFilm();
   });
   function initFilm() {
