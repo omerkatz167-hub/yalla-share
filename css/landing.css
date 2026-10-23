@@ -218,6 +218,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   body { font-size: 17px; }
   .hero { padding: 64px 0 70px; }
   .hero-sub { font-size: 18px; }
+  .hl { background: none; animation: none; text-decoration: underline; text-decoration-color: var(--sun); text-decoration-thickness: 5px; text-underline-offset: 10px; text-decoration-skip-ink: none; }
   .btn-lg { width: 100%; }
   .hero-phone { min-height: 470px; }
   .phone { width: 220px; height: 460px; border-radius: 40px; }
