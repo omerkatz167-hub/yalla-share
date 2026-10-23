@@ -37,21 +37,13 @@
       }, { rootMargin: '0px 0px -12% 0px' });
       revealEls.forEach(function (el) { rio.observe(el); });
     }
-    var nav = document.querySelector('.nav');
-    var hero = document.getElementById('top');
     var para = reduced ? [] : $$('[data-parallax]');
     var pinned = $$('[data-progress]');
     if (reduced) pinned.forEach(function (el) { el.style.setProperty('--p', '1'); });
     var ticking = false;
     var update = function () {
       ticking = false;
-      var y = window.scrollY || window.pageYOffset;
       var vh = window.innerHeight;
-      var max = Math.max(1, document.documentElement.scrollHeight - vh);
-      if (nav) {
-        nav.classList.toggle('is-solid', !!hero && y > hero.offsetHeight - 80);
-        nav.style.setProperty('--sp', (y / max).toFixed(4));
-      }
       if (!reduced) pinned.forEach(function (el) {
         var r = el.getBoundingClientRect();
         if (r.bottom < -vh || r.top > 2 * vh) return;
