@@ -216,6 +216,11 @@
             נתונים טכניים לאבטחה ולמניעת ניצול לרעה: רישום של מספר הפעולות בפרק זמן (הגבלת קצב, נשמר
             עד 35 יום), מוני שימוש בתכונות הבינה המלאכותית, ונתוני עלות מצטברים של השירות.
           </li>
+          <li>
+            דיווחי קריסות: כשהאפליקציה קורסת או נתקלת בשגיאה, נשלח דיווח טכני: פרטי השגיאה, דגם
+            המכשיר, גרסת מערכת ההפעלה וגרסת האפליקציה. הדיווח לא כולל את השם, האימייל, כתובת ה-IP או
+            תוכן שכתבתם, ונשמר עד 90 יום.
+          </li>
           <li>כתובת IP ופרטי מכשיר בסיסיים, שנרשמים אצל ספקי התשתית כחלק מכל בקשת רשת.</li>
         </ul>
         <p>
@@ -293,6 +298,10 @@
           <li>
             Resend: שליחת מיילים של המערכת (אישור הרשמה, איפוס סיסמה וקודי כניסה). נשלחים כתובת
             האימייל ותוכן המייל.
+          </li>
+          <li>
+            Sentry (של Functional Software, שרתים באיחוד האירופי): דיווחי קריסות ושגיאות, כמתואר
+            בסעיף 4. לא נשלחים פרטים מזהים.
           </li>
           <li>
             OpenStreetMap (Nominatim ו-Overpass), Photon של Komoot ו-Open-Meteo: המרת קואורדינטות
@@ -581,6 +590,12 @@
             data for the service.
           </li>
           <li>
+            Crash reports: when the app crashes or hits an error, a technical report is sent: the
+            error details, device model, operating system version and app version. The report does
+            not include your name, email, IP address or content you wrote, and is kept for up to 90
+            days.
+          </li>
+          <li>
             IP address and basic device information, which our infrastructure providers log as part
             of any network request.
           </li>
@@ -674,6 +689,10 @@
           <li>
             Resend: sending system emails (sign-up confirmation, password reset and sign-in codes).
             Your email address and the email content are sent.
+          </li>
+          <li>
+            Sentry (by Functional Software, servers in the EU): crash and error reports, as
+            described in section 4. No identifying details are sent.
           </li>
           <li>
             OpenStreetMap (Nominatim and Overpass), Komoot Photon and Open-Meteo: turning
