@@ -16,36 +16,49 @@
 <meta property="og:description" content="יומן על המפה, הוצאות בכל מטבע, קיזוזים ותכנון עם AI — במקום אחד. ממטיילים בשביל מטיילים.">
 <meta property="og:image" content="https://yalla-traveling.com/img/og.jpg">
 <meta property="og:url" content="https://yalla-traveling.com/">
-<meta name="theme-color" content="#0A28A1">
-<link rel="preload" href="fonts/Rubik_900Black.ttf" as="font" type="font/ttf" crossorigin>
+<meta name="theme-color" content="#000000">
+<link rel="preload" href="fonts/Rubik_600SemiBold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
 <a class="skip" href="#main">דלגו לתוכן</a>
+<header class="gnav">
+  <nav class="gnav-in" aria-label="ראשי">
+    <a class="gnav-brand" href="#top" aria-label="Yalla, לראש הדף"><img src="img/l/logo-ui.webp" alt="" width="54" height="36" decoding="async"></a>
+    <ul class="gnav-links" id="gnav-links">
+      <li><a href="#why">למה Yalla</a></li>
+      <li><a href="#inside">מה יש בפנים</a></li>
+      <li><a href="#film">הסרטון</a></li>
+      <li><a href="support.html">תמיכה</a></li>
+    </ul>
+    <a class="btn btn-compact" data-dl href="#download">הורדה</a>
+    <button class="gnav-menu" id="gnav-menu" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="תפריט">
+      <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 6h14M2 12h14"/></svg>
+    </button>
+  </nav>
+</header>
 <main id="main" tabindex="-1">
-  <section class="hero" id="top" aria-labelledby="hero-t">
-    <div class="hero-bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
-    <div class="wrap hero-in">
-      <div class="hero-copy">
-        <p class="pill-eyebrow ld">ממטיילים, בשביל מטיילים</p>
-        <h1 id="hero-t" class="ld"><span>כל הטיול.</span> <span class="hl">באפליקציה אחת.</span></h1>
-        <p class="hero-sub ld">יומן על המפה, הוצאות בכל מטבע, חשבון סגור עם החבר'ה ותוכנית מ-AI. בלי אקסל ובלי בלגן בוואטסאפ.</p>
-        <div class="btn-row ld">
-          <a class="btn btn-white btn-lg" data-dl href="#download">להורדה ל-iPhone</a>
-          <span class="btn btn-ghost btn-lg is-soon" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10h10v8a1 1 0 01-1 1H8a1 1 0 01-1-1zM8 9a4 4 0 018 0M9 6L8 4.5M15 6l1-1.5M4.5 11v5M19.5 11v5"/></svg>הורדה לאנדרואיד בקרוב</span>
-        </div>
+  <section class="tile tile-blue hero" id="top" aria-labelledby="hero-t">
+    <div class="tile-copy">
+      <p class="eyebrow hero-ld">ממטיילים, בשביל מטיילים</p>
+      <h1 id="hero-t" class="hero-ld">כל הטיול.<br><span class="hl">באפליקציה אחת.</span></h1>
+      <p class="tile-sub hero-ld">יומן, הוצאות, קיזוזים ותכנון. בלי אקסל ובלי בלגן.</p>
+      <div class="btns hero-ld">
+        <a class="btn btn-white" data-dl href="#download">להורדה ל-iPhone</a>
+        <a class="btn btn-outline" href="#inside">מה יש בפנים</a>
       </div>
-      <div class="hero-phone" data-parallax>
-        <div class="phone tilt ld"><img src="img/l/scr-money.webp" width="599" height="1300" decoding="async" fetchpriority="high" alt="מסך ההוצאות: כל הוצאה במטבע המקומי ובשקלים"></div>
-        <div class="sticker s1 ld" aria-hidden="true"><small>קפה בבואנוס איירס</small>9,000 פסו = <b>25.65 ₪</b></div>
-        <div class="sticker s2 ld" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>3 העברות וסגרנו</div>
-        <div class="sticker s3 ld" aria-hidden="true"><span class="ai">AI</span>תוכנית ל-14 יום מוכנה</div>
-      </div>
+      <p class="soon hero-ld">אנדרואיד בקרוב</p>
+    </div>
+    <div class="hero-phone">
+      <div class="phone"><img src="img/l/scr-home.webp" width="599" height="1300" decoding="async" fetchpriority="high" alt="מסך הבית של Yalla: היעד, הימים בטיול, החברים והצ'אטים"></div>
+      <div class="sticker s1" aria-hidden="true"><small>קפה בבואנוס איירס</small>9,000 פסו = <b>25.65 ₪</b></div>
+      <div class="sticker s2" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>3 העברות וסגרנו</div>
+      <div class="sticker s3" aria-hidden="true"><span class="ai">AI</span>תוכנית ל-14 יום מוכנה</div>
     </div>
   </section>
   <section class="merge" id="why" aria-labelledby="why-t" data-progress>
     <div class="merge-stage">
-      <p class="kicker">מכירים את זה?</p>
+      <p class="eyebrow">מכירים את זה?</p>
       <h2 id="why-t">חמש אפליקציות לטיול אחד?<br><span class="blue">מספיקה אחת.</span></h2>
       <p class="sr">תכנון מסלול, גיליון הוצאות, יומן ותמונות, קבוצת וואטסאפ ואזהרות מסע — Yalla מחליפה את כולן.</p>
       <div class="orbit" aria-hidden="true">
@@ -59,97 +72,119 @@
       </div>
     </div>
   </section>
-  <section class="inside" id="inside" aria-labelledby="inside-t">
-    <div class="wrap">
-      <header class="sec-head center">
-        <p class="kicker rv">מה יש בפנים</p>
-        <h2 id="inside-t" class="rv">מה שכולם שואלים עליו בדרך.</h2>
-      </header>
-      <div class="bento">
-        <article class="tile t-blue wide rv">
-          <div class="tile-copy">
-            <span class="tag">הוצאות</span>
-            <h3>כמה עלה הטיול? בשקלים, בכל רגע.</h3>
-            <p>רושמים בפסו, בסול או בבאט, ורואים מיד כמה זה בשקלים. ליום ולכל הטיול.</p>
-          </div>
-          <img class="shot" src="img/l/scr-money.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך ההוצאות: הוצאות לפי ימים, במטבע המקומי ובשקלים">
-        </article>
-        <article class="tile t-white rv">
-          <div class="tile-copy">
-            <span class="tag">קיזוזים</span>
-            <h3>מי חייב למי? נסגר בכמה העברות.</h3>
-            <p>הקיזוז החכם מוצא את הדרך הקצרה לסגור חשבון עם כל החבר'ה.</p>
-          </div>
-          <img class="shot" src="img/l/scr-settle.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך הקיזוזים: מי חייב למי בקבוצה">
-        </article>
-        <article class="tile t-deep rv">
-          <div class="tile-copy">
-            <span class="tag tag-sun">תכנון עם AI</span>
-            <h3>תוכנית יום אחרי יום, לפי התקציב שלכם.</h3>
-            <p>כותבים לאן ולכמה זמן, ומקבלים מסלול עם לינה, תחבורה וטיפים.</p>
-          </div>
-          <img class="shot" src="img/l/scr-plan.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך התכנון: תוכנית יום אחרי יום">
-        </article>
-        <article class="tile t-white wide rv">
-          <div class="tile-copy">
-            <span class="tag">יומן</span>
-            <h3>הטיול נכתב לבד, על המפה.</h3>
-            <p>יעדים, צעדים ותמונות נשמרים בדרך. בסוף יש לכם מפה של כל הטיול, וסטורי מוכן לאינסטגרם בלחיצה.</p>
-          </div>
-          <img class="shot" src="img/l/scr-journal.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מפת היומן: המסלול בין המדינות">
-        </article>
-      </div>
-      <div class="more rv">
-        <div class="more-copy">
-          <h3>וזה עוד לא הכול.</h3>
-          <p>איך מגיעים עם קווים, תחנות ומחירים. צ'אט עם החבר'ה. ויזות ואזהרות מסע לפני שטסים. ותזכורות לצ'ק-אין, לטיסות ולימי הולדת. הכול באותה אפליקציה.</p>
+  <section class="stk" id="inside" aria-labelledby="inside-t" data-progress data-handler="scenes">
+    <h2 id="inside-t" class="sr">מה יש בפנים</h2>
+    <div class="stk-sticky">
+      <div class="stk-phone" aria-hidden="true">
+        <div class="phone">
+          <img class="stk-img on" src="img/l/scr-money.webp" width="599" height="1300" loading="lazy" decoding="async" alt="">
+          <img class="stk-img" src="img/l/scr-settle.webp" width="599" height="1300" loading="lazy" decoding="async" alt="">
+          <img class="stk-img" src="img/l/scr-plan.webp" width="599" height="1300" loading="lazy" decoding="async" alt="">
+          <img class="stk-img" src="img/l/scr-journal.webp" width="599" height="1300" loading="lazy" decoding="async" alt="">
         </div>
-        <ul class="more-icons" aria-hidden="true">
-          <li><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="14" rx="3"/><path d="M4 11h16M8 17v3M16 17v3"/></svg></li>
-          <li><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></li>
-          <li><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg></li>
-          <li><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0112 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 003.4 0"/></svg></li>
-        </ul>
       </div>
+      <div class="stk-scenes">
+        <article class="stk-copy on">
+          <img class="stk-shot" src="img/l/scr-money.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך ההוצאות: כל הוצאה במטבע המקומי ובשקלים">
+          <p class="eyebrow">הוצאות</p>
+          <h3>כמה עלה הטיול?</h3>
+          <p>רושמים בפסו, בסול או בבאט, ורואים מיד בשקלים. ליום ולכל הטיול.</p>
+        </article>
+        <article class="stk-copy">
+          <img class="stk-shot" src="img/l/scr-settle.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך הקיזוזים: מי חייב למי בקבוצה">
+          <p class="eyebrow">קיזוזים</p>
+          <h3>מי חייב למי?</h3>
+          <p>הקיזוז החכם סוגר את החשבון עם כל החבר'ה בכמה העברות.</p>
+        </article>
+        <article class="stk-copy">
+          <img class="stk-shot" src="img/l/scr-plan.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך התכנון: תוכנית יום אחרי יום">
+          <p class="eyebrow">תכנון עם AI</p>
+          <h3>תוכנית, בדקה.</h3>
+          <p>כותבים לאן ולכמה זמן, ומקבלים מסלול עם לינה, תחבורה וטיפים.</p>
+        </article>
+        <article class="stk-copy">
+          <img class="stk-shot" src="img/l/scr-journal.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מפת היומן: המסלול בין המדינות">
+          <p class="eyebrow">יומן</p>
+          <h3>הטיול נכתב לבד.</h3>
+          <p>יעדים, צעדים ותמונות על המפה, וסטורי מוכן לאינסטגרם בלחיצה.</p>
+        </article>
+      </div>
+      <div class="stk-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
     </div>
   </section>
-  <section class="film" id="film" aria-labelledby="film-t">
-    <div class="wrap center">
-      <h2 id="film-t" class="rv">15 שניות, וכבר תבינו.</h2>
-      <div class="film-frame rv">
+  <section class="tile tile-light film" id="film" aria-labelledby="film-t">
+    <div class="tile-copy">
+      <h2 id="film-t">15 שניות, וכבר תבינו.</h2>
+    </div>
+    <div class="film-frame" data-reveal>
+      <div class="film-inner">
         <video id="film-v" muted loop playsinline preload="none" poster="video/yalla-hero-poster.jpg" data-vertical="video/yalla-vertical.mp4" data-vertical-poster="video/yalla-vertical-poster.jpg" aria-label="סרטון קצר על Yalla: הוצאות, קיזוזים, תכנון ויומן על המפה">
           <source src="video/yalla-hero.webm" type="video/webm">
           <source src="video/yalla-hero.mp4" type="video/mp4">
         </video>
-        <button class="film-ctl is-paused" id="film-ctl" type="button" aria-label="הפעלת הסרטון">
-          <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/></svg>
-          <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 1.5v11l9-5.5z"/></svg>
-        </button>
+      </div>
+      <button class="media-ctl is-paused" id="film-ctl" type="button" aria-label="הפעלת הסרטון">
+        <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/></svg>
+        <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M11 1.5v11l-9-5.5z"/></svg>
+      </button>
+    </div>
+  </section>
+  <section class="grid" aria-labelledby="more-t">
+    <h2 id="more-t" class="sr">וזה עוד לא הכול</h2>
+    <article class="tile tile-sun gtile">
+      <div class="tile-copy">
+        <h3>איך מגיעים.</h3>
+        <p class="tile-sub">קווים, תחנות ומחירים.</p>
+      </div>
+      <div class="gshot gshot-card"><img src="img/l/card-route-card.webp" width="610" height="700" loading="lazy" decoding="async" alt="כרטיס מסלול: אוטובוס בין שתי ערים, עם תחנות, זמנים ומחיר"></div>
+    </article>
+    <article class="tile tile-deep gtile">
+      <div class="tile-copy">
+        <h3>לפני שטסים.</h3>
+        <p class="tile-sub">ויזות ואזהרות מסע, בזמן.</p>
+      </div>
+      <div class="gshot"><div class="phone"><img src="img/l/scr-info.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך המידע ליעד: ויזה, אזהרת מסע, מטבע וחשמל"></div></div>
+    </article>
+    <article class="tile tile-blue gtile">
+      <div class="tile-copy">
+        <h3>סטורי בלחיצה.</h3>
+        <p class="tile-sub">היום שלכם, מעוצב לאינסטגרם.</p>
+      </div>
+      <div class="gshot"><div class="phone"><img src="img/l/scr-story.webp" width="599" height="1300" loading="lazy" decoding="async" alt="סטורי מעוצב של יום בטיול"></div></div>
+    </article>
+    <article class="tile tile-light gtile">
+      <div class="tile-copy">
+        <h3>החבר'ה, איתכם.</h3>
+        <p class="tile-sub">צ'אט, חברים ותזכורות לדרך.</p>
+      </div>
+      <div class="gshot"><div class="phone"><img src="img/l/scr-home.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך הבית: החברים והצ'אטים"></div></div>
+    </article>
+  </section>
+  <section class="tom" aria-labelledby="moment-t" data-progress>
+    <div class="tom-sticky">
+      <div class="tom-media"><img src="img/l/photo-hiker.webp" width="732" height="946" loading="lazy" decoding="async" alt="מטייל עם תרמיל עומד על סלע מול נוף הרים"></div>
+      <div class="tom-scrim" aria-hidden="true"></div>
+      <div class="tom-copy">
+        <h2 id="moment-t">הטיול הגדול אחרי הצבא? מגיע לו יותר.</h2>
+        <p>בנינו את Yalla בזמן שטיילנו בעצמנו. כל מה שחסר לנו בדרך, במקום אחד.</p>
       </div>
     </div>
   </section>
-  <section class="moment" aria-labelledby="moment-t">
-    <div class="wrap center moment-in">
-      <div>
-        <h2 id="moment-t" class="rv">הטיול הגדול אחרי הצבא? <span class="blue">מגיע לו יותר</span> מאקסל וקבוצת וואטסאפ.</h2>
-        <p class="lead rv">בנינו את Yalla בזמן שטיילנו בעצמנו. כל מה שחסר לנו בדרך, במקום אחד.</p>
+  <section class="tile tile-blue download" id="download" aria-labelledby="dl-t">
+    <div class="tile-copy">
+      <img class="dl-logo" src="img/l/logo-light.webp" alt="" width="96" height="64" loading="lazy" decoding="async">
+      <h2 id="dl-t">יאללה, טסים?</h2>
+      <p class="tile-sub">הורידו עכשיו, והטיול הבא כבר מסודר.</p>
+      <div class="btns">
+        <a class="btn btn-white btn-large" id="dl-main" href="https://testflight.apple.com/join/ZQH7fCGu" rel="noopener">להורדה ל-iPhone</a>
       </div>
-    </div>
-  </section>
-  <section class="download" id="download" aria-labelledby="dl-t">
-    <i class="ring r1" aria-hidden="true"></i><i class="ring r2" aria-hidden="true"></i>
-    <div class="wrap center">
-      <h2 id="dl-t" class="rv">יאללה, טסים?</h2>
-      <p class="lead rv">הורידו עכשיו, והטיול הבא כבר יהיה מסודר.</p>
-      <a class="btn btn-white btn-xl rv" id="dl-main" href="https://testflight.apple.com/join/ZQH7fCGu" rel="noopener">להורדה ל-iPhone</a>
-      <p class="dl-note rv">גרסת בטא. ההורדה דרך TestFlight, האפליקציה של Apple לגרסאות בטא.</p>
+      <p class="dl-note">גרסת בטא. ההורדה דרך TestFlight, האפליקציה של Apple לגרסאות בטא.</p>
     </div>
   </section>
 </main>
 <footer class="foot">
-  <div class="wrap foot-in">
-    <img src="img/l/logo-ui.webp" alt="Yalla" width="72" height="48" loading="lazy" decoding="async">
-    <ul>
+  <div class="foot-in">
+    <ul class="foot-links">
       <li><a href="privacy.html">מדיניות פרטיות</a></li>
       <li><a href="terms.html">תנאי שימוש</a></li>
       <li><a href="support.html">תמיכה</a></li>
