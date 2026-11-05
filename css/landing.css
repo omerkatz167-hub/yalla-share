@@ -234,12 +234,23 @@ button, input { font: inherit; color: inherit; }
 .photo-with-phone .photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 40% 88%; }
 .photo-with-phone .phone { --w: min(210px, 17vw); position: absolute; bottom: 0; inset-inline-end: -24px; }
 @media (max-width: 734px) { .photo-with-phone .phone { --w: min(170px, 40vw); inset-inline-end: 8px; } .photo-with-phone { margin-top: 12px; } }
-.gallery { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, .65fr) minmax(0, .65fr); gap: clamp(16px, 2vw, 28px); align-items: end; margin-top: 56px; }
-.g-photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; align-self: stretch; height: 100%; }
-.gallery .phone { --w: 100%; }
+.gallery { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(16px, 2vw, 28px); align-items: start; margin-top: 56px; }
+.g-photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.screens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.4vw, 20px); }
+.screen { margin: 0; }
+.screen img { display: block; width: 100%; aspect-ratio: 599 / 1300; object-fit: cover; object-position: top;
+  border-radius: clamp(18px, 2.2vw, 30px); background: #f5f5f7; box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); }
+.screen figcaption { margin-top: 12px; font-size: 14px; line-height: 1.35; color: #6e6e73; text-align: center; }
+@media (max-width: 1068px) and (min-width: 735px) {
+  .gallery { grid-template-columns: minmax(0, 1fr); }
+  .screens { max-width: 520px; margin-inline: auto; width: 100%; }
+}
 @media (max-width: 734px) {
-  .gallery { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .g-photo { grid-column: 1 / -1; height: auto; }
+  .gallery { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .screens { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad); scroll-padding-inline: var(--pad); }
+  .screens::-webkit-scrollbar { display: none; }
+  .screen { flex: 0 0 62%; scroll-snap-align: start; }
 }
 .film { background: #000; color: #fff; padding-block: var(--sec); }
 .film h2 { font-size: var(--t-head); line-height: 1.08; }
