@@ -10,25 +10,32 @@
     <title>Yalla · תנאי שימוש · Terms of Use</title>
     <style>
       :root {
-        --bg: #f6f7f9;
+        --bg: #f4f6fa;
         --card: #ffffff;
-        --ink: #16191f;
-        --ink-soft: #4b5162;
-        --rule: #e1e4eb;
-        --accent: #0b3fb8;
+        --ink: #14181f;
+        --ink-soft: #505768;
+        --rule: #e2e6ee;
+        --accent: #0a4fd6;
+        --brand: #0061fd;
+        --tint: #f1f5fe;
       }
       @media (prefers-color-scheme: dark) {
         :root {
-          --bg: #12151f;
-          --card: #1b2030;
-          --ink: #f3f1ea;
-          --ink-soft: #b9c2d4;
-          --rule: #2c3446;
-          --accent: #7fa4ff;
+          --bg: #0f131c;
+          --card: #181d2a;
+          --ink: #f1f3f8;
+          --ink-soft: #b4bdcf;
+          --rule: #2a3243;
+          --accent: #86aaff;
+          --brand: #5c96ff;
+          --tint: #1e2638;
         }
       }
       * {
         box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
       }
       html,
       body {
@@ -38,579 +45,898 @@
         background: var(--bg);
         color: var(--ink);
         font-family:
-          -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, 'Noto Sans Hebrew', sans-serif;
-        font-size: 16px;
-        line-height: 1.7;
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans Hebrew', Arial, sans-serif;
+        font-size: 17px;
+        line-height: 1.75;
+        -webkit-text-size-adjust: 100%;
       }
-      main {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 24px 16px 64px;
-      }
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 16px;
-        font-size: 14px;
-        margin-bottom: 16px;
+      ::selection {
+        background: var(--brand);
+        color: #fff;
       }
       a {
         color: var(--accent);
+        text-underline-offset: 3px;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--brand);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      .site-head {
+        background: var(--card);
+        border-bottom: 1px solid var(--rule);
+      }
+      .site-head-in {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 14px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px 20px;
+      }
+      .brand {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 18px;
+        font-size: 14px;
+      }
+      .site-nav a {
+        color: var(--ink-soft);
+        text-decoration: none;
+      }
+      .site-nav a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+      main {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 28px 16px 56px;
       }
       article {
         background: var(--card);
         border: 1px solid var(--rule);
-        border-radius: 16px;
-        padding: 24px 20px;
-        margin-bottom: 24px;
+        border-radius: 18px;
+        padding: 36px 32px 28px;
+        margin-bottom: 28px;
+        scroll-margin-top: 12px;
+      }
+      .doc-head {
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 18px;
+        margin-bottom: 22px;
       }
       h1 {
-        font-size: 26px;
-        line-height: 1.3;
-        margin: 0 0 4px;
+        font-size: 32px;
+        line-height: 1.2;
+        font-weight: 800;
+        margin: 0 0 8px;
+      }
+      .updated {
+        color: var(--ink-soft);
+        font-size: 14px;
+        margin: 0;
+      }
+      .intro p {
+        color: var(--ink);
+      }
+      .toc {
+        background: var(--tint);
+        border-radius: 14px;
+        padding: 18px 22px;
+        margin: 24px 0 8px;
+      }
+      .toc-title {
+        font-weight: 700;
+        font-size: 15px;
+        margin: 0 0 8px;
+      }
+      .toc ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        columns: 2;
+        column-gap: 28px;
+      }
+      .toc li {
+        margin: 0 0 6px;
+        font-size: 15px;
+        line-height: 1.5;
+        break-inside: avoid;
+      }
+      .toc a {
+        text-decoration: none;
+      }
+      .toc a:hover {
+        text-decoration: underline;
+      }
+      section {
+        scroll-margin-top: 16px;
+        padding-top: 6px;
       }
       h2 {
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.4;
-        margin: 28px 0 8px;
+        font-weight: 700;
+        margin: 30px 0 10px;
       }
       p,
       ul {
-        margin: 0 0 12px;
+        margin: 0 0 14px;
       }
       ul {
         padding-inline-start: 22px;
       }
       li {
-        margin-bottom: 6px;
+        margin-bottom: 8px;
       }
-      .updated {
-        color: var(--ink-soft);
+      li::marker {
+        color: var(--brand);
+      }
+      section a,
+      .intro a {
+        overflow-wrap: anywhere;
+      }
+      .to-top {
+        margin: 28px 0 0;
+        padding-top: 16px;
+        border-top: 1px solid var(--rule);
         font-size: 14px;
-        margin-bottom: 20px;
       }
       footer {
         color: var(--ink-soft);
         font-size: 13px;
         text-align: center;
+        line-height: 1.9;
+      }
+      footer a {
+        color: var(--ink-soft);
+      }
+      @media (max-width: 600px) {
+        body {
+          font-size: 16px;
+        }
+        article {
+          padding: 24px 18px 20px;
+          border-radius: 14px;
+        }
+        h1 {
+          font-size: 26px;
+        }
+        h2 {
+          font-size: 18px;
+        }
+        .toc ol {
+          columns: 1;
+        }
+      }
+      @media print {
+        body {
+          background: #fff;
+          color: #000;
+          font-size: 11pt;
+        }
+        .site-head,
+        .toc,
+        .to-top,
+        footer {
+          display: none;
+        }
+        article {
+          border: 0;
+          padding: 0;
+          break-after: page;
+        }
+        a {
+          color: #000;
+        }
+        h2 {
+          break-after: avoid;
+        }
       }
     </style>
   </head>
   <body>
+    <header class="site-head">
+      <div class="site-head-in">
+        <a class="brand" href="index.html" lang="en" dir="ltr">Yalla</a>
+        <nav class="site-nav" aria-label="מסמכים">
+          <a href="privacy.html">מדיניות פרטיות</a>
+          <a href="privacy.html#en" lang="en">Privacy Policy</a>
+          <a href="support.html">תמיכה</a>
+        </nav>
+      </div>
+    </header>
     <main>
-      <nav>
-        <a href="#en" lang="en">English</a>
-        <a href="privacy.html">מדיניות פרטיות</a>
-        <a href="privacy.html#en" lang="en">Privacy Policy</a>
-      </nav>
       <article lang="he" dir="rtl" id="he">
-        <h1>תנאי שימוש</h1>
-        <p class="updated">עודכן לאחרונה: 2026-10-27</p>
-        <p>
-          התנאים האלה חלים על השימוש באפליקציה Yalla, שמופעלת על ידי עומר כ&quot;ץ וריף קריב
-          (&quot;אנחנו&quot;). ההרשמה לאפליקציה או השימוש בה מהווים הסכמה לתנאים ולמדיניות הפרטיות.
-          אם אתם לא מסכימים, אל תשתמשו באפליקציה.
-        </p>
-        <h2>1. מי יכול להשתמש</h2>
-        <p>
-          האפליקציה מיועדת לבני 16 ומעלה. אם אתם בני 16 או 17, אתם מאשרים שההורים או האפוטרופוס שלכם
-          מסכימים לשימוש שלכם באפליקציה ולתנאים האלה. תכונות הבינה המלאכותית מיועדות לבני 18 ומעלה
-          בלבד.
-        </p>
-        <h2>2. החשבון שלכם</h2>
-        <p>
-          אתם אחראים לפרטים שמסרתם בהרשמה, לשמירה על הסיסמה ועל המכשיר, ולכל פעולה שנעשית בחשבון
-          שלכם. מומלץ להפעיל אימות דו-שלבי בפרופיל.
-        </p>
-        <p>אם אתם חושדים שמישהו אחר נכנס לחשבון שלכם, שנו מיד את הסיסמה וכתבו לנו.</p>
-        <h2>3. התוכן שלכם</h2>
-        <p>
-          התוכן שאתם מעלים (צעדים, תמונות, ביקורות, הודעות, הוצאות וכו') נשאר שלכם. כשאתם מעלים
-          תוכן, אתם נותנים לנו רישיון לא בלעדי, עולמי וללא תמורה לשמור, להציג, להתאים לתצוגה (למשל
-          להקטין תמונה) ולהעביר אותו, רק לצורך הפעלת האפליקציה והצגתו למי שבחרתם לשתף איתו. הרישיון
-          מסתיים כשאתם מוחקים את התוכן או את החשבון, מלבד עותקים ששותפו כבר עם אחרים, רשומות משותפות
-          כמתואר במדיניות הפרטיות ועותקי גיבוי שנמחקים במחזור הרגיל.
-        </p>
-        <p>
-          אתם מצהירים שיש לכם את הזכויות בתוכן שאתם מעלים, ושקיבלתם הסכמה של אנשים שמופיעים בתמונות או שאתם כותבים את שמם. תוכן שאתם מייבאים מאפליקציה אחרת (למשל קובץ הנתונים שלכם מ-Polarsteps) נחשב לתוכן שאתם מעלים.
-        </p>
-        <h2>4. אסור</h2>
-        <ul>
-          <li>תוכן בלתי חוקי, מאיים, מטריד, גזעני או מסית, או תוכן מיני מפורש.</li>
-          <li>חשיפת מידע אישי של אחרים בלי הסכמה, כולל מיקום, מספר טלפון, מסמכים או קבלות.</li>
-          <li>התחזות לאדם או לגוף אחר.</li>
-          <li>ביקורות מזויפות, ביקורות בתשלום, או דיווחי מחיר ואירועים כוזבים.</li>
-          <li>
-            לשון הרע: טענות עובדתיות כוזבות על אדם או על עסק. ביקורת ודיווח צריכים לשקף חוויה אישית
-            אמיתית.
-          </li>
-          <li>
-            פרסום שם, תמונה או פרטים מזהים של אדם פרטי בביקורות, בדיווחי מחיר או בעדכוני מעברי גבול.
-          </li>
-          <li>רישום הוצאות או חובות כוזבים על אחרים, או הוספה של אנשים לקבוצות כדי להטריד אותם.</li>
-          <li>
-            כל תוכן של ניצול מיני או התעללות בקטינים. יש לנו אפס סובלנות: התוכן יוסר, החשבון ייחסם
-            ונדווח לרשויות המוסמכות.
-          </li>
-          <li>קישורים לקבוצות שעוסקות בפעילות בלתי חוקית, ספאם, או פרסום מסחרי שלא אושר.</li>
-          <li>שימוש באפליקציה כדי למכור סמים, נשק או שירותים בלתי חוקיים.</li>
-          <li>
-            איסוף מידע אוטומטי (scraping), עקיפת מגבלות או מכסות, ניסיון לגשת למידע של אחרים, פגיעה
-            באבטחה או העלאת קוד זדוני.
-          </li>
-        </ul>
-        <p>
-          אין לנו שום סובלנות לתוכן פוגעני ולמשתמשים פוגעניים: תוכן שמפר את הסעיף הזה יוסר, ומשתמש
-          שמפרסם אותו או פוגע במשתמשים אחרים ייחסם.
-        </p>
-        <p>
-          אנחנו רשאים להסיר תוכן, להגביל תכונות או לחסום חשבון שמפר את התנאים. במקרים חמורים נעשה
-          זאת גם בלי הודעה מוקדמת. אם אתם חושבים שהסרנו תוכן או חסמנו אתכם בטעות, כתבו לנו ונבדוק
-          שוב.
-        </p>
-        <p>
-          דיווח וחסימה: אפשר לדווח על תוכן ועל משתמשים ולחסום משתמשים ישירות באפליקציה. תוכן פוגעני
-          נבדק ומוסר בהקדם. אדם או בעל עסק שסבורים שתוכן באפליקציה פוגע בהם שלא כדין (למשל ביקורת או
-          דיווח כוזבים) יכולים לדווח בכפתור הדיווח או במייל, ונבדוק את הפנייה.
-        </p>
-        <h2>5. שיתוף, חברים וקבוצות</h2>
-        <p>
-          כשאתם משתפים יומן, יום, קבוצת הוצאות או הוצאה עם אחרים, הם יראו את מה ששיתפתם כמתואר
-          במדיניות הפרטיות. קישורי הזמנה ושיתוף מאפשרים גישה לכל מי שמחזיק בהם, לכן שתפו אותם רק עם
-          מי שצריך, ובטלו קישור שכבר לא נחוץ.
-        </p>
-        <p>
-          בטיול משותף, כל שותף אחראי לתוכן שהוא עצמו כותב. אל תשתפו בשם שותפים תוכן שהם לא הסכימו
-          לשתף.
-        </p>
-        <h2>6. מידע של צד שלישי, המלצות וקישורים</h2>
-        <p>
-          האפליקציה מציגה מידע ממקורות חיצוניים: דירוגים, ביקורות ותמונות מ-Google ומ-Tripadvisor,
-          נתוני מפה מ-OpenStreetMap, ביקורות של משתמשים, אזהרות מסע, מידע על ויזות ומעברי גבול,
-          מסלולים ומחירים, ותוכן שנוצר בבינה מלאכותית (כולל תוכניות טיול והמלצות לינה).
-        </p>
-        <p>
-          אנחנו לא בודקים את המידע הזה ולא אחראים לדיוק, לעדכניות או לשלמות שלו. דירוג, המלצה או
-          סימון &quot;נבדק&quot; הם לא התחייבות לאיכות, למחיר, לזמינות או לבטיחות של מקום.
-        </p>
-        <p>
-          קישורי שותפים: חלק מהקישורים (למשל לינה ב-Booking.com) עשויים לכלול מזהה שותפים, ואם
-          תזמינו דרכם ייתכן שנקבל עמלה, בלי תוספת מחיר עבורכם. ההזמנה והתשלום הם בינכם לבין האתר
-          החיצוני ובכפוף לתנאים שלו.
-        </p>
-        <p>
-          השימוש בתוכן של Google Maps באפליקציה כפוף גם לתנאים הנוספים של Google Maps/Google Earth
-          (https://maps.google.com/help/terms_maps/) ולמדיניות הפרטיות של Google
-          (https://policies.google.com/privacy).
-        </p>
-        <p>
-          מקורות וקרדיטים: שמות ערים ומיקומן — GeoNames (geonames.org), ברישיון CC BY 4.0; שמות
-          מקומות בעברית ובספרדית — Wikidata (CC0); תמונות — Wikimedia Commons, כל תמונה לפי הרישיון
-          שלה (הצלם והרישיון מופיעים בדף התמונה בוויקישיתוף); תקצירים — Wikipedia ו-Wikivoyage (CC
-          BY-SA); נתוני מפה וחיפוש כתובות — © OpenStreetMap contributors (ODbL); מסלולי נסיעה — OSRM
-          ו-Transitous.
-        </p>
-        <h2>7. בינה מלאכותית</h2>
-        <p>
-          חלק מהתכונות (תקציר יעד, תכנון טיול, &quot;איך מגיעים&quot;, סריקת קבלה ושיאי הטיול)
-          משתמשות במודל Claude של חברת Anthropic. הן מיועדות לבני 18 ומעלה בלבד, ופועלות רק אחרי
-          שאישרתם זאת בנפרד. אפשר לבטל את האישור בכל רגע במסך &quot;בינה מלאכותית&quot; בפרופיל.
-        </p>
-        <p>
-          תוכן שנוצר ב-AI מסומן ככזה. הוא עלול להיות שגוי, לא מעודכן או לא מתאים, ואין להסתמך עליו
-          להחלטות של בטיחות, בריאות, משפט או כסף. אם התוכן פוגעני או שגוי, דווחו עליו בכפתור הדיווח
-          שלידו.
-        </p>
-        <p>
-          תוכנית טיול, מסלול או סכום שנקרא מקבלה הם הצעה בלבד. מחירים, שעות פתיחה, זמינות, מסלולים
-          ומידע על בטיחות עלולים להיות שגויים או לא מעודכנים. בדקו אותם במקור לפני הזמנה, תשלום או
-          יציאה לדרך, ובדקו סכום שנקרא מקבלה לפני השמירה.
-        </p>
-        <p>לתכונות ה-AI יש מכסות שימוש. אל תכניסו להן מידע על אנשים אחרים בלי הסכמתם.</p>
-        <h2>8. בטיחות בטיול</h2>
-        <p>
-          מידע על בטיחות, אזהרות מסע, מעברי גבול וויזות מוצג לנוחות בלבד. הוא לא מחליף את ההנחיות
-          הרשמיות של המטה לביטחון לאומי, של משרד החוץ, של השגרירויות ושל הרשויות המקומיות. בדקו תמיד
-          במקור רשמי לפני שאתם מקבלים החלטה.
-        </p>
-        <p>
-          במקרה חירום פנו ישירות לשירותי החירום המקומיים. כפתור החירום באפליקציה הוא קיצור דרך בלבד,
-          ואנחנו לא מתחייבים שהוא יעבוד בכל מצב (למשל בלי קליטה).
-        </p>
-        <p>
-          מפגשים עם משתמשים אחרים הם באחריותכם. אנחנו לא מאמתים את זהות המשתמשים ולא צד לעסקאות
-          ביניהם.
-        </p>
-        <h2>9. הוצאות וחישובים</h2>
-        <p>
-          חישובי חלוקת הוצאות, יתרות ושערי מטבע באפליקציה הם הערכה לנוחותכם. הם לא ייעוץ פיננסי, לא
-          מסמך חשבונאי ולא הוכחה לחוב. בדקו את הסכומים לפני שאתם מעבירים כסף. אנחנו לא מעבירים כסף
-          ולא צד להתחשבנות בין משתמשים.
-        </p>
-        <h2>10. מחיר השירות</h2>
-        <p>בשלב הזה השימוש באפליקציה חינמי.</p>
-        <p>
-          בעתיד ייתכן שחלק מהתכונות, או השירות כולו, יהיו בתשלום — למשל מנוי או תשלום על תכונות
-          מתקדמות. שימוש חינמי עכשיו לא מקנה זכות להמשיך להשתמש בחינם בעתיד.
-        </p>
-        <p>
-          לפני שנתחיל לגבות נודיע לכם מראש באפליקציה, נפרסם את המחירים ואת התנאים, ולא נחייב אתכם
-          בשום סכום בלי שאישרתם זאת במפורש. אם לא תרצו לשלם, תוכלו להפסיק להשתמש באפליקציה ולמחוק את
-          החשבון.
-        </p>
-        <p>
-          תשלומים, אם יהיו, יתבצעו דרך חנות האפליקציות (App Store או Google Play) ובכפוף לתנאים שלה.
-        </p>
-        <h2>11. השירות &quot;כמו שהוא&quot; (AS IS)</h2>
-        <p>
-          האפליקציה ניתנת כמו שהיא וכפי שהיא זמינה, בלי אחריות מכל סוג, מפורשת או משתמעת. אנחנו לא
-          מתחייבים שהשירות יפעל בלי הפסקות או תקלות, ושמידע לא יאבד. מומלץ לשמור עותק של מסמכים
-          חשובים גם מחוץ לאפליקציה.
-        </p>
-        <h2>12. הגבלת אחריות</h2>
-        <p>
-          במידה המרבית שהחוק מתיר, אנחנו לא נהיה אחראים לנזק עקיף, תוצאתי או מיוחד, לאובדן רווחים או
-          מידע, או לנזק שנגרם בעקבות הסתמכות על מידע באפליקציה, על משתמשים אחרים או על צדדים
-          שלישיים. בכל מקרה, האחריות הכוללת שלנו לא תעלה על הסכום ששילמתם לנו ב-12 החודשים שלפני
-          האירוע, או 100 ש&quot;ח, הגבוה מביניהם.
-        </p>
-        <p>
-          ההגבלה הזו לא חלה על נזק שגרמנו בזדון או ברשלנות רבתי, על נזק גוף, ועל אחריות שהחוק לא
-          מאפשר להגביל.
-        </p>
-        <h2>13. שיפוי</h2>
-        <p>
-          בכפוף לדין, אתם מתחייבים לשפות אותנו על נזק או הוצאה שנגרמו בגלל תוכן שהעליתם או בגלל הפרה
-          שלכם של התנאים או של החוק.
-        </p>
-        <h2>14. סיום השימוש</h2>
-        <p>
-          אפשר להפסיק להשתמש באפליקציה ולמחוק את החשבון בכל רגע מתוך מסך הפרופיל. מה שקורה למידע
-          אחרי המחיקה מתואר במדיניות הפרטיות.
-        </p>
-        <h2>15. שינויים בתנאים</h2>
-        <p>
-          אנחנו עשויים לעדכן את התנאים. על שינוי מהותי נודיע באפליקציה ונבקש מכם לאשר את התנאים
-          המעודכנים לפני שתמשיכו להשתמש בה. אם לא תסכימו, תוכלו להפסיק להשתמש באפליקציה ולמחוק את
-          החשבון.
-        </p>
-        <h2>16. חנויות האפליקציות</h2>
-        <p>
-          אם הורדתם את האפליקציה מ-App Store או מ-Google Play, ההסכם הוא בינכם לבינינו בלבד. Apple
-          ו-Google לא אחראיות לאפליקציה, לתמיכה בה או לתוכן שלה, אבל הן רשאיות לאכוף את התנאים האלה
-          כצד שלישי מוטב.
-        </p>
-        <h2>17. דין ושיפוט</h2>
-        <p>
-          על התנאים חלים דיני מדינת ישראל, וסמכות השיפוט נתונה לבתי המשפט המוסמכים בישראל. אין בכך
-          כדי לגרוע מזכויות שהחוק מקנה לכם כצרכנים.
-        </p>
-        <h2>18. הפרת זכויות יוצרים והסרת תוכן</h2>
-        <p>
-          אנחנו מכבדים זכויות יוצרים ומצפים מהמשתמשים לעשות אותו דבר. אם אתם סבורים שתוכן באפליקציה
-          (תמונה, טקסט, צעד ביומן, ביקורת או קישור) מפר זכויות יוצרים שלכם, אפשר לדווח לנו:
-        </p>
-        <ul>
-          <li>
-            בתוך האפליקציה: כפתור הדיווח (סמל הדגל) ליד התוכן, ובחירה בסיבה &quot;הפרת זכויות
-            יוצרים&quot;.
-          </li>
-          <li>
-            במייל: <a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a>. כדי שנוכל
-            לטפל, ציינו מהי היצירה המוגנת, איפה בדיוק מופיע התוכן המפר (מסך, שם המשתמש שהעלה אותו
-            ותיאור), את שמכם ופרטי הקשר שלכם, והצהרה שאתם בעלי הזכויות או מורשים לפעול בשמם ושלפי
-            מיטב ידיעתכם השימוש לא הותר.
-          </li>
-        </ul>
-        <p>
-          מה קורה אחרי דיווח: אנחנו בודקים כל דיווח. אם נראה שהתוכן מפר זכויות, נסיר אותו או נחסום
-          את הגישה אליו בהקדם, ובמידת האפשר נודיע למשתמש שהעלה אותו. משתמש שסבור שהתוכן הוסר בטעות
-          (למשל כי יש לו רישיון) יכול לפנות אלינו באותה כתובת עם הסבר, ונשקול להחזיר את התוכן.
-        </p>
-        <p>מפרים חוזרים: חשבון של משתמש שמעלה שוב ושוב תוכן מפר ייסגר.</p>
-        <p>דיווח כוזב או בחוסר תום לב עלול לחשוף את המדווח לאחריות משפטית.</p>
-        <h2>19. יצירת קשר</h2>
-        <p>
-          שאלות על התנאים: <a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a>
-        </p>
+        <header class="doc-head">
+          <h1>תנאי שימוש</h1>
+          <p class="updated">עודכן לאחרונה: 2026-10-27 · <a href="#en" lang="en">English</a></p>
+        </header>
+        <div class="intro">
+          <p>
+            התנאים האלה חלים על השימוש באפליקציה Yalla, שמופעלת על ידי ריף קריב ועומר כץ
+            (&quot;אנחנו&quot;). ההרשמה לאפליקציה או השימוש בה מהווים הסכמה לתנאים ולמדיניות
+            הפרטיות. אם אתם לא מסכימים, אל תשתמשו באפליקציה.
+          </p>
+        </div>
+        <nav class="toc" aria-label="תוכן העניינים">
+          <p class="toc-title">תוכן העניינים</p>
+          <ol>
+            <li><a href="#he-1">1. מי יכול להשתמש</a></li>
+            <li><a href="#he-2">2. החשבון שלכם</a></li>
+            <li><a href="#he-3">3. התוכן שלכם</a></li>
+            <li><a href="#he-4">4. תוכן והתנהגות אסורים</a></li>
+            <li><a href="#he-5">5. שיתוף, חברים וקבוצות</a></li>
+            <li><a href="#he-6">6. מידע של צד שלישי, המלצות וקישורים</a></li>
+            <li><a href="#he-7">7. בינה מלאכותית</a></li>
+            <li><a href="#he-8">8. בטיחות בטיול</a></li>
+            <li><a href="#he-9">9. הוצאות וחישובים</a></li>
+            <li><a href="#he-10">10. מחיר השירות</a></li>
+            <li>
+              <a href="#he-11">11. היעדר אחריות — השירות ניתן &quot;כמו שהוא&quot; (AS IS)</a>
+            </li>
+            <li><a href="#he-12">12. הגבלת אחריות</a></li>
+            <li><a href="#he-13">13. שיפוי</a></li>
+            <li><a href="#he-14">14. סיום השימוש</a></li>
+            <li><a href="#he-15">15. שינויים בתנאים</a></li>
+            <li><a href="#he-16">16. חנויות האפליקציות</a></li>
+            <li><a href="#he-17">17. דין ושיפוט</a></li>
+            <li><a href="#he-18">18. הפרת זכויות יוצרים והסרת תוכן</a></li>
+            <li><a href="#he-19">19. יצירת קשר</a></li>
+          </ol>
+        </nav>
+        <section id="he-1">
+          <h2>1. מי יכול להשתמש</h2>
+          <p>
+            האפליקציה מיועדת לבני 16 ומעלה. אם אתם בני 16 או 17, אתם מאשרים שההורים או האפוטרופוס
+            שלכם מסכימים לשימוש שלכם באפליקציה ולתנאים האלה. תכונות הבינה המלאכותית מיועדות לבני 18
+            ומעלה בלבד.
+          </p>
+        </section>
+        <section id="he-2">
+          <h2>2. החשבון שלכם</h2>
+          <p>
+            אתם אחראים לפרטים שמסרתם בהרשמה, לשמירה על הסיסמה ועל המכשיר, ולכל פעולה שנעשית בחשבון
+            שלכם. מומלץ להפעיל אימות דו-שלבי בפרופיל.
+          </p>
+          <p>אם אתם חושדים שמישהו אחר נכנס לחשבון שלכם, שנו מיד את הסיסמה וכתבו לנו.</p>
+        </section>
+        <section id="he-3">
+          <h2>3. התוכן שלכם</h2>
+          <p>
+            התוכן שאתם מעלים (צעדים, תמונות, ביקורות, הודעות, הוצאות וכו') נשאר שלכם. כשאתם מעלים
+            תוכן, אתם נותנים לנו רישיון לא בלעדי, עולמי וללא תמורה לשמור, להציג, להתאים לתצוגה (למשל
+            להקטין תמונה) ולהעביר אותו, רק לצורך הפעלת האפליקציה והצגתו למי שבחרתם לשתף איתו.
+            הרישיון מסתיים כשאתם מוחקים את התוכן או את החשבון, מלבד עותקים ששותפו כבר עם אחרים,
+            רשומות משותפות כמתואר במדיניות הפרטיות ועותקי גיבוי שנמחקים במחזור הרגיל.
+          </p>
+          <p>
+            אתם מצהירים שיש לכם את הזכויות בתוכן שאתם מעלים, ושקיבלתם הסכמה של אנשים שמופיעים
+            בתמונות או שאתם כותבים את שמם. תוכן שאתם מייבאים מאפליקציה אחרת (למשל קובץ הנתונים שלכם
+            מ-Polarsteps) נחשב לתוכן שאתם מעלים.
+          </p>
+        </section>
+        <section id="he-4">
+          <h2>4. תוכן והתנהגות אסורים</h2>
+          <ul>
+            <li>תוכן בלתי חוקי, מאיים, מטריד, גזעני או מסית, או תוכן מיני מפורש.</li>
+            <li>חשיפת מידע אישי של אחרים בלי הסכמה, כולל מיקום, מספר טלפון, מסמכים או קבלות.</li>
+            <li>התחזות לאדם או לגוף אחר.</li>
+            <li>ביקורות מזויפות, ביקורות בתשלום, או דיווחי מחיר ואירועים כוזבים.</li>
+            <li>
+              לשון הרע: טענות עובדתיות כוזבות על אדם או על עסק. ביקורת ודיווח צריכים לשקף חוויה
+              אישית אמיתית.
+            </li>
+            <li>
+              פרסום שם, תמונה או פרטים מזהים של אדם פרטי בביקורות, בדיווחי מחיר או בעדכוני מעברי
+              גבול.
+            </li>
+            <li>
+              רישום הוצאות או חובות כוזבים על אחרים, או הוספה של אנשים לקבוצות כדי להטריד אותם.
+            </li>
+            <li>
+              כל תוכן של ניצול מיני או התעללות בקטינים. יש לנו אפס סובלנות: התוכן יוסר, החשבון ייחסם
+              ונדווח לרשויות המוסמכות.
+            </li>
+            <li>קישורים לקבוצות שעוסקות בפעילות בלתי חוקית, ספאם, או פרסום מסחרי שלא אושר.</li>
+            <li>שימוש באפליקציה כדי למכור סמים, נשק או שירותים בלתי חוקיים.</li>
+            <li>
+              איסוף מידע אוטומטי (scraping), עקיפת מגבלות או מכסות, ניסיון לגשת למידע של אחרים,
+              פגיעה באבטחה או העלאת קוד זדוני.
+            </li>
+          </ul>
+          <p>
+            אין לנו שום סובלנות לתוכן פוגעני ולמשתמשים פוגעניים: תוכן שמפר את הסעיף הזה יוסר, ומשתמש
+            שמפרסם אותו או פוגע במשתמשים אחרים ייחסם.
+          </p>
+          <p>
+            אנחנו רשאים להסיר תוכן, להגביל תכונות או לחסום חשבון שמפר את התנאים. במקרים חמורים נעשה
+            זאת גם בלי הודעה מוקדמת. אם אתם חושבים שהסרנו תוכן או חסמנו אתכם בטעות, כתבו לנו ונבדוק
+            שוב.
+          </p>
+          <p>
+            דיווח וחסימה: אפשר לדווח על תוכן ועל משתמשים ולחסום משתמשים ישירות באפליקציה. תוכן
+            פוגעני נבדק ומוסר בהקדם. אדם או בעל עסק שסבורים שתוכן באפליקציה פוגע בהם שלא כדין (למשל
+            ביקורת או דיווח כוזבים) יכולים לדווח בכפתור הדיווח או במייל, ונבדוק את הפנייה.
+          </p>
+        </section>
+        <section id="he-5">
+          <h2>5. שיתוף, חברים וקבוצות</h2>
+          <p>
+            כשאתם משתפים יומן, יום, קבוצת הוצאות או הוצאה עם אחרים, הם יראו את מה ששיתפתם כמתואר
+            במדיניות הפרטיות. קישורי הזמנה ושיתוף מאפשרים גישה לכל מי שמחזיק בהם, לכן שתפו אותם רק
+            עם מי שצריך, ובטלו קישור שכבר לא נחוץ.
+          </p>
+          <p>
+            בטיול משותף, כל שותף אחראי לתוכן שהוא עצמו כותב. אל תשתפו בשם שותפים תוכן שהם לא הסכימו
+            לשתף.
+          </p>
+        </section>
+        <section id="he-6">
+          <h2>6. מידע של צד שלישי, המלצות וקישורים</h2>
+          <p>
+            האפליקציה מציגה מידע ממקורות חיצוניים: דירוגים, ביקורות ותמונות מ-Google ומ-Tripadvisor,
+            נתוני מפה מ-OpenStreetMap, ביקורות של משתמשים, אזהרות מסע, מידע על ויזות ומעברי גבול,
+            מסלולים ומחירים, ותוכן שנוצר בבינה מלאכותית (כולל תוכניות טיול והמלצות לינה).
+          </p>
+          <p>
+            אנחנו לא בודקים את המידע הזה ולא אחראים לדיוק, לעדכניות או לשלמות שלו. דירוג, המלצה או
+            סימון &quot;נבדק&quot; הם לא התחייבות לאיכות, למחיר, לזמינות או לבטיחות של מקום.
+          </p>
+          <p>
+            קישורי שותפים: חלק מהקישורים (למשל לינה ב-Booking.com) עשויים לכלול מזהה שותפים, ואם
+            תזמינו דרכם ייתכן שנקבל עמלה, בלי תוספת מחיר עבורכם. ההזמנה והתשלום הם בינכם לבין האתר
+            החיצוני ובכפוף לתנאים שלו.
+          </p>
+          <p>
+            השימוש בתוכן של Google Maps באפליקציה כפוף גם לתנאים הנוספים של Google Maps/Google Earth
+            (<a href="https://maps.google.com/help/terms_maps/" rel="noopener noreferrer" dir="ltr"
+              >https://maps.google.com/help/terms_maps/</a
+            >) ולמדיניות הפרטיות של Google (<a
+              href="https://policies.google.com/privacy"
+              rel="noopener noreferrer"
+              dir="ltr"
+              >https://policies.google.com/privacy</a
+            >).
+          </p>
+          <p>
+            מקורות וקרדיטים: שמות ערים ומיקומן — GeoNames (geonames.org), ברישיון CC BY 4.0; שמות
+            מקומות בעברית ובספרדית — Wikidata (CC0); תמונות — Wikimedia Commons, כל תמונה לפי
+            הרישיון שלה (הצלם והרישיון מופיעים בדף התמונה בוויקישיתוף); תקצירים — Wikipedia
+            ו-Wikivoyage (CC BY-SA); נתוני מפה וחיפוש כתובות — © OpenStreetMap contributors (ODbL);
+            מסלולי נסיעה — OSRM ו-Transitous.
+          </p>
+        </section>
+        <section id="he-7">
+          <h2>7. בינה מלאכותית</h2>
+          <p>
+            חלק מהתכונות (תקציר יעד, תכנון טיול, &quot;איך מגיעים&quot;, סריקת קבלה ושיאי הטיול)
+            משתמשות במודל Claude של חברת Anthropic. הן מיועדות לבני 18 ומעלה בלבד, ופועלות רק אחרי
+            שאישרתם זאת בנפרד. אפשר לבטל את האישור בכל רגע במסך &quot;בינה מלאכותית&quot; בפרופיל.
+          </p>
+          <p>
+            תוכן שנוצר ב-AI מסומן ככזה. הוא עלול להיות שגוי, לא מעודכן או לא מתאים, ואין להסתמך עליו
+            להחלטות של בטיחות, בריאות, משפט או כסף. אם התוכן פוגעני או שגוי, דווחו עליו בכפתור
+            הדיווח שלידו.
+          </p>
+          <p>
+            תוכנית טיול, מסלול או סכום שנקרא מקבלה הם הצעה בלבד. מחירים, שעות פתיחה, זמינות, מסלולים
+            ומידע על בטיחות עלולים להיות שגויים או לא מעודכנים. בדקו אותם במקור לפני הזמנה, תשלום או
+            יציאה לדרך, ובדקו סכום שנקרא מקבלה לפני השמירה.
+          </p>
+          <p>לתכונות ה-AI יש מכסות שימוש. אל תכניסו להן מידע על אנשים אחרים בלי הסכמתם.</p>
+        </section>
+        <section id="he-8">
+          <h2>8. בטיחות בטיול</h2>
+          <p>
+            מידע על בטיחות, אזהרות מסע, מעברי גבול וויזות מוצג לנוחות בלבד. הוא לא מחליף את ההנחיות
+            הרשמיות של המטה לביטחון לאומי, של משרד החוץ, של השגרירויות ושל הרשויות המקומיות. בדקו
+            תמיד במקור רשמי לפני שאתם מקבלים החלטה.
+          </p>
+          <p>
+            במקרה חירום פנו ישירות לשירותי החירום המקומיים. כפתור החירום באפליקציה הוא קיצור דרך
+            בלבד, ואנחנו לא מתחייבים שהוא יעבוד בכל מצב (למשל בלי קליטה).
+          </p>
+          <p>
+            מפגשים עם משתמשים אחרים הם באחריותכם. אנחנו לא מאמתים את זהות המשתמשים ולא צד לעסקאות
+            ביניהם.
+          </p>
+        </section>
+        <section id="he-9">
+          <h2>9. הוצאות וחישובים</h2>
+          <p>
+            חישובי חלוקת הוצאות, יתרות ושערי מטבע באפליקציה הם הערכה לנוחותכם. הם לא ייעוץ פיננסי,
+            לא מסמך חשבונאי ולא הוכחה לחוב. בדקו את הסכומים לפני שאתם מעבירים כסף. אנחנו לא מעבירים
+            כסף ולא צד להתחשבנות בין משתמשים.
+          </p>
+        </section>
+        <section id="he-10">
+          <h2>10. מחיר השירות</h2>
+          <p>בשלב הזה השימוש באפליקציה חינמי.</p>
+          <p>
+            בעתיד ייתכן שחלק מהתכונות, או השירות כולו, יהיו בתשלום — למשל מנוי או תשלום על תכונות
+            מתקדמות. שימוש חינמי עכשיו לא מקנה זכות להמשיך להשתמש בחינם בעתיד.
+          </p>
+          <p>
+            לפני שנתחיל לגבות נודיע לכם מראש באפליקציה, נפרסם את המחירים ואת התנאים, ולא נחייב אתכם
+            בשום סכום בלי שאישרתם זאת במפורש. אם לא תרצו לשלם, תוכלו להפסיק להשתמש באפליקציה ולמחוק
+            את החשבון.
+          </p>
+          <p>
+            תשלומים, אם יהיו, יתבצעו דרך חנות האפליקציות (App Store או Google Play) ובכפוף לתנאים
+            שלה.
+          </p>
+        </section>
+        <section id="he-11">
+          <h2>11. היעדר אחריות — השירות ניתן &quot;כמו שהוא&quot; (AS IS)</h2>
+          <p>
+            האפליקציה ניתנת כמו שהיא וכפי שהיא זמינה, בלי אחריות מכל סוג, מפורשת או משתמעת. אנחנו לא
+            מתחייבים שהשירות יפעל בלי הפסקות או תקלות, ושמידע לא יאבד. מומלץ לשמור עותק של מסמכים
+            חשובים גם מחוץ לאפליקציה.
+          </p>
+        </section>
+        <section id="he-12">
+          <h2>12. הגבלת אחריות</h2>
+          <p>
+            במידה המרבית שהחוק מתיר, אנחנו לא נהיה אחראים לנזק עקיף, תוצאתי או מיוחד, לאובדן רווחים
+            או מידע, או לנזק שנגרם בעקבות הסתמכות על מידע באפליקציה, על משתמשים אחרים או על צדדים
+            שלישיים. בכל מקרה, האחריות הכוללת שלנו לא תעלה על הסכום ששילמתם לנו ב-12 החודשים שלפני
+            האירוע, או 100 ש&quot;ח, הגבוה מביניהם.
+          </p>
+          <p>
+            ההגבלה הזו לא חלה על נזק שגרמנו בזדון או ברשלנות רבתי, על נזק גוף, ועל אחריות שהחוק לא
+            מאפשר להגביל.
+          </p>
+        </section>
+        <section id="he-13">
+          <h2>13. שיפוי</h2>
+          <p>
+            בכפוף לדין, אתם מתחייבים לשפות אותנו על נזק או הוצאה שנגרמו בגלל תוכן שהעליתם או בגלל
+            הפרה שלכם של התנאים או של החוק.
+          </p>
+        </section>
+        <section id="he-14">
+          <h2>14. סיום השימוש</h2>
+          <p>
+            אפשר להפסיק להשתמש באפליקציה ולמחוק את החשבון בכל רגע מתוך מסך הפרופיל. מה שקורה למידע
+            אחרי המחיקה מתואר במדיניות הפרטיות.
+          </p>
+        </section>
+        <section id="he-15">
+          <h2>15. שינויים בתנאים</h2>
+          <p>
+            אנחנו עשויים לעדכן את התנאים. על שינוי מהותי נודיע באפליקציה ונבקש מכם לאשר את התנאים
+            המעודכנים לפני שתמשיכו להשתמש בה. אם לא תסכימו, תוכלו להפסיק להשתמש באפליקציה ולמחוק את
+            החשבון.
+          </p>
+        </section>
+        <section id="he-16">
+          <h2>16. חנויות האפליקציות</h2>
+          <p>
+            אם הורדתם את האפליקציה מ-App Store או מ-Google Play, ההסכם הוא בינכם לבינינו בלבד. Apple
+            ו-Google לא אחראיות לאפליקציה, לתמיכה בה או לתוכן שלה, אבל הן רשאיות לאכוף את התנאים
+            האלה כצד שלישי מוטב.
+          </p>
+        </section>
+        <section id="he-17">
+          <h2>17. דין ושיפוט</h2>
+          <p>
+            על התנאים חלים דיני מדינת ישראל, וסמכות השיפוט נתונה לבתי המשפט המוסמכים בישראל. אין בכך
+            כדי לגרוע מזכויות שהחוק מקנה לכם כצרכנים.
+          </p>
+        </section>
+        <section id="he-18">
+          <h2>18. הפרת זכויות יוצרים והסרת תוכן</h2>
+          <p>
+            אנחנו מכבדים זכויות יוצרים ומצפים מהמשתמשים לעשות אותו דבר. אם אתם סבורים שתוכן
+            באפליקציה (תמונה, טקסט, צעד ביומן, ביקורת או קישור) מפר זכויות יוצרים שלכם, אפשר לדווח
+            לנו:
+          </p>
+          <ul>
+            <li>
+              בתוך האפליקציה: כפתור הדיווח (סמל הדגל) ליד התוכן, ובחירה בסיבה &quot;הפרת זכויות
+              יוצרים&quot;.
+            </li>
+            <li>
+              במייל: <a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a>. כדי
+              שנוכל לטפל, ציינו מהי היצירה המוגנת, איפה בדיוק מופיע התוכן המפר (מסך, שם המשתמש שהעלה
+              אותו ותיאור), את שמכם ופרטי הקשר שלכם, והצהרה שאתם בעלי הזכויות או מורשים לפעול בשמם
+              ושלפי מיטב ידיעתכם השימוש לא הותר.
+            </li>
+          </ul>
+          <p>
+            מה קורה אחרי דיווח: אנחנו בודקים כל דיווח. אם נראה שהתוכן מפר זכויות, נסיר אותו או נחסום
+            את הגישה אליו בהקדם, ובמידת האפשר נודיע למשתמש שהעלה אותו. משתמש שסבור שהתוכן הוסר בטעות
+            (למשל כי יש לו רישיון) יכול לפנות אלינו באותה כתובת עם הסבר, ונשקול להחזיר את התוכן.
+          </p>
+          <p>מפרים חוזרים: חשבון של משתמש שמעלה שוב ושוב תוכן מפר ייסגר.</p>
+          <p>דיווח כוזב או בחוסר תום לב עלול לחשוף את המדווח לאחריות משפטית.</p>
+        </section>
+        <section id="he-19">
+          <h2>19. יצירת קשר</h2>
+          <p>
+            שאלות על התנאים: <a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a>
+          </p>
+        </section>
+        <p class="to-top"><a href="#he">חזרה לראש העמוד</a></p>
       </article>
       <article lang="en" dir="ltr" id="en">
-        <h1>Terms of Use</h1>
-        <p class="updated">Last updated: 2026-10-27</p>
-        <p>
-          These terms apply to your use of the Yalla app, operated by Omer Katz and Reef Kariv
-          (&quot;we&quot;, &quot;us&quot;). By signing up for or using the app, you agree to these
-          terms and to the Privacy Policy. If you do not agree, do not use the app.
-        </p>
-        <h2>1. Who can use the app</h2>
-        <p>
-          The app is intended for people aged 16 and over. If you are 16 or 17, you confirm that
-          your parent or guardian agrees to your use of the app and to these terms. AI features are
-          for people aged 18 and over only.
-        </p>
-        <h2>2. Your account</h2>
-        <p>
-          You are responsible for the details you provide at sign-up, for keeping your password and
-          your device safe, and for all activity in your account. We recommend turning on two-step
-          verification in your profile.
-        </p>
-        <p>
-          If you suspect someone else has accessed your account, change your password right away and
-          contact us.
-        </p>
-        <h2>3. Your content</h2>
-        <p>
-          Content you upload (steps, photos, reviews, messages, expenses, etc.) remains yours. By
-          uploading content, you give us a non-exclusive, worldwide, royalty-free license to store,
-          display, adapt for display (for example, resize a photo) and transmit it, solely to
-          operate the app and show it to the people you chose to share it with. The license ends
-          when you delete the content or your account, except for copies already shared with others,
-          shared records as described in the Privacy Policy, and backup copies deleted in the normal
-          cycle.
-        </p>
-        <p>
-          You confirm that you have the rights to the content you upload, and that you have the consent of people who appear in your photos or whose names you enter. Content you import from another app (for example your Polarsteps data file) counts as content you upload.
-        </p>
-        <h2>4. Prohibited content and conduct</h2>
-        <ul>
-          <li>
-            Illegal, threatening, harassing, racist or inciting content, or sexually explicit
-            content.
-          </li>
-          <li>
-            Exposing other people's personal information without consent, including their location,
-            phone number, documents or receipts.
-          </li>
-          <li>Impersonating another person or organization.</li>
-          <li>Fake or paid reviews, or false pricing or incident reports.</li>
-          <li>
-            Defamation: false statements of fact about a person or a business. Reviews and reports
-            must reflect a genuine personal experience.
-          </li>
-          <li>
-            Publishing the name, photo or identifying details of a private individual in reviews,
-            pricing reports or border-crossing updates.
-          </li>
-          <li>
-            Recording false expenses or debts about others, or adding people to groups to harass
-            them.
-          </li>
-          <li>
-            Any content that sexually exploits or abuses minors. We have zero tolerance: the content
-            will be removed, the account blocked, and we will report it to the competent
-            authorities.
-          </li>
-          <li>
-            Links to groups engaged in illegal activity, spam, or unapproved commercial advertising.
-          </li>
-          <li>Using the app to sell drugs, weapons or illegal services.</li>
-          <li>
-            Automated data collection (scraping), bypassing limits or quotas, trying to access other
-            people's information, interfering with security, or uploading malicious code.
-          </li>
-        </ul>
-        <p>
-          We have no tolerance for objectionable content or abusive users: content that violates
-          this section will be removed, and users who post it or abuse other users will be blocked.
-        </p>
-        <p>
-          We may remove content, restrict features or block an account that violates these terms. In
-          serious cases we may do so without prior notice. If you believe we removed your content or
-          blocked you by mistake, contact us and we will review it again.
-        </p>
-        <p>
-          Reporting and blocking: you can report content and users, and block users, directly in the
-          app. Offensive content is reviewed and removed promptly. A person or business who believes
-          content in the app unlawfully harms them (for example, a false review or report) can
-          report it with the report button or by email, and we will review the request.
-        </p>
-        <h2>5. Sharing, friends and groups</h2>
-        <p>
-          When you share a journal, a day, an expense group or an expense with others, they will see
-          what you shared as described in the Privacy Policy. Invite and share links give access to
-          anyone who has them, so share them only with the people who need them, and revoke a link
-          you no longer need.
-        </p>
-        <p>
-          In a shared trip, each partner is responsible for the content they write. Do not share
-          content on behalf of partners who did not agree to share it.
-        </p>
-        <h2>6. Third-party information, recommendations and links</h2>
-        <p>
-          The app shows information from external sources: ratings, reviews and photos from Google
-          and Tripadvisor, map data from OpenStreetMap, user reviews, travel warnings, visa and
-          border-crossing information, routes and prices, and AI-generated content (including trip
-          plans and lodging suggestions).
-        </p>
-        <p>
-          We do not verify this information and are not responsible for its accuracy, timeliness or
-          completeness. A rating, recommendation or &quot;verified&quot; mark is not a guarantee of
-          a place's quality, price, availability or safety.
-        </p>
-        <p>
-          Affiliate links: some links (for example lodging on Booking.com) may include an affiliate
-          ID, and if you book through them we may earn a commission, at no extra cost to you. The
-          booking and payment are between you and the external site and are subject to its terms.
-        </p>
-        <p>
-          Your use of Google Maps content in the app is also subject to the Google Maps/Google Earth
-          Additional Terms of Service (https://maps.google.com/help/terms_maps/) and the Google
-          Privacy Policy (https://policies.google.com/privacy).
-        </p>
-        <p>
-          Sources and credits: city names and locations — GeoNames (geonames.org), licensed under CC
-          BY 4.0; Hebrew and Spanish place names — Wikidata (CC0); photos — Wikimedia Commons, each
-          under its own license (author and license are listed on its Commons page); summaries —
-          Wikipedia and Wikivoyage (CC BY-SA); map data and address search — © OpenStreetMap
-          contributors (ODbL); travel routes — OSRM and Transitous.
-        </p>
-        <h2>7. Artificial intelligence</h2>
-        <p>
-          Some features (destination brief, trip planning, &quot;How to get there&quot;, receipt
-          scan and trip highlights) use the Claude model by Anthropic. They are for people aged 18
-          and over only, and work only after you separately agree. You can withdraw your agreement
-          at any time on the &quot;AI&quot; screen in your profile.
-        </p>
-        <p>
-          AI-generated content is labeled as such. It may be wrong, outdated or inappropriate, and
-          you should not rely on it for safety, health, legal or financial decisions. If the content
-          is offensive or wrong, report it with the report button next to it.
-        </p>
-        <p>
-          A trip plan, a route or an amount read from a receipt is a suggestion only. Prices,
-          opening hours, availability, routes and safety information may be wrong or out of date.
-          Check them at the source before booking, paying or setting out, and check an amount read
-          from a receipt before saving it.
-        </p>
-        <p>
-          AI features have usage limits. Do not enter information about other people into them
-          without their consent.
-        </p>
-        <h2>8. Travel safety</h2>
-        <p>
-          Safety information, travel warnings, border crossings and visa details are shown for
-          convenience only. They do not replace official guidance from the Israeli National Security
-          Council, the Ministry of Foreign Affairs, embassies or local authorities. Always check an
-          official source before making a decision.
-        </p>
-        <p>
-          In an emergency, contact local emergency services directly. The emergency button in the
-          app is only a shortcut, and we do not guarantee it will work in every situation (for
-          example, without reception).
-        </p>
-        <p>
-          Meeting other users is at your own risk. We do not verify users' identities and are not a
-          party to transactions between them.
-        </p>
-        <h2>9. Expenses and calculations</h2>
-        <p>
-          Expense splits, balances and currency rates in the app are estimates for your convenience.
-          They are not financial advice, an accounting record or proof of a debt. Check the amounts
-          before transferring money. We do not transfer money and are not a party to settlements
-          between users.
-        </p>
-        <h2>10. Pricing</h2>
-        <p>The app is free to use at this stage.</p>
-        <p>
-          In the future, some features — or the whole service — may become paid, for example through
-          a subscription or paid advanced features. Free use now does not create a right to keep
-          using the app for free in the future.
-        </p>
-        <p>
-          Before we start charging, we will tell you in advance in the app, publish the prices and
-          terms, and never charge you any amount without your explicit approval. If you do not want
-          to pay, you can stop using the app and delete your account.
-        </p>
-        <p>
-          Payments, if any, will be processed through the app store (App Store or Google Play) and
-          are subject to its terms.
-        </p>
-        <h2>11. Service provided &quot;as is&quot;</h2>
-        <p>
-          The app is provided &quot;as is&quot; and &quot;as available&quot;, without warranties of
-          any kind, express or implied. We do not guarantee the service will be uninterrupted or
-          error-free, or that data will never be lost. Keep a copy of important documents outside
-          the app as well.
-        </p>
-        <h2>12. Limitation of liability</h2>
-        <p>
-          To the maximum extent permitted by law, we are not liable for indirect, consequential or
-          special damages, loss of profits or data, or damage resulting from reliance on information
-          in the app, on other users or on third parties. In any case, our total liability will not
-          exceed the greater of the amount you paid us in the 12 months before the event or 100 ILS.
-        </p>
-        <p>
-          This limitation does not apply to damage we caused intentionally or through gross
-          negligence, to bodily injury, or to liability that cannot be limited by law.
-        </p>
-        <h2>13. Indemnity</h2>
-        <p>
-          Subject to applicable law, you agree to indemnify us for any damage or expense caused by
-          content you uploaded or by your breach of these terms or of the law.
-        </p>
-        <h2>14. Ending your use</h2>
-        <p>
-          You can stop using the app and delete your account at any time from the Profile screen.
-          What happens to your information after deletion is described in the Privacy Policy.
-        </p>
-        <h2>15. Changes to these terms</h2>
-        <p>
-          We may update these terms. We will notify you in the app about material changes and ask
-          you to accept the updated terms before you continue using it. If you do not agree, you can
-          stop using the app and delete your account.
-        </p>
-        <h2>16. App stores</h2>
-        <p>
-          If you downloaded the app from the App Store or Google Play, this agreement is between you
-          and us only. Apple and Google are not responsible for the app, its support or its content,
-          but they may enforce these terms as third-party beneficiaries.
-        </p>
-        <h2>17. Governing law and jurisdiction</h2>
-        <p>
-          These terms are governed by the laws of the State of Israel, and the competent courts in
-          Israel have jurisdiction. This does not limit any rights the law grants you as a consumer.
-        </p>
-        <h2>18. Copyright and takedown</h2>
-        <p>
-          We respect copyright and expect our users to do the same. If you believe that content in
-          the app (a photo, text, journal step, review or link) infringes your copyright, you can
-          report it to us:
-        </p>
-        <ul>
-          <li>
-            In the app: tap the report button (the flag icon) next to the content and choose
-            &quot;Copyright infringement&quot;.
-          </li>
-          <li>
-            By email: <a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a>. So
-            that we can act on it, include a description of the copyrighted work; exactly where the
-            infringing content appears (screen, the username of the person who uploaded it, and a
-            description); your name and contact details; and a statement that you are the rights
-            holder or authorized to act on their behalf, and that to the best of your knowledge the
-            use was not authorized.
-          </li>
-        </ul>
-        <p>
-          What happens next: we review every report. If the content appears to infringe, we will
-          remove it or disable access to it promptly and, where possible, notify the user who
-          uploaded it. A user who believes the content was removed by mistake (for example, because
-          they hold a license) can contact us at the same address with an explanation, and we will
-          consider restoring it.
-        </p>
-        <p>
-          Repeat infringers: we will terminate the account of a user who repeatedly uploads
-          infringing content.
-        </p>
-        <p>Submitting a false report or a report in bad faith may expose you to legal liability.</p>
-        <h2>19. Contact</h2>
-        <p>
-          Questions about these terms:
-          <a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a>
-        </p>
+        <header class="doc-head">
+          <h1>Terms of Use</h1>
+          <p class="updated">Last updated: 2026-10-27 · <a href="#he" lang="he">עברית</a></p>
+        </header>
+        <div class="intro">
+          <p>
+            These terms apply to your use of the Yalla app, operated by Reef Kariv and Omer Katz
+            (&quot;we&quot;, &quot;us&quot;). By signing up for or using the app, you agree to these
+            terms and to the Privacy Policy. If you do not agree, do not use the app.
+          </p>
+        </div>
+        <nav class="toc" aria-label="Contents">
+          <p class="toc-title">Contents</p>
+          <ol>
+            <li><a href="#en-1">1. Who can use the app</a></li>
+            <li><a href="#en-2">2. Your account</a></li>
+            <li><a href="#en-3">3. Your content</a></li>
+            <li><a href="#en-4">4. Prohibited content and conduct</a></li>
+            <li><a href="#en-5">5. Sharing, friends and groups</a></li>
+            <li><a href="#en-6">6. Third-party information, recommendations and links</a></li>
+            <li><a href="#en-7">7. Artificial intelligence</a></li>
+            <li><a href="#en-8">8. Travel safety</a></li>
+            <li><a href="#en-9">9. Expenses and calculations</a></li>
+            <li><a href="#en-10">10. Pricing</a></li>
+            <li>
+              <a href="#en-11">11. Disclaimer of warranties: service provided &quot;as is&quot;</a>
+            </li>
+            <li><a href="#en-12">12. Limitation of liability</a></li>
+            <li><a href="#en-13">13. Indemnity</a></li>
+            <li><a href="#en-14">14. Ending your use</a></li>
+            <li><a href="#en-15">15. Changes to these terms</a></li>
+            <li><a href="#en-16">16. App stores</a></li>
+            <li><a href="#en-17">17. Governing law and jurisdiction</a></li>
+            <li><a href="#en-18">18. Copyright and takedown</a></li>
+            <li><a href="#en-19">19. Contact</a></li>
+          </ol>
+        </nav>
+        <section id="en-1">
+          <h2>1. Who can use the app</h2>
+          <p>
+            The app is intended for people aged 16 and over. If you are 16 or 17, you confirm that
+            your parent or guardian agrees to your use of the app and to these terms. AI features
+            are for people aged 18 and over only.
+          </p>
+        </section>
+        <section id="en-2">
+          <h2>2. Your account</h2>
+          <p>
+            You are responsible for the details you provide at sign-up, for keeping your password
+            and your device safe, and for all activity in your account. We recommend turning on
+            two-step verification in your profile.
+          </p>
+          <p>
+            If you suspect someone else has accessed your account, change your password right away
+            and contact us.
+          </p>
+        </section>
+        <section id="en-3">
+          <h2>3. Your content</h2>
+          <p>
+            Content you upload (steps, photos, reviews, messages, expenses, etc.) remains yours. By
+            uploading content, you give us a non-exclusive, worldwide, royalty-free license to
+            store, display, adapt for display (for example, resize a photo) and transmit it, solely
+            to operate the app and show it to the people you chose to share it with. The license
+            ends when you delete the content or your account, except for copies already shared with
+            others, shared records as described in the Privacy Policy, and backup copies deleted in
+            the normal cycle.
+          </p>
+          <p>
+            You confirm that you have the rights to the content you upload, and that you have the
+            consent of people who appear in your photos or whose names you enter. Content you import
+            from another app (for example your Polarsteps data file) counts as content you upload.
+          </p>
+        </section>
+        <section id="en-4">
+          <h2>4. Prohibited content and conduct</h2>
+          <ul>
+            <li>
+              Illegal, threatening, harassing, racist or inciting content, or sexually explicit
+              content.
+            </li>
+            <li>
+              Exposing other people's personal information without consent, including their
+              location, phone number, documents or receipts.
+            </li>
+            <li>Impersonating another person or organization.</li>
+            <li>Fake or paid reviews, or false pricing or incident reports.</li>
+            <li>
+              Defamation: false statements of fact about a person or a business. Reviews and reports
+              must reflect a genuine personal experience.
+            </li>
+            <li>
+              Publishing the name, photo or identifying details of a private individual in reviews,
+              pricing reports or border-crossing updates.
+            </li>
+            <li>
+              Recording false expenses or debts about others, or adding people to groups to harass
+              them.
+            </li>
+            <li>
+              Any content that sexually exploits or abuses minors. We have zero tolerance: the
+              content will be removed, the account blocked, and we will report it to the competent
+              authorities.
+            </li>
+            <li>
+              Links to groups engaged in illegal activity, spam, or unapproved commercial
+              advertising.
+            </li>
+            <li>Using the app to sell drugs, weapons or illegal services.</li>
+            <li>
+              Automated data collection (scraping), bypassing limits or quotas, trying to access
+              other people's information, interfering with security, or uploading malicious code.
+            </li>
+          </ul>
+          <p>
+            We have no tolerance for objectionable content or abusive users: content that violates
+            this section will be removed, and users who post it or abuse other users will be
+            blocked.
+          </p>
+          <p>
+            We may remove content, restrict features or block an account that violates these terms.
+            In serious cases we may do so without prior notice. If you believe we removed your
+            content or blocked you by mistake, contact us and we will review it again.
+          </p>
+          <p>
+            Reporting and blocking: you can report content and users, and block users, directly in
+            the app. Offensive content is reviewed and removed promptly. A person or business who
+            believes content in the app unlawfully harms them (for example, a false review or
+            report) can report it with the report button or by email, and we will review the
+            request.
+          </p>
+        </section>
+        <section id="en-5">
+          <h2>5. Sharing, friends and groups</h2>
+          <p>
+            When you share a journal, a day, an expense group or an expense with others, they will
+            see what you shared as described in the Privacy Policy. Invite and share links give
+            access to anyone who has them, so share them only with the people who need them, and
+            revoke a link you no longer need.
+          </p>
+          <p>
+            In a shared trip, each partner is responsible for the content they write. Do not share
+            content on behalf of partners who did not agree to share it.
+          </p>
+        </section>
+        <section id="en-6">
+          <h2>6. Third-party information, recommendations and links</h2>
+          <p>
+            The app shows information from external sources: ratings, reviews and photos from Google
+            and Tripadvisor, map data from OpenStreetMap, user reviews, travel warnings, visa and
+            border-crossing information, routes and prices, and AI-generated content (including trip
+            plans and lodging suggestions).
+          </p>
+          <p>
+            We do not verify this information and are not responsible for its accuracy, timeliness
+            or completeness. A rating, recommendation or &quot;verified&quot; mark is not a
+            guarantee of a place's quality, price, availability or safety.
+          </p>
+          <p>
+            Affiliate links: some links (for example lodging on Booking.com) may include an
+            affiliate ID, and if you book through them we may earn a commission, at no extra cost to
+            you. The booking and payment are between you and the external site and are subject to
+            its terms.
+          </p>
+          <p>
+            Your use of Google Maps content in the app is also subject to the Google Maps/Google
+            Earth Additional Terms of Service (<a
+              href="https://maps.google.com/help/terms_maps/"
+              rel="noopener noreferrer"
+              dir="ltr"
+              >https://maps.google.com/help/terms_maps/</a
+            >) and the Google Privacy Policy (<a
+              href="https://policies.google.com/privacy"
+              rel="noopener noreferrer"
+              dir="ltr"
+              >https://policies.google.com/privacy</a
+            >).
+          </p>
+          <p>
+            Sources and credits: city names and locations — GeoNames (geonames.org), licensed under
+            CC BY 4.0; Hebrew and Spanish place names — Wikidata (CC0); photos — Wikimedia Commons,
+            each under its own license (author and license are listed on its Commons page);
+            summaries — Wikipedia and Wikivoyage (CC BY-SA); map data and address search — ©
+            OpenStreetMap contributors (ODbL); travel routes — OSRM and Transitous.
+          </p>
+        </section>
+        <section id="en-7">
+          <h2>7. Artificial intelligence</h2>
+          <p>
+            Some features (destination brief, trip planning, &quot;How to get there&quot;, receipt
+            scan and trip highlights) use the Claude model by Anthropic. They are for people aged 18
+            and over only, and work only after you separately agree. You can withdraw your agreement
+            at any time on the &quot;AI&quot; screen in your profile.
+          </p>
+          <p>
+            AI-generated content is labeled as such. It may be wrong, outdated or inappropriate, and
+            you should not rely on it for safety, health, legal or financial decisions. If the
+            content is offensive or wrong, report it with the report button next to it.
+          </p>
+          <p>
+            A trip plan, a route or an amount read from a receipt is a suggestion only. Prices,
+            opening hours, availability, routes and safety information may be wrong or out of date.
+            Check them at the source before booking, paying or setting out, and check an amount read
+            from a receipt before saving it.
+          </p>
+          <p>
+            AI features have usage limits. Do not enter information about other people into them
+            without their consent.
+          </p>
+        </section>
+        <section id="en-8">
+          <h2>8. Travel safety</h2>
+          <p>
+            Safety information, travel warnings, border crossings and visa details are shown for
+            convenience only. They do not replace official guidance from the Israeli National
+            Security Council, the Ministry of Foreign Affairs, embassies or local authorities.
+            Always check an official source before making a decision.
+          </p>
+          <p>
+            In an emergency, contact local emergency services directly. The emergency button in the
+            app is only a shortcut, and we do not guarantee it will work in every situation (for
+            example, without reception).
+          </p>
+          <p>
+            Meeting other users is at your own risk. We do not verify users' identities and are not
+            a party to transactions between them.
+          </p>
+        </section>
+        <section id="en-9">
+          <h2>9. Expenses and calculations</h2>
+          <p>
+            Expense splits, balances and currency rates in the app are estimates for your
+            convenience. They are not financial advice, an accounting record or proof of a debt.
+            Check the amounts before transferring money. We do not transfer money and are not a
+            party to settlements between users.
+          </p>
+        </section>
+        <section id="en-10">
+          <h2>10. Pricing</h2>
+          <p>The app is free to use at this stage.</p>
+          <p>
+            In the future, some features — or the whole service — may become paid, for example
+            through a subscription or paid advanced features. Free use now does not create a right
+            to keep using the app for free in the future.
+          </p>
+          <p>
+            Before we start charging, we will tell you in advance in the app, publish the prices and
+            terms, and never charge you any amount without your explicit approval. If you do not
+            want to pay, you can stop using the app and delete your account.
+          </p>
+          <p>
+            Payments, if any, will be processed through the app store (App Store or Google Play) and
+            are subject to its terms.
+          </p>
+        </section>
+        <section id="en-11">
+          <h2>11. Disclaimer of warranties: service provided &quot;as is&quot;</h2>
+          <p>
+            The app is provided &quot;as is&quot; and &quot;as available&quot;, without warranties
+            of any kind, express or implied. We do not guarantee the service will be uninterrupted
+            or error-free, or that data will never be lost. Keep a copy of important documents
+            outside the app as well.
+          </p>
+        </section>
+        <section id="en-12">
+          <h2>12. Limitation of liability</h2>
+          <p>
+            To the maximum extent permitted by law, we are not liable for indirect, consequential or
+            special damages, loss of profits or data, or damage resulting from reliance on
+            information in the app, on other users or on third parties. In any case, our total
+            liability will not exceed the greater of the amount you paid us in the 12 months before
+            the event or 100 ILS.
+          </p>
+          <p>
+            This limitation does not apply to damage we caused intentionally or through gross
+            negligence, to bodily injury, or to liability that cannot be limited by law.
+          </p>
+        </section>
+        <section id="en-13">
+          <h2>13. Indemnity</h2>
+          <p>
+            Subject to applicable law, you agree to indemnify us for any damage or expense caused by
+            content you uploaded or by your breach of these terms or of the law.
+          </p>
+        </section>
+        <section id="en-14">
+          <h2>14. Ending your use</h2>
+          <p>
+            You can stop using the app and delete your account at any time from the Profile screen.
+            What happens to your information after deletion is described in the Privacy Policy.
+          </p>
+        </section>
+        <section id="en-15">
+          <h2>15. Changes to these terms</h2>
+          <p>
+            We may update these terms. We will notify you in the app about material changes and ask
+            you to accept the updated terms before you continue using it. If you do not agree, you
+            can stop using the app and delete your account.
+          </p>
+        </section>
+        <section id="en-16">
+          <h2>16. App stores</h2>
+          <p>
+            If you downloaded the app from the App Store or Google Play, this agreement is between
+            you and us only. Apple and Google are not responsible for the app, its support or its
+            content, but they may enforce these terms as third-party beneficiaries.
+          </p>
+        </section>
+        <section id="en-17">
+          <h2>17. Governing law and jurisdiction</h2>
+          <p>
+            These terms are governed by the laws of the State of Israel, and the competent courts in
+            Israel have jurisdiction. This does not limit any rights the law grants you as a
+            consumer.
+          </p>
+        </section>
+        <section id="en-18">
+          <h2>18. Copyright and takedown</h2>
+          <p>
+            We respect copyright and expect our users to do the same. If you believe that content in
+            the app (a photo, text, journal step, review or link) infringes your copyright, you can
+            report it to us:
+          </p>
+          <ul>
+            <li>
+              In the app: tap the report button (the flag icon) next to the content and choose
+              &quot;Copyright infringement&quot;.
+            </li>
+            <li>
+              By email: <a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a>. So
+              that we can act on it, include a description of the copyrighted work; exactly where
+              the infringing content appears (screen, the username of the person who uploaded it,
+              and a description); your name and contact details; and a statement that you are the
+              rights holder or authorized to act on their behalf, and that to the best of your
+              knowledge the use was not authorized.
+            </li>
+          </ul>
+          <p>
+            What happens next: we review every report. If the content appears to infringe, we will
+            remove it or disable access to it promptly and, where possible, notify the user who
+            uploaded it. A user who believes the content was removed by mistake (for example,
+            because they hold a license) can contact us at the same address with an explanation, and
+            we will consider restoring it.
+          </p>
+          <p>
+            Repeat infringers: we will terminate the account of a user who repeatedly uploads
+            infringing content.
+          </p>
+          <p>
+            Submitting a false report or a report in bad faith may expose you to legal liability.
+          </p>
+        </section>
+        <section id="en-19">
+          <h2>19. Contact</h2>
+          <p>
+            Questions about these terms:
+            <a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a>
+          </p>
+        </section>
+        <p class="to-top"><a href="#en">Back to top</a></p>
       </article>
       <footer>
         <a href="index.html">Yalla</a> · <a href="accessibility.html">הצהרת נגישות</a> ·
-        <a href="accessibility.html#en" lang="en">Accessibility</a>
+        <a href="accessibility.html#en" lang="en">Accessibility</a> ·
+        <a href="support.html">תמיכה</a>
       </footer>
     </main>
   </body>
