@@ -31,7 +31,7 @@
     window.requestAnimationFrame(function () {
       window.requestAnimationFrame(function () { root.classList.add('loaded'); });
     });
-    var revealEls = $$('.rv, [data-reveal]');
+    var revealEls = $$('.rv, .rv-img, [data-reveal]');
     if (reduced || !hasIO) {
       revealEls.forEach(function (el) { el.classList.add('in'); });
     } else {
@@ -48,20 +48,17 @@
     var fitOrbit = function () {
       if (orbit) orbit.style.setProperty('--ky', Math.min(1, orbit.clientHeight / 440).toFixed(3));
     };
-    var route = document.getElementById('route');
-    var line = route && route.querySelector('.route-line');
-    var dots = route ? $$('.dot', route) : [];
-    var lineTop = 0;
-    var lineLen = 0;
-    var placeLine = function () {
-      if (!line || dots.length < 2) return;
-      var base = route.getBoundingClientRect().top;
-      var first = dots[0].getBoundingClientRect();
-      var last = dots[dots.length - 1].getBoundingClientRect();
-      lineTop = first.top + first.height / 2 - base;
-      lineLen = Math.max(0, last.top + last.height / 2 - base - lineTop);
-      line.style.setProperty('--lt', lineTop.toFixed(1) + 'px');
-      line.style.setProperty('--lh', lineLen.toFixed(1) + 'px');
+    var slides = $$('.deck .slide');
+    var stack = !reduced && slides.length > 1 && !!(window.CSS && CSS.supports && CSS.supports('position', 'sticky'));
+    if (stack) root.classList.add('stack');
+    var radius = 0;
+    var placeDeck = function () {
+      if (!stack) return;
+      var vh = window.innerHeight;
+      radius = slides.length ? parseFloat(getComputedStyle(slides[1]).marginTop) * -1 || 0 : 0;
+      slides.forEach(function (el) {
+        el.style.setProperty('--st', Math.min(0, vh - el.offsetHeight) + 'px');
+      });
     };
     var ticking = false;
     var update = function () {
@@ -73,22 +70,22 @@
         var p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - vh)));
         el.style.setProperty('--p', p.toFixed(4));
       });
-      if (line && lineLen && !reduced) {
-        var top = route.getBoundingClientRect().top + lineTop;
-        var d = Math.min(1, Math.max(0, (vh * 0.7 - top) / lineLen));
-        line.style.setProperty('--d', d.toFixed(4));
+      if (stack) {
+        for (var k = 0; k < slides.length - 1; k++) {
+          var over = slides[k].getBoundingClientRect().bottom - slides[k + 1].getBoundingClientRect().top - radius;
+          var c = Math.min(1, Math.max(0, over / vh));
+          slides[k].style.setProperty('--cover', c.toFixed(3));
+        }
       }
-      dots.forEach(function (dot) {
-        dot.classList.toggle('on', reduced || dot.getBoundingClientRect().top < vh * 0.7);
-      });
     };
     var onScroll = function () {
       if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
     };
-    var onResize = function () { fitOrbit(); placeLine(); onScroll(); };
+    var onResize = function () { fitOrbit(); placeDeck(); onScroll(); };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize, { passive: true });
     window.addEventListener('load', onResize);
+    document.addEventListener('load', function (e) { if (e.target && e.target.tagName === 'IMG') onResize(); }, true);
     onResize();
     initFilm();
   });

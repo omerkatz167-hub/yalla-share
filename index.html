@@ -5,20 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'">
-<script src="site.js?v=55d2a435ef"></script>
+<script src="site.js?v=abde063b6f"></script>
 <title>Yalla — האפליקציה לטיול הגדול</title>
-<meta name="description" content="יומן על המפה, הוצאות בשקלים, חשבון סגור עם החבר'ה ותוכנית לכל יעד. אפליקציה לטיול הגדול, ממטיילים בשביל מטיילים.">
+<meta name="description" content="האפליקציה שכל מטייל ישראלי צריך: הוצאות בכל מטבע, קיזוזים עם החבר'ה, יומן על המפה ותוכנית לכל יעד. במקום 5 אפליקציות, אחת.">
 <link rel="canonical" href="https://yalla-traveling.com/">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" href="img/icon-180.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Yalla — האפליקציה לטיול הגדול">
-<meta property="og:description" content="יומן על המפה, הוצאות בשקלים, חשבון סגור עם החבר'ה ותוכנית לכל יעד. ממטיילים בשביל מטיילים.">
+<meta property="og:description" content="הוצאות בכל מטבע, קיזוזים עם החבר'ה, יומן על המפה ותוכנית לכל יעד. במקום 5 אפליקציות, אחת.">
 <meta property="og:image" content="https://yalla-traveling.com/img/og.jpg">
 <meta property="og:url" content="https://yalla-traveling.com/">
-<meta name="theme-color" content="#0A28A1">
+<meta name="apple-itunes-app" content="app-id=6821574348">
+<meta name="theme-color" content="#E4E8F0">
 <link rel="preload" href="fonts/Rubik_800ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="css/landing.css?v=4ba2b167f6">
+<link rel="stylesheet" href="css/landing.css?v=43bfa5a9ac">
 </head>
 <body>
 <a class="skip" href="#main">דלגו לתוכן</a>
@@ -26,10 +27,11 @@
   <nav class="gnav-in" aria-label="ראשי">
     <a class="gnav-brand" href="#top" aria-label="Yalla, לראש הדף"><img src="img/l/logo-ui.webp" alt="" width="54" height="36" decoding="async"></a>
     <ul class="gnav-links" id="gnav-links">
-      <li><a href="#route">המסלול</a></li>
-      <li><a href="#film">הסרטון</a></li>
+      <li><a href="#money">הוצאות</a></li>
+      <li><a href="#settle-s">קיזוזים</a></li>
+      <li><a href="#journal">יומן</a></li>
+      <li><a href="#plan">תכנון</a></li>
       <li><a href="#faq">שאלות</a></li>
-      <li><a href="support.html">תמיכה</a></li>
     </ul>
     <a class="btn btn-compact" data-dl href="#download">להורדה</a>
     <button class="gnav-menu" id="gnav-menu" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="תפריט">
@@ -39,22 +41,17 @@
 </header>
 <main id="main" tabindex="-1">
   <section class="hero" id="top" aria-labelledby="hero-t">
-    <picture class="hero-photo">
-      <source media="(max-width: 734px)" srcset="img/p/fitzroy-portrait-900.webp">
-      <img src="img/p/fitzroy-1800.webp" srcset="img/p/fitzroy-900.webp 900w, img/p/fitzroy-1800.webp 1800w" sizes="100vw" width="1800" height="1200" alt="הפסגות של פיץ רוי בזריחה, ליד אל צ'לטן בפטגוניה" fetchpriority="high" decoding="async">
-    </picture>
+    <figure class="hero-photo ld">
+      <img src="img/l/photo-hiker.webp" width="732" height="946" fetchpriority="high" decoding="async" alt="מטייל עם תרמיל עומד על סלע ומשקיף על עמק ירוק והרים">
+    </figure>
     <div class="hero-in">
       <div class="hero-copy">
-        <h1 id="hero-t" class="ld">האפליקציה לטיול הגדול.</h1>
-        <p class="lede ld">יומן על המפה, הוצאות בשקלים, חשבון סגור עם החבר'ה ותוכנית לכל יעד.</p>
+        <h1 id="hero-t" class="ld">האפליקציה שכל מטייל ישראלי צריך</h1>
+        <p class="lede ld">יאללה מסדרת לכם את כל הטיול. במקום 5 אפליקציות, אחת.</p>
         <div class="btns ld">
-          <a class="btn btn-sun" data-dl href="#download">להורדה ל-iPhone</a>
-          <a class="btn btn-ghost" href="#route">לאורך המסלול</a>
+          <a class="btn btn-store" data-dl href="#download">להורדה מ-App Store</a>
+          <span class="btn btn-soon" aria-disabled="true">Android · בקרוב</span>
         </div>
-        <p class="soon ld">בטא חינמית ב-TestFlight. אנדרואיד בקרוב.</p>
-      </div>
-      <div class="hero-phone ld">
-        <div class="phone"><img src="img/l/scr-home.webp" width="599" height="1300" decoding="async" alt="מסך הבית של Yalla: ארגנטינה, יום 54 בטיול, 4 מדינות, 95 ש״ח ליום בממוצע"></div>
       </div>
     </div>
   </section>
@@ -62,179 +59,177 @@
     <div class="merge-stage">
       <h2 id="why-t">חמש אפליקציות לטיול אחד?</h2>
       <p class="lede">יאללה, מספיקה אחת.</p>
-      <p class="sr">מפות, גיליון הוצאות, יומן ותמונות, קבוצת וואטסאפ ואזהרות מסע — Yalla מחליפה את כולן.</p>
+      <p class="sr">מפות, גיליון הוצאות, יומן ותמונות, צ'אטים ואזהרות מסע. Yalla מחליפה את כולן.</p>
       <div class="orbit" aria-hidden="true">
         <span class="chip"><svg viewBox="0 0 24 24"><path d="M9 20l-6-3V4l6 3 6-3 6 3v13l-6-3-6 3zM9 7v13M15 4v13"/></svg>תכנון מסלול</span>
         <span class="chip"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>גיליון הוצאות</span>
         <span class="chip"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5v14zM20 17v4H6.5"/></svg>יומן ותמונות</span>
-        <span class="chip"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg>קבוצת וואטסאפ</span>
+        <span class="chip"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg>צ'אטים</span>
         <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg>אזהרות מסע</span>
         <span class="core"><img src="img/l/logo-ui.webp" alt="" width="108" height="72" loading="lazy" decoding="async"></span>
         <span class="merge-cap">Yalla. וזהו.</span>
       </div>
     </div>
   </section>
-  <div class="route" id="route">
-    <div class="route-line" aria-hidden="true"><i></i></div>
-    <section class="stop stop-0" aria-labelledby="d0-t">
-      <div class="wrap split">
-        <div class="copy rv">
-          <h2 id="d0-t"><span class="dot" aria-hidden="true"></span>יום 0. מה צריך לפני הטיסה?</h2>
-          <p class="lede">בוחרים מדינה ורואים מיד: ויזה, אזהרת מסע, מטבע ותקע חשמל. בלי לחפש בעשרה אתרים.</p>
-        </div>
-        <div class="media rv">
-          <div class="phone"><img src="img/l/scr-info.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך המידע ליעד: ויזה, אזהרת מסע, מטבע וחשמל"></div>
-        </div>
-      </div>
-    </section>
-    <section class="stop stop-1" aria-labelledby="d1-t">
-      <img class="bleed" src="img/p/lima-1600.webp" srcset="img/p/lima-800.webp 800w, img/p/lima-1600.webp 1600w" sizes="100vw" width="1600" height="1183" loading="lazy" decoding="async" alt="ארמון העירייה הצהוב בכיכר המרכזית של לימה, פרו">
-      <div class="wrap">
-        <div class="copy rv">
-          <h2 id="d1-t"><span class="dot" aria-hidden="true"></span>יום 1 בלימה. לאן עכשיו?</h2>
-          <p class="lede">כותבים לאן ולכמה זמן, ומקבלים תוכנית יום אחרי יום עם לינה, תחבורה וטיפים. וגם איך מגיעים: קווים, תחנות ומחירים.</p>
-        </div>
-        <div class="stack rv">
-          <div class="phone"><img src="img/l/scr-plan.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך התכנון: תוכנית לאל צ'לטן ופיץ רוי, ואיך מגיעים"></div>
-        </div>
-      </div>
-    </section>
-    <section class="stop stop-19" aria-labelledby="d19-t">
-      <img class="band" src="img/p/uyuni-1600.webp" srcset="img/p/uyuni-800.webp 800w, img/p/uyuni-1600.webp 1600w" sizes="100vw" width="1600" height="1067" loading="lazy" decoding="async" alt="ג'יפ על מדבר המלח אויוני בבוליביה, משתקף במים הרדודים">
-      <div class="wrap">
-        <div class="copy rv">
-          <h2 id="d19-t"><span class="dot" aria-hidden="true"></span>יום 19. מי שילם על הג'יפ?</h2>
-          <p class="lede">ארבעה חברים, שלושה ימים במדבר המלח. Yalla סוגרת את החשבון בכמה שפחות העברות. נסו בעצמכם:</p>
-        </div>
-        <div class="split-tool rv" id="settle">
-          <div class="who" role="group" aria-labelledby="settle-t">
-            <p class="tool-t" id="settle-t">כמה כל אחד שילם (₪)</p>
-            <div class="row"><input class="nm" type="text" value="עומר" aria-label="שם"><input class="amt" type="number" inputmode="decimal" min="0" step="1" value="1200" aria-label="כמה עומר שילם"></div>
-            <div class="row"><input class="nm" type="text" value="דנה" aria-label="שם"><input class="amt" type="number" inputmode="decimal" min="0" step="1" value="360" aria-label="כמה דנה שילמה"></div>
-            <div class="row"><input class="nm" type="text" value="יואב" aria-label="שם"><input class="amt" type="number" inputmode="decimal" min="0" step="1" value="0" aria-label="כמה יואב שילם"></div>
-            <div class="row"><input class="nm" type="text" value="נועה" aria-label="שם"><input class="amt" type="number" inputmode="decimal" min="0" step="1" value="240" aria-label="כמה נועה שילמה"></div>
+  <div class="deck" id="deck">
+    <section class="slide s-money" id="money" aria-labelledby="money-t">
+      <div class="slide-in">
+        <div class="wrap split">
+          <div class="copy">
+            <h2 id="money-t" class="rv">כל הוצאה, כל מטבע</h2>
+            <p class="lede rv">רושמים בפסו, בבאט או בדולר ורואים מיד בשקלים: ליום, למדינה ולכל הטיול. אפשר גם פשוט לצלם את הקבלה.</p>
           </div>
-          <div class="out">
-            <p class="tool-t">ככה סוגרים</p>
+          <div class="media media-top rv-img">
+            <img src="img/s/money-1000.webp" srcset="img/s/money-600.webp 600w, img/s/money-1000.webp 1000w" sizes="(max-width: 734px) 92vw, 460px" width="1000" height="1439" loading="lazy" decoding="async" alt="מסך הוצאות הטיול: כל הוצאה במטבע המקומי ובשקלים, וסך הכל 5,142 ש״ח">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide s-settle" id="settle-s" aria-labelledby="settle-t">
+      <div class="slide-in">
+        <div class="wrap split split-rev">
+          <div class="copy">
+            <h2 id="settle-t" class="rv">מי חייב למי? סגור.</h2>
+            <p class="lede rv">Yalla סוגרת את החשבון בין החבר'ה בכמה שפחות העברות. שנו את הסכומים ותראו:</p>
+          </div>
+          <div class="tool rv-img" id="settle">
+            <div class="who" role="group" aria-label="כמה כל אחד שילם, בשקלים">
+              <div class="row"><input class="nm" type="text" value="עומר" aria-label="שם"><input class="amt" type="number" inputmode="decimal" min="0" step="1" value="1200" aria-label="כמה עומר שילם"><span class="cur" aria-hidden="true">₪</span></div>
+              <div class="row"><input class="nm" type="text" value="דנה" aria-label="שם"><input class="amt" type="number" inputmode="decimal" min="0" step="1" value="360" aria-label="כמה דנה שילמה"><span class="cur" aria-hidden="true">₪</span></div>
+              <div class="row"><input class="nm" type="text" value="יואב" aria-label="שם"><input class="amt" type="number" inputmode="decimal" min="0" step="1" value="0" aria-label="כמה יואב שילם"><span class="cur" aria-hidden="true">₪</span></div>
+              <div class="row"><input class="nm" type="text" value="נועה" aria-label="שם"><input class="amt" type="number" inputmode="decimal" min="0" step="1" value="240" aria-label="כמה נועה שילמה"><span class="cur" aria-hidden="true">₪</span></div>
+            </div>
             <p class="sum" id="settle-sum">סה״כ 1,800 ₪, לכל אחד 450 ₪</p>
             <ol class="transfers" id="settle-out" aria-live="polite">
               <li><span>מ<b>יואב</b> ל<b>עומר</b></span> <span class="num">450 ₪</span></li>
               <li><span>מ<b>נועה</b> ל<b>עומר</b></span> <span class="num">210 ₪</span></li>
               <li><span>מ<b>דנה</b> ל<b>עומר</b></span> <span class="num">90 ₪</span></li>
             </ol>
-            <p class="fine">באפליקציה זה קורה לבד, מכל ההוצאות של הקבוצה ובכל מטבע.</p>
           </div>
         </div>
       </div>
     </section>
-    <section class="stop stop-33" aria-labelledby="d33-t">
-      <div class="wrap split">
-        <div class="copy rv">
-          <h2 id="d33-t"><span class="dot" aria-hidden="true"></span>יום 33. קפה ב-9,000 פסו.</h2>
-          <p class="lede">רושמים בכל מטבע ורואים מיד בשקלים: ליום, למדינה ולכל הטיול. אפשר גם פשוט לצלם את הקבלה.</p>
-          <div class="receipt" aria-label="דוגמה: קפה בסן טלמו, 9,000 פסו שהם 25.65 שקלים">
-            <p class="r-place">Café · San Telmo</p>
-            <p class="r-line"><span>קפה ומדיה לונה</span><span class="num">9,000 ARS</span></p>
-            <p class="r-total"><span>בשקלים</span><span class="num">25.65 ₪</span></p>
+    <section class="slide s-journal" id="journal" aria-labelledby="journal-t">
+      <div class="slide-in">
+        <div class="wrap stacked">
+          <div class="copy">
+            <h2 id="journal-t" class="rv">יומן שכותב את עצמו</h2>
+            <p class="lede rv">צעדים, תמונות ומפה, מסודר לבד. בסוף כל יום יוצא סטורי מעוצב לשתף.</p>
           </div>
-        </div>
-        <div class="media photo-with-phone rv">
-          <img class="photo" src="img/p/buenos-aires-1400.webp" srcset="img/p/buenos-aires-800.webp 800w, img/p/buenos-aires-1400.webp 1400w" sizes="(max-width: 734px) 100vw, 50vw" width="1400" height="1050" loading="lazy" decoding="async" alt="בית קפה בפינת רחוב בשכונת סן טלמו בבואנוס איירס">
-          <div class="phone"><img src="img/l/scr-money.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מסך ההוצאות: כל הוצאה במטבע המקומי ובשקלים"></div>
+          <div class="media media-bottom rv-img">
+            <img src="img/s/journal-1000.webp" srcset="img/s/journal-600.webp 600w, img/s/journal-1000.webp 1000w" sizes="(max-width: 734px) 92vw, 520px" width="1000" height="1621" loading="lazy" decoding="async" alt="מפת היומן עם המסלול בדרום אמריקה, ולצידה רשימת היעדים והיומן האישי">
+          </div>
         </div>
       </div>
     </section>
-    <section class="stop stop-54" aria-labelledby="d54-t">
-      <div class="wrap">
-        <div class="copy rv">
-          <h2 id="d54-t"><span class="dot" aria-hidden="true"></span>יום 54. הטיול כבר כתוב.</h2>
-          <p class="lede">כל יעד, צעד ותמונה נשמרים על המפה. בסוף היום יוצא סטורי מעוצב, ובסוף הטיול מפה של כל הדרך.</p>
+    <section class="slide s-plan" id="plan" aria-labelledby="plan-t">
+      <div class="slide-in">
+        <div class="wrap split split-rev">
+          <div class="copy">
+            <h2 id="plan-t" class="rv">לאן ממשיכים?</h2>
+            <p class="lede rv">כותבים לאן, ומקבלים תוכנית ליעד הבא. וגם איך מגיעים: קווים, תחנות, זמן ומחיר.</p>
+          </div>
+          <div class="media rv-img">
+            <img src="img/s/plan-1000.webp" srcset="img/s/plan-600.webp 600w, img/s/plan-1000.webp 1000w" sizes="(max-width: 734px) 92vw, 480px" width="1000" height="1220" loading="lazy" decoding="async" alt="תכנון היעד הבא: מפלי האיגואסו, כ-800 ש״ח לאדם ל-2–3 ימים, ואיך מגיעים">
+          </div>
         </div>
-        <div class="gallery rv">
-          <img class="g-photo" src="img/p/glacier-1600.webp" srcset="img/p/glacier-800.webp 800w, img/p/glacier-1600.webp 1600w" sizes="(max-width: 734px) 100vw, 60vw" width="1600" height="1067" loading="lazy" decoding="async" alt="קרחון פריטו מורנו בפטגוניה הארגנטינאית">
-          <div class="screens" role="list">
-            <figure class="screen" role="listitem">
-              <img src="img/l/scr-journal.webp" width="599" height="1300" loading="lazy" decoding="async" alt="מפת היומן: המסלול בין המדינות">
-              <figcaption>כל הדרך על מפה אחת</figcaption>
-            </figure>
-            <figure class="screen" role="listitem">
-              <img src="img/l/scr-story.webp" width="599" height="1300" loading="lazy" decoding="async" alt="סטורי מעוצב של יום בטיול">
-              <figcaption>סטורי מעוצב לכל יום</figcaption>
-            </figure>
+      </div>
+    </section>
+    <section class="slide s-arrival" id="arrival" aria-labelledby="arrival-t">
+      <div class="slide-in">
+        <div class="wrap stacked">
+          <div class="copy">
+            <h2 id="arrival-t" class="rv">נחתתם? הכל מוכן</h2>
+            <p class="lede rv">מטבע, טלפוני חירום, שקע ושפה, וטיפים לכל מדינה. עוד לפני שיוצאים מהשדה.</p>
+          </div>
+          <div class="media media-bottom rv-img">
+            <img src="img/s/arrival-1000.webp" srcset="img/s/arrival-600.webp 600w, img/s/arrival-1000.webp 1000w" sizes="(max-width: 734px) 92vw, 500px" width="1000" height="1576" loading="lazy" decoding="async" alt="מסך ההגעה לארגנטינה: משטרה 911, מטבע פסו, שקע 220 וולט, וטיפים להורדת מפות ותרגום אופליין">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide s-summary" id="summary" aria-labelledby="summary-t">
+      <div class="slide-in">
+        <div class="wrap split">
+          <div class="copy">
+            <h2 id="summary-t" class="rv">סיכום לכל יעד</h2>
+            <p class="lede rv">ימים, קילומטרים, הוצאות והתמונות הכי טובות. ובסוף הטיול, מפה של כל הדרך.</p>
+          </div>
+          <div class="media media-bottom rv-img">
+            <img src="img/s/summary-1000.webp" srcset="img/s/summary-600.webp 600w, img/s/summary-1000.webp 1000w" sizes="(max-width: 734px) 92vw, 480px" width="1000" height="1764" loading="lazy" decoding="async" alt="סיכום היעד צ'ילה: 11 ימים, 3,177 קילומטרים, 5 יעדים, הוצאות ותמונות">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide s-film" id="film" aria-labelledby="film-t">
+      <div class="slide-in">
+        <div class="wrap">
+          <h2 id="film-t" class="rv">15 שניות על Yalla</h2>
+          <div class="film-frame" data-reveal>
+            <div class="film-inner">
+              <video id="film-v" muted loop playsinline preload="none" poster="video/yalla-hero-poster.jpg" data-vertical="video/yalla-vertical.mp4" data-vertical-poster="video/yalla-vertical-poster.jpg" aria-label="סרטון קצר על Yalla: הוצאות, קיזוזים, תכנון ויומן על המפה">
+                <source src="video/yalla-hero.webm" type="video/webm">
+                <source src="video/yalla-hero.mp4" type="video/mp4">
+              </video>
+            </div>
+            <button class="media-ctl is-paused" id="film-ctl" type="button" aria-label="הפעלת הסרטון">
+              <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/></svg>
+              <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M11 1.5v11l-9-5.5z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide s-faq" id="faq" aria-labelledby="faq-t">
+      <div class="slide-in">
+        <div class="wrap faq-grid">
+          <div class="copy">
+            <h2 id="faq-t" class="rv">מה שואלים אותנו</h2>
+            <p class="lede rv">אנחנו עומר וריף. בנינו את Yalla בדרך, וכל הודעה שלכם נכנסת לגרסה הבאה.</p>
+          </div>
+          <div class="qa rv">
+            <details>
+              <summary>כמה זה עולה?</summary>
+              <p>Yalla חינמית. לתכנון עם AI יש מכסה חודשית, כדי שכולם יוכלו להשתמש בו.</p>
+            </details>
+            <details>
+              <summary>איך מורידים?</summary>
+              <p>ב-App Store: מחפשים "יאללה" או לוחצים על כפתור ההורדה בעמוד הזה.</p>
+            </details>
+            <details>
+              <summary>יש גרסה לאנדרואיד?</summary>
+              <p>בקרוב. אנחנו עובדים עליה עכשיו, ונעדכן כאן כשהיא תצא.</p>
+            </details>
+            <details>
+              <summary>אפשר לטייל ביחד עם חברים?</summary>
+              <p>כן. מצרפים את החבר'ה לטיול, מתכתבים בצ'אטים באפליקציה, רושמים הוצאות משותפות ו-Yalla סוגרת את החשבון.</p>
+            </details>
+            <details>
+              <summary>מי רואה את היומן שלי?</summary>
+              <p>רק מי שאתם בוחרים. בעמוד של כל חבר מחליטים מה הוא רואה: יומן, רשימת חברים ויום הולדת.</p>
+            </details>
+            <details>
+              <summary>ומה עם הפרטיות?</summary>
+              <p>כל הפרטים ב<a href="privacy.html">מדיניות הפרטיות</a>. בקצרה: לא מוכרים מידע ולא עוקבים אחריכם ברקע.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide s-download" id="download" aria-labelledby="dl-t">
+      <div class="slide-in">
+        <div class="wrap dl">
+          <img class="dl-logo rv" src="img/l/logo-light.webp" alt="" width="160" height="107" loading="lazy" decoding="async">
+          <h2 id="dl-t" class="rv">יאללה, טסים?</h2>
+          <p class="lede rv">חינם ב-App Store. מחפשים "יאללה" או לוחצים כאן.</p>
+          <div class="btns rv">
+            <a class="btn btn-store btn-large" id="dl-main" href="https://apps.apple.com/app/id6821574348" rel="noopener">להורדה מ-App Store</a>
+            <span class="btn btn-soon btn-large" aria-disabled="true">Android · בקרוב</span>
           </div>
         </div>
       </div>
     </section>
   </div>
-  <section class="film" id="film" aria-labelledby="film-t">
-    <div class="wrap">
-      <h2 id="film-t" class="rv">15 שניות על Yalla.</h2>
-      <div class="film-frame" data-reveal>
-        <div class="film-inner">
-          <video id="film-v" muted loop playsinline preload="none" poster="video/yalla-hero-poster.jpg" data-vertical="video/yalla-vertical.mp4" data-vertical-poster="video/yalla-vertical-poster.jpg" aria-label="סרטון קצר על Yalla: הוצאות, קיזוזים, תכנון ויומן על המפה">
-            <source src="video/yalla-hero.webm" type="video/webm">
-            <source src="video/yalla-hero.mp4" type="video/mp4">
-          </video>
-        </div>
-        <button class="media-ctl is-paused" id="film-ctl" type="button" aria-label="הפעלת הסרטון">
-          <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/></svg>
-          <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M11 1.5v11l-9-5.5z"/></svg>
-        </button>
-      </div>
-    </div>
-  </section>
-  <section class="makers" aria-labelledby="makers-t">
-    <div class="wrap">
-      <h2 id="makers-t" class="rv">בנינו את Yalla בדרך.</h2>
-      <p class="lede rv">אנחנו עומר וריף. כל מה שהיה חסר לנו בטיול נכנס לאפליקציה, וכל הודעה שלכם נכנסת לגרסה הבאה.</p>
-    </div>
-  </section>
-  <section class="faq" id="faq" aria-labelledby="faq-t">
-    <div class="wrap">
-      <h2 id="faq-t" class="rv">מה שואלים אותנו.</h2>
-      <div class="qa rv">
-        <details>
-          <summary>כמה זה עולה?</summary>
-          <p>בתקופת הבטא Yalla חינמית. לתכנון עם AI יש מכסה חודשית, כדי שכולם יוכלו להשתמש בו.</p>
-        </details>
-        <details>
-          <summary>איך מורידים את הבטא?</summary>
-          <p>מתקינים את TestFlight, האפליקציה של Apple לגרסאות בטא, ונכנסים לקישור ההורדה. משם Yalla מתעדכנת לבד.</p>
-        </details>
-        <details>
-          <summary>יש גרסה לאנדרואיד?</summary>
-          <p>עוד לא. אנחנו עובדים עליה עכשיו, ונעדכן כאן כשהיא תצא.</p>
-        </details>
-        <details>
-          <summary>מי רואה את היומן שלי?</summary>
-          <p>רק מי שאתם בוחרים. בעמוד של כל חבר מחליטים מה הוא רואה: יומן, רשימת חברים ויום הולדת.</p>
-        </details>
-        <details>
-          <summary>ומה עם הפרטיות?</summary>
-          <p>כל הפרטים ב<a href="privacy.html">מדיניות הפרטיות</a>. בקצרה: לא מוכרים מידע ולא עוקבים אחריכם ברקע.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-  <section class="download" id="download" aria-labelledby="dl-t">
-    <div class="wrap">
-      <div class="pass rv">
-        <div class="pass-main">
-          <h2 id="dl-t">יאללה, טסים?</h2>
-          <dl class="pass-fields">
-            <div><dt>מ־</dt><dd>הבית</dd></div>
-            <div><dt>אל</dt><dd>הטיול הגדול</dd></div>
-            <div><dt>שער</dt><dd>TestFlight</dd></div>
-          </dl>
-          <a class="btn btn-large" id="dl-main" href="https://testflight.apple.com/join/ZQH7fCGu" rel="noopener">להורדה ל-iPhone</a>
-          <p class="fine">גרסת בטא חינמית. ההורדה דרך TestFlight, האפליקציה של Apple לגרסאות בטא.</p>
-        </div>
-        <div class="pass-stub" aria-hidden="true">
-          <img src="img/l/logo-ui.webp" alt="" width="108" height="72" loading="lazy" decoding="async">
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 <footer class="foot">
   <div class="wrap">
@@ -245,13 +240,6 @@
       <li><a href="accessibility.html">הצהרת נגישות</a></li>
       <li><a href="mailto:yallatraveling@gmail.com">yallatraveling@gmail.com</a></li>
     </ul>
-    <p class="credits">צילומים מ-Wikimedia Commons:
-      <a href="https://commons.wikimedia.org/wiki/File:Fitz_Roy_El_Chalten_sunrise-13.jpg" rel="noopener">פיץ רוי</a>, Almonroth (CC BY-SA 3.0) ·
-      <a href="https://commons.wikimedia.org/wiki/File:Palacio_municipa_Plaza_Mayor,_Lima_P%C3%A9rou_en_2011.jpg" rel="noopener">לימה</a>, Pierre André Leclercq (CC BY-SA 4.0) ·
-      <a href="https://commons.wikimedia.org/wiki/File:Reflection_on_the_Salar_de_Uyuni,_bolivia.jpg" rel="noopener">אויוני</a>, Christopher Crouzet (CC BY-SA 4.0) ·
-      <a href="https://commons.wikimedia.org/wiki/File:Caf%C3%A9_la_Poes%C3%ADa,_Barrio_de_San_Telmo,_Buenos_Aires_20181103_165709.jpg" rel="noopener">סן טלמו</a>, Josefito123 (CC BY-SA 4.0) ·
-      <a href="https://commons.wikimedia.org/wiki/File:Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG" rel="noopener">פריטו מורנו</a>, Luca Galuzzi (CC BY-SA 2.5) ·
-      <a href="https://commons.wikimedia.org/wiki/File:Fitz_Roy_El_Chalten_sunrise-18.jpg" rel="noopener">פיץ רוי (אנכי)</a>, Almonroth (CC BY-SA 3.0)</p>
     <p class="legal">© 2026 Yalla. ממטיילים בשביל מטיילים.</p>
   </div>
 </footer>
